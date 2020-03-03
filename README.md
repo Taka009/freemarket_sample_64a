@@ -3,21 +3,17 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item|references||
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|last name|string|null: false|
-|fastname|string|null: false|
-|kana lastname|string|null: false|
-|kana fastname|string|null: false|
+|last_name|string|null: false|
+|fast_name|string|null: false|
+|kana_lastname|string|null: false|
+|kana_fastname|string|null: false|
 |birthday|integer|null: false|
 |phone|integer|null: false|
-|address|string|null: false|
 |profile|text| |
 |image|string| |
-|credit|references| |
-|place|references| |
 |sales|integer| |
 |sex|string|null: false|
 |evaluation|references||
@@ -25,12 +21,13 @@
 |buy|string|null: false, foreign_key: true|
 |good|references|foreign_key: true|
 ### Association
-- belongs_to :place
+- has_one :place
 - has_many :items
 - has_many :goods
 - has_many :sells
 - has_many :buys
 - has_many :evaluations, through: :evalutaions_users
+- has_many :credits
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -54,9 +51,7 @@
 |image|string|null: false|
 
 ### Association
-- belongs_to :large_category
-- belongs_to :medium_category
-- belongs_to :small_category
+- belongs_to :category
 - belongs_to :brand
 - belongs_to :condition
 - belongs_to :postage
@@ -92,35 +87,14 @@
 ### Association
 - has_many :postage
 
-## large_categoryテーブル
+## categorysテーブル
 |Column|Type|Options|
 |------|----|------|
-|item|reference|foreign_key: true, null: false|
+|path||
 |name|string|
 ### Association
-- has_many :items
-- has_many :medium_category
-
-## medium_categoryテーブル
-|Column|Type|Options|
-|------|----|------|
-|item|reference|foreign_key: true, null: false|
-|large|rederences|foreign_key: true|
-|name|string|
-### Association
-- has_many :items
-- has_many :small_category
-- belongs_to :large_category
-
-## small_categoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item|reference|foreign_key: true, null: false|
-|medium|references||
-|name|string||
-### Association
-- has_many :items
-- belongs_to :medium_category
+- has_many:items
+- has_ancestry
 
 ## brandテーブル
 |Column|Type|Options|
@@ -178,3 +152,13 @@
 |name|string|null: false|
 ### Association
 - belongs_to :item
+
+## creditテーブル
+|Column|Type|Options|
+|------|----|-------|
+|number|integer|null: false|
+|deadline_month|integer|null: false|
+|deadline_year|integer|null: false|
+|Security_code|integer|null: false|
+### Association
+- belongs_to :user
