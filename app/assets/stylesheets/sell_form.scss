@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.header{
+  background-color: red;
+  height: 128px;
+  .logo{
+    height: 49px;
+    width: 185px;
+  }
+}
+
+.main{
+  background-color: green;
+  width: 100%;
+  margin: 0px auto;
+  max-width: 700px;
+  .block{
+    padding: 40px;
+    .subtitle{
+      margin-top: 16px;
+    }
+  }
+
+}
+
+.footer{
+  background-color: blue;
+}
