@@ -16,10 +16,6 @@
 |image|string| |
 |sales|integer| |
 |sex|string|null: false|
-|evaluation|references||
-|sell|string|null: false|
-|buy|string|null: false, foreign_key: true|
-|good|references|foreign_key: true|
 ### Association
 - has_one :place
 - has_many :items
@@ -45,10 +41,8 @@
 |shipping-day|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |evaluation|references|null: false, foreign_key: true|
-|good|references|null: false, foreign_key: true|
 |status|references|null: false|
 |dealing_stage|references|foreign_key: true|
-|image|string|null: false|
 
 ### Association
 - belongs_to :category
@@ -57,7 +51,7 @@
 - belongs_to :postage
 - belongs_to :shipping-day
 - belongs_to :user
-- belongs_to :image
+- has_many :images
 - belongs_to :dealing_stage
 - has_many :goods
 - belongs_to :evaluation
@@ -67,14 +61,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string| |
-|item|references|foreign_key: true|
 ### Association
 - has_many :items
 
 ## postageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item|references|foreign_key: true|
 |send|string| |
 ### Association
 - has_many :items
@@ -82,8 +74,7 @@
 ## shipping_methodテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postage|references|foreign_key: true|
-|method|string| |
+|method|string||
 ### Association
 - has_many :postage
 
@@ -99,7 +90,6 @@
 ## brandテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item|reference|foreign_key: true, null: false|
 |name|string|
 ### Association
 - has_many :items
@@ -107,7 +97,6 @@
 ## placeテーブル
 |Column|Type|Option|
 |------|----|------|
-|user|reference|foreign_key: true, null: false|
 |postalcodes|integer|
 |Prefectures|string|
 |Municipalities|string|
@@ -122,6 +111,7 @@
 |------|----|------|
 |user|reference|foreign_key: true, null: false|
 |item|reference|foreign_key: true, null: false|
+|good||
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -129,8 +119,6 @@
 ## evaluationテーブル
 |Column|Type|Option|
 |------|----|------|
-|user|reference|foreign_key: true, null: false|
-|item|reference|foreign_key: true, null: false|
 |evaluation||
 ### Association
 - has_many :users, through: :evalutaions_users
