@@ -35,17 +35,37 @@
             本人確認
           %p.identification-description
             安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .field__multi.field___multi--character
+            .field-label
+              = f.label :お名前（全角）
+              %span.form-require
+                必須
+            .field-input--name
+              = f.text_field :last_name, autofocus: true            
+            .field-input--name
+              = f.text_field :first_name, autofocus: true       
+          .field__multi.field__multi--kana
+            .field-label
+              = f.label :お名前カナ（全角）
+              %span.form-require
+                必須
+            .field-input--name
+              = f.text_field :kana_last_name, autofocus: true            
+            .field-input--name
+              = f.text_field :kana_first_name, autofocus: true         
           -# .field
           -#   .field-label
-          -#     = f.label :お名前（全角）
+          -#     = f.label :生年月日
           -#     %span.form-require
           -#       必須
+          -#   .field-input
+          -#     = f.text_field :birthday, autofocus: true
+             
 
 
-          -#   .field-input--name
-          -#     = f.text_field :last_name, autofocus: true            
-          -#   .field-input--name
-          -#     = f.text_field :first_name, autofocus: true            
+
+
+
           -# .field
           -#   .field-label
           -#     = f.label :お名前カナ（全角）
