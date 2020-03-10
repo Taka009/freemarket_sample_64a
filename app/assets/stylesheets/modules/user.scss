@@ -1,7 +1,7 @@
 .account-page {
   width: 100％;
   height: 100%;
-  padding: 20px 580px 180px 580px;
+  padding: 20px 20% 180px 20%;
   background-color: #dcdcdc;
   .header{
     height: 200px;
@@ -37,7 +37,7 @@
     }
     .lower-info{
       height: 100%;
-      padding: 50px 200px;
+      padding: 50px 20%;
       .user-form{
         .field {
           margin-bottom: 30px;
@@ -220,7 +220,7 @@
   float: left;
   input {
     height: 70px;
-    width: 80%;
+    width: 10vw;
     padding: 10px;
     margin-right: 10px;
     letter-spacing: 1px;
@@ -234,4 +234,9 @@
   clear: both;
 }
 
+#user_birth_date_1i,
+#user_birth_date_2i,
+#user_birth_date_3i{
+  height: 50px;
+}
 
