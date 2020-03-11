@@ -1,8 +1,8 @@
 class CreateCategories < ActiveRecord::Migration[5.0]
   def change
     create_table :categories do |t|
-      t.string :large
-      t.string :midium
+      t.string :large, null: false
+      t.string :midium, null: false
       t.string :small
       t.string :size
       t.string :brand
