@@ -1,7 +1,8 @@
 %body
   .header
-    %a.header__botton{href=''}
-      = image_tag.logo "material/logo/logo.png"
+    %a
+      = image_tag "material/logo/logo.png"
+
   .main
     .block
       .formGroup
@@ -13,6 +14,8 @@
         .subtitle
           最大１０枚までアップできます。
         .upload
+          
+    %hr
     .block
       .fromGroup
         .formLabel
@@ -21,7 +24,7 @@
           %span.must-tag
             必須
         .input-area
-          %input
+          %input.input-area{:placeholder => "40字まで", :type => "text"}
       .fromGroup
         .formLabel
           %label
@@ -29,35 +32,90 @@
           %span.must-tag
             必須
         .text-area
-          %textarea
+          %textarea.text-area{:placeholder => "商品の説明を入力してください"}
       .item-info__footer
         %span 
-        0
-        "/"
-        1000
+    %hr.line
     .block
       %p.title
         商品の詳細
-      .formLabel
-        %label
-          商品名
-        %span.must-tag
-          必須
-      .select
-        .select__area
+      .fromGroup
+        .formLabel
+          %label
+            カテゴリー
+          %span.must-tag
+            必須
+        .select
+          .select__area
+            選択してください
 
+      .fromGroup
+        .formLabel
+          %label
+            ブランド
+          %span.must-tag
+            必須
+        .select
+          .select__area
+            選択してください
+
+      .fromGroup
+        .formLabel
+          %label
+            商品の状態
+          %span.must-tag
+            必須
+        .select
+          .select__area
+    %hr
+    .block
+      %p.title
+        配送について
+      .fromGroup
+        .formLabel
+          %label
+            配送料の負担
+          %span.must-tag
+            必須
+        .select
+          .select__area
+
+      .fromGroup
+        .formLabel
+          %label
+            配送元の地域
+          %span.must-tag
+            必須
+        .select
+          .select__area
+
+      .fromGroup
+        .formLabel
+          %label
+            配送までの日数
+          %span.must-tag
+            必須
+        .select
+          .select__area
+    %hr
+
+    .block
+      %p.title
+        価格（¥300~9,999,999)
       .formGroup
-        .title
-        .category
-        .title
-        .brand
-        .title
-        .status
-    .Block
-      .formGroup
+        .formLabel
+          %label
+            配送元の地域
+          %span.must-tag
+            必須
         .input-price
           .result-price
           .result-price
           .result-price
         .pushbottom
+          %botton.submit{:type => "submit"}
+            出品する
+          
+        %p.caution
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
   .footer
