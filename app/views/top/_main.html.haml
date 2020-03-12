@@ -5,21 +5,40 @@
     .productsHead
       商品
     .productsLists
-      - @items.each do |item|
+      - n = 2
+      - @items.each_slice(n) do |item1,item2|
         .productsLists_list
           .productsLists_list--image
             = image_tag "71CTWXDG4eL._AC_SL1239_.jpg"
           .productsLists_list--body
             .name
-              = item.name 
+              = item1.name 
             .price
               %ul
                 %li<
-                  = item.price
+                  = item1.price
                 %li<
                   = icon('fas', 'heart')
                   　0
               %p<(税込)
+       
+          .productsLists_list--image
+            = image_tag "71CTWXDG4eL._AC_SL1239_.jpg"
+          .productsLists_list--body
+            .name
+              = item2.name 
+            .price
+              %ul
+                %li<
+                  = item2.price
+                %li<
+                  = icon('fas', 'heart')
+                  　0
+              %p<(税込)
+       
+          
+
+              
       
     .productsLists
       .productsLists_list
