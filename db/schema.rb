@@ -35,18 +35,19 @@ ActiveRecord::Schema.define(version: 20200311101723) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "price"
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "price",       null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "postages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "way_to_pay"
-    t.string   "how_to_send"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "way_to_pay",    null: false
+    t.string   "how_to_send",   null: false
+    t.string   "Delivery_days", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
