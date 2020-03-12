@@ -1,0 +1,21 @@
+.header
+  .header_main
+    .header_main_logo
+      = image_tag "logo.png", size: "140x40", alt: "test",class: "logo"
+    .header_main_category
+    .header_main_brand
+    .header_main_search
+      %input.search__input{:placeholder => "キーワードから探す", :type => "text"}/
+      .icon
+        = icon('fas', 'search')
+  .header_contents
+    .header_contents_left
+      .category
+        カテゴリー
+      .brand
+        ブランド
+    .header_contents_right
+      .signin
+        ログイン
+      .new
+        新規登録
