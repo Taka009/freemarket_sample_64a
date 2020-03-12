@@ -5,36 +5,51 @@
     .productsHead
       商品
     .productsLists
-      - n = 2
-      - @items.each_slice(n) do |item1,item2|
+      - @items.each_slice(3) do |item1,item2,item3|
         .productsLists_list
           .productsLists_list--image
             = image_tag "71CTWXDG4eL._AC_SL1239_.jpg"
           .productsLists_list--body
-            .name
-              = item1.name 
-            .price
-              %ul
-                %li<
-                  = item1.price
-                %li<
-                  = icon('fas', 'heart')
-                  　0
-              %p<(税込)
+            -if item1 != nil
+              .name
+                = item1.name 
+              .price
+                %ul
+                  %li<
+                    = item1.price
+                  %li<
+                    = icon('fas', 'heart')
+                    　0
+                %p<(税込)
        
           .productsLists_list--image
             = image_tag "71CTWXDG4eL._AC_SL1239_.jpg"
           .productsLists_list--body
-            .name
-              = item2.name 
-            .price
-              %ul
-                %li<
-                  = item2.price
-                %li<
-                  = icon('fas', 'heart')
-                  　0
-              %p<(税込)
+            -if item2 != nil
+              .name
+                = item2.name 
+              .price
+                %ul
+                  %li<
+                    = item2.price
+                  %li<
+                    = icon('fas', 'heart')
+                    　0
+                %p<(税込
+          .productsLists_list--image
+            = image_tag "71CTWXDG4eL._AC_SL1239_.jpg"
+          .productsLists_list--body
+            -if item3 != nil
+              .name
+                = item3.name 
+              .price
+                %ul
+                  %li<
+                    = item3.price
+                  %li<
+                    = icon('fas', 'heart')
+                    　0
+                %p<(税込)
        
           
 
