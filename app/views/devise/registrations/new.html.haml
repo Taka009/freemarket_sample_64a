@@ -29,9 +29,13 @@
                   必須
               .field-input
                 = f.password_field :password, autocomplete: "off", placeholder: "７文字以上の半角英数字"
-            %p.form-info-text
-              ※英字と数字の両方を含めて設定してください   
-            %br
+            .field
+              .field-label
+                = f.label :パスワード（確認用）
+                %span.form-require
+                  必須
+              .field-input
+                = f.password_field :password_confirmation, autocomplete: "off", placeholder: "７文字以上の半角英数字"
             %h3.chapter-sub-head
               本人確認
             %p.identification-description

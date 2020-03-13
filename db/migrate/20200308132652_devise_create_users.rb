@@ -7,6 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :nickname,              null: false
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      # 確認用パスワードの記述不要。ビューに書けば追加される(バリデーションもpasswordに記述)
       t.string :last_name, null: false
       t.string :first_name, null: false
       t.string :kana_last_name, null: false
