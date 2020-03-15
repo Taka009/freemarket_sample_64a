@@ -17,11 +17,9 @@
 |sales|integer| |
 |sex|string|null: false|
 ### Association
-- has_one :place
+- has_one  :place
 - has_many :items
 - has_many :goods
-- has_many :sells
-- has_many :buys
 - has_many :evaluations, through: :evalutaions_users
 - has_many :credits
 
@@ -52,10 +50,8 @@
 - belongs_to :shipping-day
 - belongs_to :user
 - has_many :images
-- belongs_to :dealing_stage
 - has_many :goods
 - belongs_to :evaluation
-- belongs_to :status
 
 ## conditionテーブル
 |Column|Type|Options|
@@ -70,6 +66,7 @@
 |send|string| |
 ### Association
 - has_many :items
+- has_many :shipping_method
 
 ## shipping_methodテーブル
 |Column|Type|Options|
@@ -78,7 +75,7 @@
 ### Association
 - has_many :postage
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|------|
 |path||
@@ -115,6 +112,14 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+
+## shipping_dayテーブル
+|Column|Type|Option|
+|------|----|------|
+|shipping_day||
+### Association
+- has_many :items
 
 ## evaluationテーブル
 |Column|Type|Option|
