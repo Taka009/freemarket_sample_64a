@@ -109,8 +109,15 @@ svg:not(:root) {
               font-size: 12px;
               line-height: 1.4em;
               text-align: center;
+              width: 100%;
+              .b {
+                font-size: 12px;
+                line-height: 1.4em;
+                text-align: center;
+                width: 100%;
+              }
             }
-           }
+            }
           }
         }
       }
@@ -141,8 +148,6 @@ svg:not(:root) {
       font-size: 12px;
     }
   }
-
-}
 
 .footer{
   background-color: rgb(245, 245, 245);
