@@ -1,6 +1,5 @@
 # README
 
-
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -37,7 +36,7 @@
 |brand|references|null: false, foreign_key: true|
 |condition|references|null: false, foreign_key: true|
 |postage|references|null: false, foreign_key: true|
-|shipping-day|references|null: false, foreign_key: true|
+|shipping_day|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |evaluation|references|null: false, foreign_key: true|
 |status|references|null: false|
@@ -48,7 +47,7 @@
 - belongs_to :brand
 - belongs_to :condition
 - belongs_to :postage
-- belongs_to :shipping-day
+- belongs_to :shipping_day
 - belongs_to :user
 - has_many :images
 - has_many :goods
@@ -145,7 +144,7 @@
 |item|references|null: false, foreign_key: true|
 |name|string|null: false|
 ### Association
-- belongs_to :item
+- belongs_to :item, dependent: :destroy
 
 ## creditテーブル
 |Column|Type|Options|
