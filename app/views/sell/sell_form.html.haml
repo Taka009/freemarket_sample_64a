@@ -14,6 +14,18 @@
         .subtitle
           最大１０枚までアップできます。
         .upload
+          .upload__data
+            .upload__data__image
+              .upload__data__image__in
+                %input.put{type: 'file'}
+                %svg.sv
+                  %path{d: "M 19.3 5 H 16.73 l -0.8 -1.61 A 0.7 0.7 0 0 0 15.3 3 H 8.7 a 0.7 0.7 0 0 0 -0.63 0.39 L 7.27 5 H 4.7 A 2.7 2.7 0 0 0 2 7.7 V 18.3 A 2.7 2.7 0 0 0 4.7 21 H 19.3 A 2.7 2.7 0 0 0 22 18.3 V 7.7 A 2.7 2.7 0 0 0 19.3 5 Z M 12 17.3 A 4.3 4.3 0 1 1 16.3 13 A 4.31 4.31 0 0 1 12 17.3 Z"};
+                .pv 
+                  ドラッグアンドドロップ
+                  %br 
+                  またはクリックしてファイルをアップロード
+                
+        
           
     %hr
     .block
@@ -103,18 +115,26 @@
       %p.title
         価格（¥300~9,999,999)
       .formGroup
-        .formLabel
-          %label
-            配送元の地域
-          %span.must-tag
-            必須
-        .input-price
+        .price
+          .result-price
+            .formLabel.price-label
+              %label
+                販売価格
+              %span.must-tag
+                必須
+            %p.yen
+              ¥
+            .input-price
+              %input{type: "number", placeholder: "0", autocomplete: "off"}
+              
           .result-price
           .result-price
-          .result-price
-        .pushbottom
-          %botton.submit{:type => "submit"}
+        .pushbutton
+          %button{type: "submit", class: 'submit button'}
             出品する
+          %a
+            .return.button{href: "#"}
+              もどる
           
         %p.caution
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
