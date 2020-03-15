@@ -6,10 +6,9 @@ body{
 }
 .header{
   height: 128px;
-  a{
-    height: 49px;
-    width: 185px;
-  }
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .main{
@@ -53,6 +52,7 @@ body{
 
     .input-area{
       width: 100%;
+      height: 48px;
     }
 
     .text-area{
