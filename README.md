@@ -30,9 +30,7 @@
 |description|text|null: false|
 |seller|references|null: false, foreign_key: { to_table: :users }|
 |buyer|references|foreign_key: { to_table: :users }|
-|large_category|references|null: false, foreign_key: true|
-|medium_category|references|null: false, foreign_key: true|
-|small_category|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
 |condition|references|null: false, foreign_key: true|
 |postage|references|null: false, foreign_key: true|
@@ -112,7 +110,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-
 
 ## shipping_dayテーブル
 |Column|Type|Option|
