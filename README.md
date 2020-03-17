@@ -26,6 +26,7 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user|references|null: false foreign_key: true|
 |name|string|null: false|
 |description|text|null: false|
 |seller|references|null: false, foreign_key: { to_table: :users }|
@@ -92,10 +93,11 @@
 ## placeテーブル
 |Column|Type|Option|
 |------|----|------|
-|postalcodes|integer||
-|Prefectures|string||
-|Municipalities|string||
-|numbers|string||
+|user|references|null: false foreign_key: true|
+|postalcodes|integer|null: false|
+|Prefectures|string|null: false|
+|Municipalities|string|null: false|
+|numbers|string|null: false|
 |buildings|string||
 |emergency contact|integer|unique: true|
 ### Association
@@ -146,6 +148,7 @@
 ## creditテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user|references|null: false foreign_key: true|
 |number|integer|null: false|
 |deadline_month|integer|null: false|
 |deadline_year|integer|null: false|
