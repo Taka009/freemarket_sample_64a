@@ -106,7 +106,7 @@
 |------|----|------|
 |user|reference|foreign_key: true, null: false|
 |item|reference|foreign_key: true, null: false|
-|good||null: false|
+|good|string|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -114,14 +114,14 @@
 ## shipping_dayテーブル
 |Column|Type|Option|
 |------|----|------|
-|shipping_day||null: false|
+|shipping_day|string|null: false|
 ### Association
 - has_many :items
 
 ## evaluationテーブル
 |Column|Type|Option|
 |------|----|------|
-|evaluation||null: false|
+|evaluation|string|null: false|
 ### Association
 - has_many :users, through: :evalutaions_users
 - has_many :items
