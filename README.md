@@ -56,14 +56,14 @@
 ## conditionテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string| |
+|name|string|null: false|
 ### Association
 - has_many :items
 
 ## postageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|send|string| |
+|send|string|null: false|
 ### Association
 - has_many :items
 - has_many :shipping_method
@@ -71,7 +71,7 @@
 ## shipping_methodテーブル
 |Column|Type|Options|
 |------|----|-------|
-|method|string||
+|method|string|null: false|
 ### Association
 - has_many :postage
 
@@ -87,19 +87,19 @@
 ## brandテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|
+|name|string|null: false|
 ### Association
 - has_many :items
 
 ## placeテーブル
 |Column|Type|Option|
 |------|----|------|
-|postalcodes|integer|
-|Prefectures|string|
-|Municipalities|string|
-|numbers|string|
-|buildings|string|
-|emergency contact|integer|
+|postalcodes|integer||
+|Prefectures|string||
+|Municipalities|string||
+|numbers|string||
+|buildings|string||
+|emergency contact|integer|unique: true|
 ### Association
 - belongs_to :user
 
@@ -108,7 +108,7 @@
 |------|----|------|
 |user|reference|foreign_key: true, null: false|
 |item|reference|foreign_key: true, null: false|
-|good||
+|good|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -117,14 +117,14 @@
 ## shipping_dayテーブル
 |Column|Type|Option|
 |------|----|------|
-|shipping_day||
+|shipping_day|null: false|
 ### Association
 - has_many :items
 
 ## evaluationテーブル
 |Column|Type|Option|
 |------|----|------|
-|evaluation||
+|evaluation|null: false|
 ### Association
 - has_many :users, through: :evalutaions_users
 - has_many :items
