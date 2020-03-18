@@ -26,53 +26,40 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false foreign_key: true|
 |name|string|null: false|
 |description|text|null: false|
+|user|references|null: false foreign_key: true|
 |seller|references|null: false, foreign_key: { to_table: :users }|
 |buyer|references|foreign_key: { to_table: :users }|
 |category|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
-|condition|references|null: false, foreign_key: true|
 |postage|references|null: false, foreign_key: true|
-|shipping_day|references|null: false, foreign_key: true|
-|price|integer|null: false|
 |evaluation|references|null: false, foreign_key: true|
-|status|references|null: false|
-|dealing_stage|references|foreign_key: true|
+|price|integer|null: false|
+|condition|integer|null: false|
+|dealing_stage|integer|null: false|
+|shipping_day|integer|null: false|
 
 ### Association
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :condition
 - belongs_to :postage
-- belongs_to :shipping_day
 - belongs_to :user
+- belongs_to :evaluation
 - has_many :images
 - has_many :goods
-- belongs_to :evaluation
-
-## conditionテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :items
+- enum condition: [ :unused, :near_unused, :no_scratch, :slightly_scratched, :scratched, :shoddy]
+- enum shipping_day: [ :1_2, :2_3, :4-7]
+- enum dealing_stage: [ :exhibiting, :trading, :sold]
 
 ## postageテーブル
 |Column|Type|Options|
 |------|----|-------|
+|path||
 |send|string|null: false|
 ### Association
 - has_many :items
-- has_many :shipping_method
-
-## shipping_methodテーブル
-|Column|Type|Options|
-|------|----|-------|
-|method|string|null: false|
-### Association
-- has_many :postage
+- has_ancestry
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -112,13 +99,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-
-## shipping_dayテーブル
-|Column|Type|Option|
-|------|----|------|
-|shipping_day|string|null: false|
-### Association
-- has_many :items
 
 ## evaluationテーブル
 |Column|Type|Option|
