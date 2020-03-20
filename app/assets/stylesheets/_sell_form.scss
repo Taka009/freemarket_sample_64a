@@ -42,6 +42,9 @@ svg:not(:root) {
   width: 100%;
   margin: 0px auto;
   max-width: 700px;
+  .formGroup{
+    margin-top: 32px;
+  }
   .line{
     border-top-width: 1px;
   }
@@ -59,19 +62,25 @@ svg:not(:root) {
       font-weight: 600;
       line-height: 1.4em;
     }
-    span{
+    .tag{
       margin-left: 8px;
       font-size: 12px;
       padding: 0 4px;
-      background-color: #ff0211;
-      color: #fff;
       border-radius: 2px;
       display: inline-block;
       font-style: normal;
       font-weight: 600;
       line-height: 1.4em;
+      color: #fff;
       margin: 0;
     }
+    .must{        
+      background-color: #ff0211;
+      }
+    .option{        
+      background-color: #bfbfbf;
+      }
+    
     .subtitle{
       margin-top: 16px;
     }
@@ -145,22 +154,33 @@ svg:not(:root) {
     }
 
     .select{
+      margin-top: 16px;
       width: 100%;
-      border: 1px #ccc;
+      position: relative;
       &__area{
+        border: 1px solid black;
         height: 48px;
-        line-height: 1px;
         padding: 0 56px 0 16px;
+      }
+      svg{
+        bottom: 0;
+        margin: auto;
+        pointer-events: none;
+        position: absolute;
+        right: 16px;
+        top: 0;
       }
     }
 
     .price{
       margin-bottom: 40px;
       .result-price{
+        box-sizing: content-box;
         padding: 12px 0px;
         display: flex;
         height: 46px;
-
+        align-items: center;
+        display: flex;
         .yen{
           margin-right: 8px;
           font-size: 14px;
@@ -169,10 +189,20 @@ svg:not(:root) {
           align-items: center;
           display: inline-flex;
           width: 100%;
+          max-width: 285px;
+          &__form{
+            height: 48px;
+            width: inherit;
+          }
         }
         .price-label{
           margin-right: auto;
           align-items: center;
+          white-space: nowrap;
+        
+        }
+        .tag-price{
+          margin-left: 8px;
         }
       }
     }
@@ -191,6 +221,7 @@ svg:not(:root) {
         color: black;
         padding: 14px 24px;
         text-align: center;
+        display: inline-block;
       }
       .button{
         min-height: 48px;
