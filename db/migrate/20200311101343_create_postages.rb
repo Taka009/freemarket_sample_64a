@@ -5,7 +5,6 @@ class CreatePostages < ActiveRecord::Migration[5.0]
       t.string :how_to_send, null: false
       t.string :Delivery_days, null: false
       t.timestamps
-      #EEEEE
     end
   end
 end

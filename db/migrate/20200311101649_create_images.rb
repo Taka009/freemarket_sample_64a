@@ -3,7 +3,6 @@ class CreateImages < ActiveRecord::Migration[5.0]
     create_table :images do |t|
       t.string :image_file, null: false
       t.timestamps
-      #EEEEEEEe
     end
   end
 end
