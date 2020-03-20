@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-=======
 #配列category1sに第2階層と第3階層をハッシュ定義する
 #要は親階層に紐づいている「子階層」と「孫階層」を全て配列に入れる
 #孫階層に関しては配列の中に配列が入っている状態です。入力
@@ -36,4 +27,3 @@ eval("#{level2_var}.children.create(name:level2_children_val)")           #3階�
 end
 end
 end
->>>>>>> Stashed changes
