@@ -3,7 +3,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # has_to :なんちゃかんちゃいずれ作る
+  
+  # アソシエーション
+  has_one :place
+  has_many :items
+  has_many :goods
+  has_many :evaluations, through: :evalutaions_users
+  has_many :credits
+  # has_many :sells
+  # has_many :buys
 
   validates :nickname, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -45,18 +45,18 @@
                 = f.label :お名前（全角）
                 %span.form-require
                   必須
-              .field-input--name
+              .field-input--left
                 = f.text_field :last_name, autofocus: true            
-              .field-input--name
+              .field-input--right
                 = f.text_field :first_name, autofocus: true       
             .field__multi.field__multi--kana
               .field-label
                 = f.label :お名前カナ（全角）
                 %span.form-require
                   必須
-              .field-input--name
+              .field-input--left
                 = f.text_field :kana_last_name, autofocus: true            
-              .field-input--name
+              .field-input--right
                 = f.text_field :kana_first_name, autofocus: true   
             .field
               .field-label

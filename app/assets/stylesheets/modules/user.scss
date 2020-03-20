@@ -52,8 +52,8 @@
             }
             .field-input {
               input {
-                height: 70px;
-                width: 100%;
+                height: 40px;
+                width: 95%;
                 padding: 10px;
                 letter-spacing: 1px;
               }
@@ -219,20 +219,63 @@
   color: #fff;
 }
 
-.field-input--name{
-  float: left;
+
+
+.field-input--right{
   input {
-    height: 70px;
-    width: 10vw;
+    float: left;
+    height: 40px;
+    width: 40%;
     padding: 10px;
-    margin-right: 10px;
+    margin-top: 15px;
     letter-spacing: 1px;
   }
 }
+.field-input--left{
+  input {
+    float: left;
+    height: 40px;
+    width: 40%;
+    padding: 10px;
+    margin-right: 50px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+  } 
+}
+
+// .field-input--right{
+//   float: left;
+//   input {
+//     height: 40px;
+//     width: 89%;
+//     padding: 10px;
+//     margin-top: 15px;
+//     letter-spacing: 1px;
+//   }
+// }
+
+// .field-input--left{
+//   float: left;
+//   input {
+//     height: 40px;
+//     width: 89%;
+//     padding: 10px;
+//     margin-right: 16px;
+//     margin-top: 15px;
+//     letter-spacing: 1px;
+//   }
+// }
+
+
+
+
+
+
 
 .field__multi{
   margin-bottom: 120px;
 }
+
 .field__multi--kana{
   clear: both;
 }
