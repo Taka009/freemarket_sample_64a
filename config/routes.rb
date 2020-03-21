@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'deploytest', to: 'deploytest#index'
+  root :to => 'deploytest#index'
 end
