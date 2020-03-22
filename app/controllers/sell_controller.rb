@@ -23,7 +23,7 @@ class SellController < ApplicationController
     @postage = Postage.create(postage_params)
     @postage.save!
     #  postage
-    redirect_to 'sell/sell_form'
+    redirect_to 'sell/sell'
   end
 
 private
