@@ -102,6 +102,8 @@
             必須
         .select
           .select__area
+            = form_for @postage do |f|
+              = f.collection_select :way_to_pay, Prefecture.all, :id, :name
 
       .formGroup
         .formLabel
