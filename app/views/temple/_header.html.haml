@@ -11,7 +11,25 @@
   .header_contents
     .header_contents_left
       .category
-        カテゴリー
+        %ul.gnav
+          %li
+            = link_to "#"  do
+              カテゴリー
+              %ul
+                -@categories.each do |category1|
+                  %li
+                    = link_to "#"  do
+                      = category1.name
+                      %ul
+                        - category1.children.each do |category2|
+                          %li
+                            = link_to "#"  do
+                              = category2.name
+                              %ul
+                                - category2.children.each do |category3|
+                                  %li
+                                    = link_to "#"  do
+                                      = category3.name
       .brand
         ブランド
     .header_contents_right
