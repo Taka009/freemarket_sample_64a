@@ -16,7 +16,7 @@
             = link_to "#"  do
               カテゴリー
               %ul
-                -@categories.each do |category1|
+                - @categories.each do |category1|
                   %li
                     = link_to "#"  do
                       = category1.name

@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def index
-    @categories = Category.eager_load(children: :children).where(parent_id: nil) 
+    @categories = Category.all.order("id ASC").limit(2)
     @items = Item.all
   end
 end
