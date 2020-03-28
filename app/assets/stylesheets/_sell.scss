@@ -45,8 +45,9 @@ svg:not(:root) {
   .formGroup{
     margin-top: 32px;
   }
-  .line{
+  hr{
     border-top-width: 1px;
+    margin: 0px;
   }
   .block{
     padding: 40px;
@@ -169,11 +170,13 @@ svg:not(:root) {
         position: absolute;
         right: 16px;
         top: 0;
+        z-index: 2;
       }
       select{
         height: 48px;
         padding: 0 56px 0 16px;
         width: 100%;
+        -webkit-appearance: none;
       }
     }
 
