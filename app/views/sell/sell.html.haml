@@ -37,7 +37,7 @@
             %span.tag.must
               必須
           .input-area
-            %input.input-area{:placeholder => "40字まで", :type => "text"}
+            %input.input-area{:name => "name", :placeholder => "40字まで", :type => "text", :maxlength => "40"}
         .formGroup
           .formLabel
             %label
@@ -45,7 +45,7 @@
             %span.tag.must
               必須
           .text-area
-            %textarea.text-area{:placeholder => "商品の説明を入力してください"}
+            %textarea.text-area{:name => "description", :placeholder => "商品の説明を入力してください", maxlength: => "1000"}
         .item-info__footer
           %span 
       %hr
