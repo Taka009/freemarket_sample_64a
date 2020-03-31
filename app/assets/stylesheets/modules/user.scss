@@ -1,0 +1,214 @@
+.account-page {
+  height: 100%;
+  background-color: #dcdcdc;
+  .header{
+    height: 200px;
+    padding-bottom: 100px;
+    position: relative;
+    &__logo{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 250px;
+    }
+  }
+  .main {
+    width: 900px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    .upper-info{
+      height: 200px;
+      line-height: 200px;
+      text-align: center;
+      border-bottom: 1px solid #dcdcdc;
+      font-size: 30px;
+      a{
+        padding: 15px 20px;
+        background-color: red;
+        color: #fff;
+        font-size: 20px;
+      }
+
+    }
+    .lower-info{
+      height: 100%;
+      padding: 20px 15px 40px;
+      &__inner{
+        max-width: 500px;
+        margin: 0 auto;
+        .user-form{
+          .field {
+            margin-bottom: 30px;
+        
+            .field-label {
+              padding: 10px 0;
+              letter-spacing: 1px;
+              font-size: 20px;
+              font-weight: 200;
+            }
+            .field-input {
+              input {
+                height: 40px;
+                width: 95%;
+                padding: 10px;
+                letter-spacing: 1px;
+              }
+            }
+          }
+        }
+      }
+    } 
+  }
+  .footer{
+    position: relative;
+    text-align: center;
+    &__menu-box{
+      .footer__menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        margin-right: 10px;
+        margin-bottom: 50px;
+       a{
+         margin-right: 15px;
+         font-size: 20px;
+       }
+      }
+    }
+    .footer__logo{
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 250px;
+    }
+  }
+  .btn {
+    display: inline-block;
+    height: 80px;
+    padding: 0 30px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+  }
+
+  input[type='submit'] {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    color: #fff;
+    background-color: skyblue;
+  }
+
+  .field-label {
+    .field_with_errors {
+      display: inline-block;
+      color: #d65f4c;
+      font-weight: 400;
+    }
+  }
+
+  .field-input {
+    .field_with_errors {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        background-color: #d65f4c;
+      }
+    }
+  }
+}
+#error_explanation {
+  margin: 20px 0;
+  padding: 20px 30px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+
+  h2 {
+    margin-bottom: 10px;
+    color: #d65f4c;
+    font-size: 20px;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 17px;
+    list-style: square;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+}
+.submit-btn-description{
+  font-size: 15px;
+}
+
+.identification-description{
+  margin-bottom: 10px;
+}
+
+.form-info-text{
+  clear: both;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.form-require{
+  padding: 2px;
+  background-color: red;
+  color: #fff;
+}
+.field-input--right{
+  input {
+    float: left;
+    height: 40px;
+    width: 40%;
+    padding: 10px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+  }
+}
+.field-input--left{
+  input {
+    float: left;
+    height: 40px;
+    width: 40%;
+    padding: 10px;
+    margin-right: 50px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+  } 
+}
+.field__multi{
+  margin-bottom: 120px;
+}
+
+.field__multi--kana{
+  clear: both;
+}
+
+#user_birth_date_1i,
+#user_birth_date_2i,
+#user_birth_date_3i{
+  height: 50px;
+}
+
