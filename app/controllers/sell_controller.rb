@@ -3,7 +3,7 @@ class SellController < ApplicationController
   end
 
   def new
-    # @image = Image.new
+    @image = Image.new
     @item = Item.new
     @category = Category.new
     @conditinon = Condition.new
@@ -11,8 +11,9 @@ class SellController < ApplicationController
   end
 
   def create
-    # @image = Image.create
-    # @image.save!
+    @image = Image.create
+    @image.save!
+    #image
     @item = Item.create(item_params)
     @item.save!
     # item
