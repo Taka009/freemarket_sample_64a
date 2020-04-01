@@ -46,6 +46,28 @@ svg:not(:root) {
     border-top-width: 1px;
     margin: 0px;
   }
+  .upload{
+    margin-top: 16px;
+    &__data{
+      height: 150px;
+      padding: 0 4px;
+      margin-top: 8px;
+      &--space{
+        cursor: pointer;
+        position: relative;
+        border-width: 1px;
+        border-style: dashed;
+        align-items: center;
+        background-color: rgb(245, 245, 245);
+        height: inherit;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .hidden{
+    display: none;
+  }
   .block{
     padding: 40px;
     .title{
