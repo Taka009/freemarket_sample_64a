@@ -1,4 +1,6 @@
 class SellController < ApplicationController
+  def index
+  end
 
   def new
     # @image = Image.new
@@ -23,7 +25,7 @@ class SellController < ApplicationController
     @postage = Postage.create(postage_params)
     @postage.save!
     #  postage
-    redirect_to 'sell/sell'
+    redirect_to "sell/sell"
   end
 
 private
