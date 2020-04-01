@@ -1,0 +1,141 @@
+%body
+  .header
+    %a
+      =image_tag "material/logo/logo.png", size: "185x49"
+
+  .main
+    .block
+      .formGroup
+        .formLabel
+          %label
+            出品画像
+          %span.tag.must
+            必須
+        .subtitle
+          最大１０枚までアップできます。
+        .upload
+          .upload__data
+            .upload__data__image
+              .upload__data__image__in
+                %input.put{type: 'file'}
+                %svg.sv
+                  %path{d: "M 19.3 5 H 16.73 l -0.8 -1.61 A 0.7 0.7 0 0 0 15.3 3 H 8.7 a 0.7 0.7 0 0 0 -0.63 0.39 L 7.27 5 H 4.7 A 2.7 2.7 0 0 0 2 7.7 V 18.3 A 2.7 2.7 0 0 0 4.7 21 H 19.3 A 2.7 2.7 0 0 0 22 18.3 V 7.7 A 2.7 2.7 0 0 0 19.3 5 Z M 12 17.3 A 4.3 4.3 0 1 1 16.3 13 A 4.31 4.31 0 0 1 12 17.3 Z"};
+                .pv 
+                  ドラッグアンドドロップ
+                  %br 
+                  またはクリックしてファイルをアップロード
+    %hr
+    .block
+      .formGroup
+        .formLabel
+          %label
+            商品名
+          %span.tag.must
+            必須
+        .input-area
+          %input.input-area{:placeholder => "40字まで", :type => "text"}
+      .formGroup
+        .formLabel
+          %label
+            商品の説明
+          %span.tag.must
+            必須
+        .text-area
+          %textarea.text-area{:placeholder => "商品の説明を入力してください"}
+      .item-info__footer
+        %span 
+    %hr.line
+    .block
+      %p.title
+        商品の詳細
+      .formGroup
+        .formLabel
+          %label
+            カテゴリー
+          %span.tag.must
+            必須
+        .select
+          .select__area
+            選択してください
+          %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
+            %path
+
+      .formGroup
+        .formLabel
+          %label
+            ブランド
+          %span.tag.option
+            任意
+        .select
+          .select__area
+            選択してください
+
+      .formGroup
+        .formLabel
+          %label
+            商品の状態
+          %span.tag.must
+            必須
+        .select
+          .select__area
+    %hr
+    .block
+      %p.title
+        配送について
+      .formGroup
+        .formLabel
+          %label
+            配送料の負担
+          %span.tag.must
+            必須
+        .select
+          .select__area
+
+      .formGroup
+        .formLabel
+          %label
+            配送元の地域
+          %span.tag.must
+            必須
+        .select
+          .select__area
+
+      .formGroup
+        .formLabel
+          %label
+            配送までの日数
+          %span.tag.must
+            必須
+        .select
+          .select__area
+    %hr
+
+    .block
+      %p.title
+        価格（¥300~9,999,999)
+      .formGroup
+        .price
+          .result-price
+            .formLabel.price-label
+              %label
+                販売価格
+              %span.tag.must.tag-price
+                必須
+            %p.yen
+              ¥
+            .input-price
+              %input{type: "number", placeholder: "0", autocomplete: "off", :class => "input-price__form"}
+              
+          .result-price
+            販売手数料 (10%)
+          %hr
+          .result-price
+            販売利益
+        .pushbutton
+          %button{type: "submit", class: 'submit button'}
+            出品する
+          %a.return.button{href: "#"}
+            もどる
+        %p.caution
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+  .footer
