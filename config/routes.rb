@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root 'sell#sell'
   post 'sell/sell'
   resources :sell, only: [:index, :new, :create]
 
