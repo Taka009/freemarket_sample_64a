@@ -12,6 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20200311101723) do
 
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "large",      null: false
+    t.string   "midium",     null: false
+    t.string   "small"
+    t.string   "size"
+    t.string   "brand"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "conditions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "condition",  null: false
     t.datetime "created_at", null: false

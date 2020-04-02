@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'sell/sell'
+  get 'sell_form'
   post 'items', to: 'items#create'
   resources :sells
   
