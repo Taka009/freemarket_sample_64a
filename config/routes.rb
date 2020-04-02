@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'items', to: 'items#create'
   resources :sells
 
+  root 'sell#sell'
   post 'sell/sell'
   resources :sell, only: [:index, :new, :create]
 
