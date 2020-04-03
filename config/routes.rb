@@ -2,5 +2,11 @@ Rails.application.routes.draw do
   get 'sell/sell'
   post 'items', to: 'items#create'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :sell, only: [:index, :show, :new, :edit, :destroy] do
+    #Ajaxで動くアクションのルートを作成
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
 end

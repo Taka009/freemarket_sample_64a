@@ -1,4 +1,22 @@
 class SellController < ApplicationController
+  def sell
+    @categories= Category.where(ancestry: nil)
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def get_category_grandchildren
+    respond_to do |format|
+      format.html
+      format.json do
+        @category_grandchildren = Category.find("#{params[:child_id]}").children
+      end
+    end
+  end
 
   def new
     # @image = Image.new
@@ -9,11 +27,13 @@ class SellController < ApplicationController
   end
 
   def create
+    
     # @image = Image.create
     # @image.save!
     @item = Item.create(item_params)
     @item.save!
     # item
+    
     @category = Category.create(category_params)
     @category.save!
     # category
@@ -24,7 +44,13 @@ class SellController < ApplicationController
     @postage.save!
     #  postage
     redirect_to 'sell/sell'
+    
   end
+
+  def search
+    
+  end
+  
 
 private
   def item_params
