@@ -23,12 +23,6 @@ ActiveRecord::Schema.define(version: 20200324144902) do
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
-  create_table "conditions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "condition",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "item_id",    null: false
     t.string   "name",       null: false
@@ -40,6 +34,9 @@ ActiveRecord::Schema.define(version: 20200324144902) do
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                        null: false
     t.text     "description",   limit: 65535, null: false
+    t.integer  "user_id",                     null: false
+    t.integer  "seller_id",                   null: false
+    t.integer  "buyer_id",                    null: false
     t.integer  "category_id",                 null: false
     t.integer  "brand_id",                    null: false
     t.integer  "price",                       null: false
@@ -49,17 +46,34 @@ ActiveRecord::Schema.define(version: 20200324144902) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
-  create_table "postages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "ancestry"
-    t.index ["ancestry"], name: "index_postages_on_ancestry", using: :btree
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "nickname",                            null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "last_name",                           null: false
+    t.string   "first_name",                          null: false
+    t.string   "kana_last_name",                      null: false
+    t.string   "kana_first_name",                     null: false
+    t.date     "birth_date",                          null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
 end

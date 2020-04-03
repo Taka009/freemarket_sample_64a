@@ -1,0 +1,24 @@
+#account-page.account-page
+  = render "devise/shared/accountpage-header" 
+  .main
+    .upper-info
+      = link_to "アカウントをお持ちでない方はこちら", "/users/sign_up"
+    .lower-info
+      .lower-info__inner
+        .user-form
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field
+              .field-label
+                = f.label :email
+              .field-input
+                = f.email_field :email, autofocus: true
+            .field
+              .field-label
+                = f.label :password
+                %i (英数字8文字以上)
+              .field-input
+                = f.password_field :password, autocomplete: "off"
+            .actions
+              = f.submit "ログイン", class: 'btn'
+            = link_to "パスワードをお忘れの方"
+  = render "devise/shared/accountpage-footer"
