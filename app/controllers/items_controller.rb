@@ -1,8 +1,4 @@
-class SellController < ApplicationController
-  
-  def index
-  end
-
+class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
