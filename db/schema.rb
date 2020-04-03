@@ -23,12 +23,6 @@ ActiveRecord::Schema.define(version: 20200324144902) do
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
-  create_table "conditions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "condition",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "item_id",    null: false
     t.string   "name",       null: false
@@ -50,13 +44,6 @@ ActiveRecord::Schema.define(version: 20200324144902) do
     t.datetime "updated_at",                  null: false
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-  end
-
-  create_table "postages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "ancestry"
-    t.index ["ancestry"], name: "index_postages_on_ancestry", using: :btree
   end
 
   add_foreign_key "images", "items"
