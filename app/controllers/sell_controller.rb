@@ -27,7 +27,7 @@ class SellController < ApplicationController
     @postage = Postage.create(postage_params)
     @postage.save!
     #  postage
-    redirect_to "sell/sell"
+    redirect_to root_path 
   end
 
 private
