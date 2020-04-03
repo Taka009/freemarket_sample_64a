@@ -17,9 +17,12 @@ class SellController < ApplicationController
       end
     end
   end
+  
+  def index
+  end
 
   def new
-    # @image = Image.new
+    @image = Image.new
     @item = Item.new
     @category = Category.new
     @conditinon = Condition.new
@@ -30,6 +33,9 @@ class SellController < ApplicationController
     
     # @image = Image.create
     # @image.save!
+    @image = Image.create
+    @image.save!
+    #image
     @item = Item.create(item_params)
     @item.save!
     # item
@@ -49,6 +55,7 @@ class SellController < ApplicationController
 
   def search
     
+    redirect_to "sell/sell"
   end
   
 
