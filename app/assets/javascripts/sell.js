@@ -30,9 +30,10 @@ $(function(){
 
   $("#parent-form").on("change",function(){
     var parentValue = document.getElementById("parent-form").value;
+    console.log(this)
     if (parentValue != ""){ 
       $.ajax({
-        url: '/sell/sell',
+        url: '/',
         type: "GET",
         data: {parent_id: parentValue },
         dataType: 'json'
@@ -59,9 +60,10 @@ $(function(){
 
   $('.select').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category'); 
+    console.log(this)
     if (childId != "---"){ 
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/sell/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'

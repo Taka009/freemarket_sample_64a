@@ -10,43 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200330121249) do
+ActiveRecord::Schema.define(version: 20200404014645) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "name"
-    t.string  "ancestry"
-    t.integer "parent_id"
-    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+    t.string   "name"
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conditions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "condition",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "item_id",    null: false
-    t.string   "name",       null: false
+    t.string   "image_file", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                        null: false
-    t.text     "description",   limit: 65535, null: false
-    t.integer  "category_id",                 null: false
-    t.integer  "brand_id",                    null: false
-    t.integer  "price",                       null: false
-    t.integer  "condition",                   null: false
-    t.integer  "dealing_stage",               null: false
-    t.integer  "shipping_day",                null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
-    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "price",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
+  create_table "postages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "way_to_pay",    null: false
+    t.string   "how_to_send",   null: false
+    t.string   "Delivery_days", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
 end
