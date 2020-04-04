@@ -3,10 +3,17 @@ class CreateItems < ActiveRecord::Migration[5.0]
     create_table :items do |t|
       t.string :name,           null: false
       t.text :description,      null: false
+<<<<<<< Updated upstream
       #t.references :user,       null: false,  foreign_key: true
       #t.references :seller,     null: false,  foreign_key: { to_table: :users }
       #t.references :buyer,      null: false,  foreign_key: { to_table: :users }
       t.references :category,   null: false,  foreign_key: true
+=======
+      t.references :user,       null: false,  foreign_key: true
+      t.references :seller,     null: false,  foreign_key: { to_table: :users }
+      t.references :buyer,      null: false,  foreign_key: { to_table: :users }
+      t.references :category   #null: false  foreign_key: true
+>>>>>>> Stashed changes
       t.references :brand,      null: false,  foreign_key: true
       #t.references :postage,    null: false,  foreign_key: true
       #t.references :evaluation, null: false,  foreign_key: true

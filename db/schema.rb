@@ -34,7 +34,14 @@ ActiveRecord::Schema.define(version: 20200324144902) do
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                        null: false
     t.text     "description",   limit: 65535, null: false
+<<<<<<< Updated upstream
     t.integer  "category_id",                 null: false
+=======
+    t.integer  "user_id",                     null: false
+    t.integer  "seller_id",                   null: false
+    t.integer  "buyer_id",                    null: false
+    t.integer  "category_id"
+>>>>>>> Stashed changes
     t.integer  "brand_id",                    null: false
     t.integer  "price",                       null: false
     t.integer  "condition",                   null: false
@@ -48,5 +55,11 @@ ActiveRecord::Schema.define(version: 20200324144902) do
 
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
+<<<<<<< Updated upstream
   add_foreign_key "items", "categories"
+=======
+  add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
+>>>>>>> Stashed changes
 end

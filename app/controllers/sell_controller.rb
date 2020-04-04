@@ -12,6 +12,7 @@ class SellController < ApplicationController
   end
 
   def create
+    binding.pry
     @image = Image.create
     @image.save!
     #image
