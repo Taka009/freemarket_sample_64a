@@ -3,7 +3,7 @@
     = link_to "dummy_freemarket", root_path
   .header__right
     - if user_signed_in?
-      = link_to "商品出品", "sell/sell", class: "header__right--btn"
+      = link_to "商品出品", "items/new", class: "header__right--btn"
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
     - else
       = link_to "ログイン", new_user_session_path, class: "header__right--btn"
