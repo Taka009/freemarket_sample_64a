@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
     def sell
     end
   
@@ -62,7 +63,7 @@ class ItemsController < ApplicationController
   
     private
       def item_params
-        params.require(:item).permit(:name, :desciription)
+        params.require(:item).permit(:name, :desciription, images_attributes: [:item])
       end
   
       def category_params
@@ -77,3 +78,4 @@ class ItemsController < ApplicationController
         params.require(:postage).permit(:way_to_pay, :how_to_send, :Delivery_days)
       end
     end
+
