@@ -1,81 +1,54 @@
 class ItemsController < ApplicationController
-
-    def sell
-    end
   
-    def get_category_grandchildren
-      
-      respond_to do |format|
-        format.html
-        format.json do
-          @category_grandchildren = Category.find("#{params[:child_id]}").children
-        end
+  
+  def index
+  end
+  
+  def new
+    @image = Image.new
+    @item = Item.new
+    @category = Category.new
+    @categories= Category.where(ancestry: nil)
+    respond_to do |format|
+      format.html
+      format.json do
+        
+        @children = Category.find(params[:parent_id]).children
       end
     end
+  end
+  
+  def create
+    @item = Item.create(item_params)
+    @item.save!
     
-    def index
-    end
+    @category = Category.create(category_params)
+    @category.save!
+    
+    redirect_to root_path 
+  end
   
-    def new
-      @image = Image.new
-      @item = Item.new
-      @category = Category.new
-      @categories= Category.where(ancestry: nil)
-      respond_to do |format|
-        format.html
-        format.json do
-          
-          @children = Category.find(params[:parent_id]).children
-        end
+  def get_category_grandchildren
+    
+    respond_to do |format|
+      format.html
+      format.json do
+        @category_grandchildren = Category.find("#{params[:child_id]}").children
       end
-      # @conditinon = Condition.new
-      # @postage = Postage.new
     end
+  end
   
-    def create
+  def search
       
-      # @image = Image.create
-      # @image.save!
-      @image = Image.create
-      @image.save!
-      #image
-      @item = Item.create(item_params)
-      @item.save!
-      # item
-      
-      @category = Category.create(category_params)
-      @category.save!
-      # category
-      @condition = Condition.create(condition_params)
-      @condition.save!
-      # condition
-      @postage = Postage.create(postage_params)
-      @postage.save!
-      #  postage
       redirect_to root_path
     end
-  
-    def search
-      
-      redirect_to "sell/sell"
-    end
-    
-  
+
     private
-      def item_params
-        params.require(:item).permit(:name, :desciription, images_attributes: [:item])
-      end
-  
-      def category_params
-        params.require(:category).permit(:brand, :name, :path)
-      end
-  
-      def condition_params
-        params.require(:condition).permit(:condition)
-      end
-  
-      def postage_params
-        params.require(:postage).permit(:way_to_pay, :how_to_send, :Delivery_days)
-      end
+    def item_params
+      params.require(:item).permit(:name, :desciription, :condition, :shippingpayer, :postage, :shipping_day)
     end
 
+    def category_params
+      params.require(:category).permit(:brand, :name, :path)
+    end
+  end
