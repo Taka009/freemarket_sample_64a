@@ -10,28 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200324144902) do
+ActiveRecord::Schema.define(version: 20200404014645) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "name"
-    t.string  "ancestry"
-    t.integer "parent_id"
-    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+    t.string   "name"
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conditions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "condition",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "item_id",    null: false
-    t.string   "name",       null: false
+    t.string   "image_file", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+<<<<<<< HEAD
     t.string   "name",                        null: false
     t.text     "description",   limit: 65535, null: false
 <<<<<<< Updated upstream
@@ -62,4 +67,21 @@ ActiveRecord::Schema.define(version: 20200324144902) do
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
 >>>>>>> Stashed changes
+=======
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "price",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "postages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "way_to_pay",    null: false
+    t.string   "how_to_send",   null: false
+    t.string   "Delivery_days", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+>>>>>>> 285b2ac0f9c1ccfbc5d883b08ad87e6ec63f53d1
 end
