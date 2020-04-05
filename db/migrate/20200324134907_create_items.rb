@@ -12,10 +12,10 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer :postage,    null: false
       #t.references :evaluation, #null: false,  foreign_key: true
       t.integer :price,         null: false
-      t.integer :condition_id,     null: false
+      t.integer :condition,     null: false
       # t.integer :dealing_stage, null: false
-      t.integer :shipping_day_id,  null: false
-      t.integer :shippingpayer_id, null: false
+      t.integer :shipping_day,  null: false
+      t.integer :shippingpayerra, null: false
       t.timestamps
     end
   end
