@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @category = Category.new
+
     @categories= Category.where(ancestry: nil)
     respond_to do |format|
       format.html
@@ -18,8 +18,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     @item.save!
-    @category = Category.create(category_params)
-    @category.save!    
     redirect_to root_path 
   end
   
@@ -38,10 +36,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-      params.require(:item).permit(:name, :desciription, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:image_url])
+      params.require(:item).permit(:name, :description, :category, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:image_url])
     end
 
-    def category_params
-      params.require(:category).permit(:brand, :name, :path)
-    end
   end
