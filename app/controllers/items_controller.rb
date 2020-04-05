@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
-  
-  
   def index
   end
   
@@ -12,7 +10,6 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        
         @children = Category.find(params[:parent_id]).children
       end
     end
@@ -21,15 +18,12 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     @item.save!
-    
     @category = Category.create(category_params)
-    @category.save!
-    
+    @category.save!    
     redirect_to root_path 
   end
   
   def get_category_grandchildren
-    
     respond_to do |format|
       format.html
       format.json do
@@ -39,7 +33,6 @@ class ItemsController < ApplicationController
   end
   
   def search
-      
       redirect_to root_path
     end
 
