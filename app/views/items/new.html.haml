@@ -55,7 +55,6 @@
             = f.collection_select :category, @categories,:id, :name,{prompt: "選択してください"}, {class: 'select-default', id: 'parent-form'}
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-  
         .formGroup
           .formLabel
             %label
@@ -71,7 +70,7 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :condition, Conditionls.all, :id, :name, prompt: "選択して下さい"
+            = f.collection_select :condition, Condition_ls.all, :id, :name, prompt: "選択して下さい"
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
       %hr
@@ -85,7 +84,7 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :shippingpayer, Shippingpayerls.all,  :id, :name, prompt: "選択して下さい"
+            = f.collection_select :shippingpayer, Shippingpayer.all, :id, :name, prompt: "選択して下さい"
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
         .formGroup
@@ -95,10 +94,9 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :postage, Prefecture.all, :id, :name, prompt: "選択して下さい"
+            = f.collection_select :select__area, Prefecture.all, :id, :name, prompt: "選択して下さい"
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-  
         .formGroup
           .formLabel
             %label
@@ -110,7 +108,6 @@
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
       %hr
-  
       .block
         %p.title
           価格（¥300~9,999,999)
