@@ -4,7 +4,7 @@
       =image_tag "material/logo/logo.png", size: "185x49"
 
   .main
-    = form_for (@item), class: "select" do |f|
+    = form_for '@item', class: "select" do |f|
       .block
         .formGroup
           .formLabel
@@ -16,10 +16,9 @@
             最大１０枚までアップできます。
           .upload
             .upload__data#image-box__container
-              = f.fields_for :images do |image|
-                = image.label :item do
-                  .upload__data--space
-                    = image.file_field :item, class: "hidden"
+              = f.label :image do
+                .upload__data--space
+                = f.file_field :image, class: "hidden"
 
       %hr
       .block
@@ -30,7 +29,7 @@
             %span.tag.must
               必須
           .input-area
-            = f.text_field :name, {:class => "input-area", :placeholder => "40字まで", :type => "text", :maxlength => "40"}
+            %input.input-area{:name => "name", :placeholder => "40字まで", :type => "text", :maxlength => "40"}
         .formGroup
           .formLabel
             %label
@@ -38,10 +37,9 @@
             %span.tag.must
               必須
           .text-area
-            = f.text_area :description, {:class => "text-area", :placeholder => "商品の説明を入力してください", :maxlength => "1000"}
+            %textarea.text-area{:name => "description", :placeholder => "商品の説明を入力してください", :maxlength => "1000"}
         .item-info__footer
           %span 
-
       %hr
       .block
         %p.title
@@ -65,7 +63,8 @@
             %span.tag.option
               任意
           .input-area
-            %input.input-area{:name => "brand",:placeholder => "例）シャネル", :type => "text"}  
+            %input.input-area{:name => "brand",:placeholder => "例）シャネル", :type => "text"}
+  
         .formGroup
           .formLabel
             %label
