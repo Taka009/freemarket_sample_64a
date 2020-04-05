@@ -5,15 +5,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-
     @categories= Category.where(ancestry: nil)
     respond_to do |format|
       format.html
       format.json do
         @children = Category.find(params[:parent_id]).children
+          end
+        end
       end
-    end
-  end
   
   def create
     @item = Item.create(item_params)
