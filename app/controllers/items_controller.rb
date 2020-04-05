@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   end
   
   def new
-    @image = Image.new
     @item = Item.new
+    @item.images.new
     @category = Category.new
     @categories= Category.where(ancestry: nil)
     respond_to do |format|
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-      params.require(:item).permit(:name, :desciription, :condition, :shippingpayer, :postage, :shipping_day)
+      params.require(:item).permit(:name, :desciription, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:image_url])
     end
 
     def category_params
