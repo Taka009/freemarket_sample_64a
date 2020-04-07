@@ -5,14 +5,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @categories= Category.where(ancestry: nil)
+    
     respond_to do |format|
       format.html
       format.json do
         @children = Category.find(params[:parent_id]).children
-          end
-        end
       end
+    end
+  end
   
   def create
     @item = Item.create(item_params)
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-      params.require(:item).permit(:name, :description, :category, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:src])
+      params.require(:item).permit(:name, :description, :category_id, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:src])
     end
 
   end

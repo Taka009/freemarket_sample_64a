@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20200407005622) do
     t.integer  "shippingpayerra",               null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "shippingpayer"
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
