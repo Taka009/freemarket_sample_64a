@@ -16,8 +16,11 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.create(item_params)
-    @item.save!
-    redirect_to root_path 
+    if @item.save
+      redirect_to root_path 
+    else
+      render :new
+    end
   end
   
   def get_category_grandchildren
@@ -35,7 +38,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-      params.require(:item).permit(:name, :description, :category, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:image_url])
+      params.require(:item).permit(:name, :description, :category, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:src])
     end
 
   end

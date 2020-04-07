@@ -17,9 +17,9 @@
           .upload
             .upload__data#image-box__container
               = f.fields_for :images do |image|
-                = image.label :image_url do
+                = image.label :src do
                   .upload__data--space
-                    = image.file_field :image_url, class: "hidden"
+                    = image.file_field :src, class: "hidden"
       %hr
       .block
         .formGroup

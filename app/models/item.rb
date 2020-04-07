@@ -6,5 +6,5 @@ class Item < ApplicationRecord
     belongs_to_active_hash :shippingpayerls
     belongs_to_active_hash :prefecture
     belongs_to_active_hash :shippingduration
-  belongs_to :category
+    belongs_to :category
   end
