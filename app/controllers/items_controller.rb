@@ -3,23 +3,20 @@ class ItemsController < ApplicationController
   end
   
   def new
-    @image = Image.new
     @item = Item.new
-    @category = Category.new
+    @item.images.new
     @categories= Category.where(ancestry: nil)
     respond_to do |format|
       format.html
       format.json do
         @children = Category.find(params[:parent_id]).children
+          end
+        end
       end
-    end
-  end
   
   def create
     @item = Item.create(item_params)
     @item.save!
-    @category = Category.create(category_params)
-    @category.save!    
     redirect_to root_path 
   end
   
@@ -38,10 +35,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-      params.require(:item).permit(:name, :desciription, :condition, :shippingpayer, :postage, :shipping_day)
+      params.require(:item).permit(:name, :description, :category, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:image_url])
     end
 
-    def category_params
-      params.require(:category).permit(:brand, :name, :path)
-    end
   end
