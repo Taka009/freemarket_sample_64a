@@ -5,13 +5,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+    @categories = ["選択してください"]
+      Category.where(ancestry: nil).each do |parent|
+        @categories << parent.name
+      end  
   end
   
   def create
@@ -22,14 +19,13 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_id]}", ancestry: nil).children
+ end
   
   def get_category_grandchildren
-    respond_to do |format|
-      format.html
-      format.json do
-        @category_grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
   
   def search
