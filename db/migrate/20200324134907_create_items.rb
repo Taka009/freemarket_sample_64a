@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.references :brand,      foreign_key: true
       t.references :postage,    null: false
       #t.references :evaluation, #null: false,  foreign_key: true
-      t.references :price,         null: false
+      t.integer :price,         null: false
       t.references :condition,     null: false
       # t.integer :dealing_stage, null: false
       t.references :shipping_day,  null: false

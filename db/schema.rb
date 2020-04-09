@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20200407005622) do
     t.integer  "category_id",                    null: false
     t.integer  "brand_id"
     t.integer  "postage_id",                     null: false
-    t.integer  "price_id",                       null: false
+    t.integer  "price",                          null: false
     t.integer  "condition_id",                   null: false
     t.integer  "shipping_day_id",                null: false
     t.integer  "shippingpayer_id",               null: false
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20200407005622) do
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["condition_id"], name: "index_items_on_condition_id", using: :btree
     t.index ["postage_id"], name: "index_items_on_postage_id", using: :btree
-    t.index ["price_id"], name: "index_items_on_price_id", using: :btree
     t.index ["shipping_day_id"], name: "index_items_on_shipping_day_id", using: :btree
     t.index ["shippingpayer_id"], name: "index_items_on_shippingpayer_id", using: :btree
   end
