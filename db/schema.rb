@@ -33,19 +33,24 @@ ActiveRecord::Schema.define(version: 20200407005622) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                          null: false
-    t.text     "description",     limit: 65535, null: false
-    t.integer  "category_id",                   null: false
+    t.string   "name",                           null: false
+    t.text     "description",      limit: 65535, null: false
+    t.integer  "category_id",                    null: false
     t.integer  "brand_id"
-    t.integer  "postage",                       null: false
-    t.integer  "price",                         null: false
-    t.integer  "condition",                     null: false
-    t.integer  "shipping_day",                  null: false
-    t.integer  "shippingpayerra",               null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.integer  "postage_id",                     null: false
+    t.integer  "price_id",                       null: false
+    t.integer  "condition_id",                   null: false
+    t.integer  "shipping_day_id",                null: false
+    t.integer  "shippingpayer_id",               null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["condition_id"], name: "index_items_on_condition_id", using: :btree
+    t.index ["postage_id"], name: "index_items_on_postage_id", using: :btree
+    t.index ["price_id"], name: "index_items_on_price_id", using: :btree
+    t.index ["shipping_day_id"], name: "index_items_on_shipping_day_id", using: :btree
+    t.index ["shippingpayer_id"], name: "index_items_on_shippingpayer_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
