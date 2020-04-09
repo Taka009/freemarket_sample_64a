@@ -3,6 +3,12 @@ class ItemsController < ApplicationController
   end
   
   def new
+    @category_parent_array = ["選択してください"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+      Category.where(ancestry: nil).each do |parent|
+         @category_parent_array << parent.name
+      end
+    
     @item = Item.new
     @item.images.new
     respond_to do |format|
@@ -15,7 +21,6 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
-
     @item.save!
   end
 
