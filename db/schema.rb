@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20200407005622) do
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                           null: false
     t.text     "description",      limit: 65535, null: false
+    t.integer  "user_id",                        null: false
+    t.integer  "seller_id",                      null: false
     t.integer  "category_id",                    null: false
     t.integer  "brand_id"
     t.integer  "postage_id",                     null: false
@@ -48,8 +50,10 @@ ActiveRecord::Schema.define(version: 20200407005622) do
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
     t.index ["condition_id"], name: "index_items_on_condition_id", using: :btree
     t.index ["postage_id"], name: "index_items_on_postage_id", using: :btree
+    t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
     t.index ["shipping_day_id"], name: "index_items_on_shipping_day_id", using: :btree
     t.index ["shippingpayer_id"], name: "index_items_on_shippingpayer_id", using: :btree
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -73,4 +77,6 @@ ActiveRecord::Schema.define(version: 20200407005622) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "seller_id"
 end
