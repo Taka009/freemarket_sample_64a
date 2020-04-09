@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    
     respond_to do |format|
       format.html
       format.json do
@@ -15,12 +14,9 @@ class ItemsController < ApplicationController
   end
   
   def create
-    @item = Item.create(item_params)
-    if @item.save
-      redirect_to root_path 
-    else
-      render :new
-    end
+    @item = Item.new(item_params)
+
+    @item.save!
   end
   
   def get_category_grandchildren
@@ -38,7 +34,8 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-      params.require(:item).permit(:name, :description, :category_id, :condition, :shippingpayer, :postage, :shipping_day, images_attributes: [:src])
+      
+      params.require(:item).permit(:name, :description, :category_id, :condition, :shippingpayerra, :postage, :shipping_day,:price ,images_attributes: [:image_url]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
     end
 
   end

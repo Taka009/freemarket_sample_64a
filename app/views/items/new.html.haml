@@ -16,10 +16,13 @@
             最大１０枚までアップできます。
           .upload
             .upload__data#image-box__container
-              = f.fields_for :images do |image|
-                = image.label :src do
-                  .upload__data--space
-                    = image.file_field :src, class: "hidden"
+              = f.fields_for :images do |i|
+
+                = i.file_field :image_url
+          -# = form_for @product do |f| 
+          -#   画像
+          -#   = f.fields_for :images do |i| 
+          -#     = i.file_field :src 
       %hr
       .block
         .formGroup
@@ -122,7 +125,7 @@
               %p.yen
                 ¥
               .input-price
-                %input{name: "price", type: "number", placeholder: "0", autocomplete: "off", :class => "input-price__form"}
+                = f.text_field :price
                 
             .result-price
               販売手数料 (10%)
