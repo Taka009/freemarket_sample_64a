@@ -17,12 +17,7 @@
           .upload
             .upload__data#image-box__container
               = f.fields_for :images do |i|
-
                 = i.file_field :image_url
-          -# = form_for @product do |f| 
-          -#   画像
-          -#   = f.fields_for :images do |i| 
-          -#     = i.file_field :src 
       %hr
       .block
         .formGroup
