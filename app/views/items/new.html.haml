@@ -5,6 +5,7 @@
 
   .main
     = form_for (@item), class: "select" do |f|
+      = render 'layouts/error_messages', model: f.object
       .block
         .formGroup
           .formLabel
@@ -14,10 +15,11 @@
               必須
           .subtitle
             最大１０枚までアップできます。
-          .upload
-            .upload__data#image-box__container
+        .upload
+          .upload__data#image-box__container
+            %p
               = f.fields_for :images do |i|
-                = i.file_field :image_url
+                = i.file_field :image_url 
       %hr
       .block
         .formGroup
@@ -27,7 +29,7 @@
             %span.tag.must
               必須
           .input-area
-            = f.text_field :name, {:class => "input-area", :placeholder => "40字まで", :type => "text", :maxlength => "40"}
+            = f.text_field :name, {class: "input-area", placeholder: "40字まで", type: "text", maxlength: "40"}
         .formGroup
           .formLabel
             %label
@@ -35,7 +37,7 @@
             %span.tag.must
               必須
           .text-area
-            = f.text_area :description, {:class => "text-area", :placeholder => "商品の説明を入力してください", :maxlength => "1000"}
+            = f.text_area :description, {class: "text-area", placeholder: "商品の説明を入力してください", maxlength: "1000"}
         .item-info__footer
           %span 
 
@@ -51,7 +53,7 @@
               %span.tag.must
                 必須
             .select#select
-              = f.select :category_id, @category_parent_array, {}, {class: 'select-default', id: 'parent-form'}
+              = f.collection_select :category_id, Category.where(ancestry: nil),:id, :name,{prompt: "選択してください"}, {class: 'select-default', id: 'parent-form'}
               %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
                 %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
         .formGroup
@@ -61,7 +63,7 @@
             %span.tag.option
               任意
           .input-area
-            %input.input-area{:name => "brand",:placeholder => "例）シャネル", :type => "text"}  
+            %input.input-area{name: "brand",placeholder: "例）シャネル", type: "text"}  
         .formGroup
           .formLabel
             %label

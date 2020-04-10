@@ -4,7 +4,7 @@
       =image_tag "material/logo/logo.png", size: "185x49"
 
   .main
-    = form_for '', class: "select" do |f|
+    = form_for (@item), class: "select" do |f|
       .block
         .formGroup
           .formLabel
@@ -16,10 +16,8 @@
             最大１０枚までアップできます。
           .upload
             .upload__data#image-box__container
-              = f.label :image do
-                .upload__data--space
-                = f.file_field :image, class: "hidden"
-
+              = f.fields_for :images do |i|
+                = i.file_field :image_url
       %hr
       .block
         .formGroup
@@ -29,7 +27,7 @@
             %span.tag.must
               必須
           .input-area
-            %input.input-area{:name => "name", :placeholder => "40字まで", :type => "text", :maxlength => "40"}
+            = f.text_field :name, {class: "input-area", placeholder: "40字まで", type: "text", maxlength: "40"}
         .formGroup
           .formLabel
             %label
@@ -37,25 +35,25 @@
             %span.tag.must
               必須
           .text-area
-            %textarea.text-area{:name => "description", :placeholder => "商品の説明を入力してください", :maxlength => "1000"}
+            = f.text_area :description, {class: "text-area", placeholder: "商品の説明を入力してください", maxlength: "1000"}
         .item-info__footer
           %span 
+
       %hr
       .block
         %p.title
           商品の詳細
         .formGroup
-          .formLabel
-            %label
-              カテゴリー
-            %span.tag.must
-              必須
-          .select
-            .select__area
-              選択してください
-            %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
-              %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-  
+          .style
+            .formLabel
+              %label
+                カテゴリー
+              %span.tag.must
+                必須
+            .select#select
+              = f.select :category_id, @category_parent_array, {}, {class: 'select-default', id: 'parent-form'}
+              %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
+                %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
         .formGroup
           .formLabel
             %label
@@ -63,8 +61,7 @@
             %span.tag.option
               任意
           .input-area
-            %input.input-area{:name => "brand",:placeholder => "例）シャネル", :type => "text"}
-  
+            %input.input-area{name: "brand",placeholder: "例）シャネル", type: "text"}  
         .formGroup
           .formLabel
             %label
@@ -72,7 +69,7 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :condition, Condition_ls.all, :id, :name, prompt: "選択して下さい"
+            = f.collection_select :condition_id, Conditionls.all, :id, :name, prompt: "選択して下さい"
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
       %hr
@@ -86,7 +83,7 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :shippingpayer, Shippingpayer.all, :id, :name, prompt: "選択して下さい"
+            = f.collection_select :shippingpayer_id, Shippingpayerls.all, :id, :name, prompt: "選択して下さい"
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
         .formGroup
@@ -96,10 +93,9 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :select__area, Prefecture.all, :id, :name, prompt: "選択して下さい"
+            = f.collection_select :postage_id, Prefecture.all, :id, :name, prompt: "選択して下さい"
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
-  
         .formGroup
           .formLabel
             %label
@@ -107,11 +103,10 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :shipping_day, Shippingduration.all, :id, :name, prompt: "選択して下さい"
+            = f.collection_select :shipping_day_id, Shippingduration.all, :id, :name, prompt: "選択して下さい"
             %svg{:width => "24", :height => "24", :viewBox => "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
       %hr
-  
       .block
         %p.title
           価格（¥300~9,999,999)
@@ -126,7 +121,7 @@
               %p.yen
                 ¥
               .input-price
-                %input{name: "price", type: "number", placeholder: "0", autocomplete: "off", :class => "input-price__form"}
+                = f.text_field :price
                 
             .result-price
               販売手数料 (10%)
