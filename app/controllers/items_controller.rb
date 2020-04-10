@@ -3,11 +3,7 @@ class ItemsController < ApplicationController
   end
   
   def new
-    @category_parent_array = ["選択してください"]
-    Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-    end
-    
+    @category_parent_array = Category.where(ancestry: nil).pluck(:id,:name)
     @item = Item.new
     @item.images.new
     respond_to do |format|
@@ -28,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_id]}", ancestry: nil).children
+    @category_children = Category.find_by("#{params[:parent_id]}", ancestry: nil).children
   end
   
   def get_category_grandchildren
