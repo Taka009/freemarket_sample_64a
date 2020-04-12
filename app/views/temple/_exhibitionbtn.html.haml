@@ -2,5 +2,9 @@
   .btn_text
     出品する
     .btn_icon
-      = link_to new_item_path do
-        = image_tag "icon_camera.png"
+      - if user_signed_in?
+        = link_to new_item_path do
+          = image_tag "icon_camera.png"
+      - else 
+        = link_to root_path do
+          = image_tag "icon_camera.png"
