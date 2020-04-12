@@ -7,9 +7,9 @@
     .productsLists
       - @items.each_slice(3) do |item1,item2,item3|
         .productsLists_list
-          .productsLists_list--image
-            -if item1 != nil
-              %else
+          -if item1 != nil
+            %else
+              .productsLists_list--image
                 - item1.images.each do |image| 
                   = image_tag image.image_url.url
                 .productsLists_list--body
@@ -22,9 +22,9 @@
                       %li<
                         = icon('fas', 'heart')
                     %p<(税込)
-          .productsLists_list--image
-            -if item2 != nil
-              %else
+          -if item2 != nil
+            %else
+              .productsLists_list--image
                 - item2.images.each do |image| 
                   = image_tag image.image_url.url
                 .productsLists_list--body
@@ -37,9 +37,9 @@
                       %li<
                         = icon('fas', 'heart')
                     %p<(税込
-            .productsLists_list--image
-            -if item3 != nil
-              %else
+          -if item3 != nil
+            %else
+              .productsLists_list--image
                 - item3.images.each do |image| 
                   = image_tag image.image_url.url
                 .productsLists_list--body
