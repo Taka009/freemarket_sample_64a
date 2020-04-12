@@ -8,7 +8,8 @@
       - @items.each_slice(3) do |item1,item2,item3|
         .productsLists_list
           .productsLists_list--image
-            = image_tag "71CTWXDG4eL._AC_SL1239_.jpg"
+            - item1.images.each do |image| 
+              = image_tag image.image_url.url
           .productsLists_list--body
             -if item1 != nil
               .name
@@ -23,7 +24,8 @@
                 %p<(税込)
        
           .productsLists_list--image
-            = image_tag "71CTWXDG4eL._AC_SL1239_.jpg"
+            - item2.images.each do |image| 
+              = image_tag image.image_url.url
           .productsLists_list--body
             -if item2 != nil
               .name
@@ -37,7 +39,8 @@
                     　0
                 %p<(税込
           .productsLists_list--image
-            = image_tag "71CTWXDG4eL._AC_SL1239_.jpg"
+            - item3.images.each do |image| 
+              = image_tag image.image_url.url
           .productsLists_list--body
             -if item3 != nil
               .name
