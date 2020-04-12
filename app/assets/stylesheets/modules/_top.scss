@@ -234,72 +234,65 @@
   }
 }
 
-.main{
-  padding: 80px 0 0;
-  background-color: #f8f8f8;
-  height: 100%;
-  .main_head{
-    text-align: center;
-    font-size: 28px;
-    line-height: 1.4;
-    font-weight: bold;
-  }
-  .productsBox{
-    margin: 0;
-    padding: 0;
-    .productsHead{
-      font-size: 24px;
-    text-decoration: none;
-    color: #3CCACE;
-      text-align: center;
-    }
-    .productsLists{
-      width: 780px;
-      margin: 26px auto;
-      display: flex;
-      justify-content: space-around;
-      .productsLists_list{
-        width: 220px;
-        display: inline-block;
-        float: left;
-        .productsLists_list--image{
-          width: 220px;
-          height: 260px;
 
-          position: relative;
-          overflow: hidden;
-          margin: 0;
-          z-index: auto;
-         }
-        .productsLists_list--body{
-          background-color: white;
-          color: #333;
-          padding: 16px;
-          .name{
-            overflow: hidden;
-            line-height: 1.5;
-            font-size: 16px;
-            text-align: left;
-          }
-          .price{
-            font-size: 16px;
-             ul{
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              li{
-                margin-right: 10px;
-              }
-             }
-             p{
-               font-size: 10px;
-             }
-              .li{
-              }
-            }
-          }
+.main_head{
+  text-align: center;
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  width: 700px;
 }
-    }}}
+.productsBox{
+  background-color: #f8f8f8;
+  width: 700px;
+}
+.productsHead{
+  text-align: center;
+  font-size: 24px;
+  text-decoration: none;
+  color: #3CCACE;
+}
+.productsLists{
+  
+}
+.productsLists_list{
+  display: flex;
+  width: 780px;
+  margin: 26px auto;
+  display: flex;
+  justify-content: space-around;
+}
+.productsLists_list--image{
+  width: 220px;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  z-index: auto;
+}
+.image-item{
+  height: 150px;
+}
+.productsLists_list--body{
+  color: #333;
+  padding: 16px;
+}
+.name{
+  overflow: hidden;
+  line-height: 1.5;
+  font-size: 16px;
+  text-align: left;
+}
+.price ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tax{
+  font-size: 10px;
+  text-align: left;
+}
 
 
 // ここからフッター

@@ -8,47 +8,44 @@
       - @items.each_slice(3) do |item1,item2,item3|
         .productsLists_list
           -if item1 != nil
-            %else
-              .productsLists_list--image
-                - item1.images.each do |image| 
-                  = image_tag image.image_url.url
-                .productsLists_list--body
-                  .name
-                    = item1.name 
-                  .price
-                    %ul
-                      %li<
-                        = item1.price
-                      %li<
-                        = icon('fas', 'heart')
-                    %p<(税込)
+            = link_to "#" ,class:"productsLists_list--image" do
+              - item1.images.each do |image| 
+                = image_tag image.image_url.url ,class:"image-item"
+              .productsLists_list--body
+                .name
+                  = item1.name 
+                .price
+                  %ul
+                    %li<
+                      = "￥ #{item1.price}円"
+                    %li<
+                      = icon('fas', 'heart')
+                  .tax<(税込)
           -if item2 != nil
-            %else
-              .productsLists_list--image
-                - item2.images.each do |image| 
-                  = image_tag image.image_url.url
-                .productsLists_list--body
-                  .name
-                    = item2.name 
-                  .price
-                    %ul
-                      %li<
-                        = item2.price
-                      %li<
-                        = icon('fas', 'heart')
-                    %p<(税込
+            = link_to "#" ,class:"productsLists_list--image" do
+              - item2.images.each do |image| 
+                = image_tag image.image_url.url ,class:"image-item"
+              .productsLists_list--body
+                .name
+                  = item2.name 
+                .price
+                  %ul
+                    %li<
+                      = "￥ #{item2.price}円"
+                    %li<
+                      = icon('fas', 'heart')
+                  .tax<(税込)
           -if item3 != nil
-            %else
-              .productsLists_list--image
-                - item3.images.each do |image| 
-                  = image_tag image.image_url.url
-                .productsLists_list--body
-                  .name
-                    = item3.name 
-                  .price
-                    %ul
-                      %li<
-                        = item3.price
-                      %li<
-                        = icon('fas', 'heart')
-                    %p<(税込)
+            = link_to "#" ,class:"productsLists_list--image" do
+              - item3.images.each do |image| 
+                = image_tag image.image_url.url ,class:"image-item"
+              .productsLists_list--body
+                .name
+                  = item3.name 
+                .price
+                  %ul
+                    %li<
+                      = "￥ #{item3.price}円"
+                    %li<
+                      = icon('fas', 'heart')
+                  .tax<(税込)
