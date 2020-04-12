@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "dummy_items#index"
+  root to: "top#index"
   devise_for :users
 
   post 'items/new'

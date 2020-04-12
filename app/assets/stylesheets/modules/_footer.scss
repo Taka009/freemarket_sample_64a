@@ -1,0 +1,69 @@
+.footer{
+  background-image: url(bg-appBanner-pict);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  .benner{
+    color: #fff;
+    text-align: center;
+    .benner_h1{
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+    }
+    .benner_h2{
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    .benner_icon{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+          }
+      .logoA{
+        width: 180px;
+        height: 66px;
+        margin-right: 10px;
+      }
+      .logoB{
+        width: 180px;
+        height: 66px;
+      }
+      }
+    }
+  .footer_text{
+    padding: 60px 0;
+    color: #fff;
+    background-color: #272727;
+    text-align: center;
+    .footer_text_contents{
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      .information{
+        display: flex;
+        flex-direction: column;
+        width: calc(1 / 3 * 100%);
+        margin: 0 2% 0 0;
+        .information_top{
+          margin: 0 0 20px;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .footer_lists{
+          color: #fff;
+          text-decoration: none;
+          font-size: 12px;
+          line-height: 32px;          }
+        }
+      }
+    }
+  .footer_logo{
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    }
