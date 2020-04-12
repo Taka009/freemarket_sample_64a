@@ -34,6 +34,12 @@
         ブランド
     .header_contents_right
       .signin
-        ログイン
-      .new
-        新規登録
+        - if user_signed_in?
+          = link_to "商品出品", new_item_path, class: "new"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "new"
+        - else
+          = link_to "ログイン", new_user_session_path, class: "new"
+          = link_to "新規登録", new_user_registration_path, class: "new"
+
+    
+    
