@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   end
   
   def new
+    @categories = Category.where(ancestry: nil)
     @category_parent_array = Category.where(ancestry: nil).pluck(:id,:name)
     @item = Item.new
     @item.images.new
