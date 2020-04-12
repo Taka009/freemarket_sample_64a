@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.text :description,      null: false
       t.references :user,       null: false,  foreign_key: true
       t.references :seller,     null: false,  foreign_key: { to_table: :users }
-      # t.references :buyer,      foreign_key: { to_table: :users }
+      t.references :buyer,      foreign_key: { to_table: :users }
       t.references :category,   null: false,  foreign_key: true
       t.references :brand,      foreign_key: true
       t.references :postage,    null: false
