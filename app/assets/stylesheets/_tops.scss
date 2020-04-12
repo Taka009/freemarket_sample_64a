@@ -1,0 +1,395 @@
+// Place all the styles related to the tops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+li {
+  text-align: -webkit-match-parent;
+  display: list-item;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  margin: 0px;
+  padding: 0px;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  font: inherit;
+}
+
+div {
+  display: block;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  font: inherit;
+}
+svg {
+  width: 16px;
+  height: 16px;
+  fill: rgb(0, 149, 238);
+  fill-rule: evenodd;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+path {
+  height: 16px;
+  width: 16px;
+}
+
+html {
+   height: 100%;
+   width: 100%;
+   background-color: red;
+
+  body {
+    position: relative;
+    min-height: 100%;
+    margin: 0px;
+    color: rgb(51, 51, 51);
+    background-color: rgb(245, 245, 245);
+    font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    display: block;
+
+    .a {
+      vertical-align: baseline;
+      margin: 0px;
+      .b {
+        background-color: rgb(245, 245, 245);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow: scroll;
+        margin: 0px;
+        
+        .c {
+          @media (min-width: 768px) {
+            max-width: 700px;
+            padding: 0px;
+          }
+          width: 100%;
+          height: 671px;
+          margin: 0px auto;
+
+          .q {
+          position: fixed;
+          top: 0px;
+          z-index: 3;
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          padding-top: 6px;
+          left: 0px;
+          width: 100%;
+          height: 136px;
+        
+        }
+
+          .d {
+            position: relative;
+            height: 671px;
+            width: 100%;
+            top: 143px;
+            .e {
+              @media (min-width: 768px) {
+                height: 290;
+              }
+              height: 170px;
+              left: 50%;
+              margin-left: -50vw;
+              position: relative;
+              top: 0px;
+              width: 100vw;
+              overflow: hidden;
+              // background: image-url("bg-appBanner-pict.jpg");
+              // background-size: cover;
+              a {
+                color: inherit;
+                text-decoration: none;
+              }
+              .w {
+                background: image-url("bg-appBanner-pict.jpg");
+                background-size: cover;
+                height: 100%;
+              }
+            }
+            .f {
+              background-color: rgb(255, 255, 255);
+              left: 50%;
+              margin-left: -50vw;
+              position: relative;
+              top: 0px;
+              width: 100vw;
+              height: 134px;
+              padding: 40px 20px 20px;
+              
+              h1 {
+                width: 677px;
+                height: 28px;
+                text-align: center;
+                margin-top: 0px;
+                margin-bottom: 16px;
+                font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: 600;
+              }
+              .category_a {
+                width: 100%;
+                height: 35px;
+                overflow: auto;
+                text-align: center;
+                white-space: nowrap;
+
+                .category_b {
+                  margin: 0px;
+                  list-style: none;
+
+                  .category_c {
+                    display: inline-block;
+                    .category_box {
+                      background-color: rgb(239, 239, 239);
+                      cursor: pointer;
+                      display: inline-block;
+                      font-size: 14px;
+                      font-weight: 600;
+                      border-radius: 15px;
+                      padding: 8px 16px;
+                      display: none;
+                      @media (max-width: 767px) {
+                        display: none;
+                      }
+                    }
+                    .category_name {
+                      background-color: rgb(239, 239, 239);
+                      cursor: pointer;
+                      display: inline-block;
+                      font-size: 14px;
+                      font-weight: 600;
+                      border-radius: 15px;
+                      padding: 8px 16px;
+                    }
+                  
+                  }
+                  .category_c:not(:first-child) {
+                    margin-left: 10px;
+                  }
+
+                }
+              }
+
+            }
+            .g {
+              padding: 30px 0px 60px;
+              .item_a {
+
+                // .item_a:not(first-child) {
+                //   margin-top: 40px;
+                // }
+
+                &__name {
+                  margin-bottom: 16px;
+                  -webkit-box-align: center;
+                  align-items: center;
+                  display: flex;
+                  -webkit-box-pack: justify;
+                  justify-content: space-between;
+                  .name {
+                    flex: 1 1 0%;
+                    font-weight: 600px;
+                    padding: 0px;
+                    margin: 0px;
+                    font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+                    @media (max-width: 767px) {
+                        font-size: 17px;
+                        line-height: 24px;
+                    }
+                  }
+                  .more_show {
+                    font-size: 14px;
+                    align-items: center;
+                    cursor: pointer;
+                    color: #0095ee;
+                    display: inline-flex;
+                    line-height: 1.4em;
+                    text-decoration: none;
+                    word-break: normal;
+                  }
+                  .sv {
+                    flex-shrink: 0;
+                    margin-left: 4px;
+                    
+                   }
+                
+                }
+
+                &__body {
+                  .item_a_div {
+                    .items_list {
+                      display: flex;
+                      flex-wrap: wrap;
+                      margin: -3px;
+                      @media (min-width: 768px) {
+                        margin: -10px;
+                      }
+                      .items {
+                        width: 33.3333%;
+                        padding: 3px;
+                        .items_a {
+                          visibility: visible;
+                          transition: all 0.5s ease 0s;
+                          opacity:  1;
+                          .items_b {
+                            width: 100%;
+                            cursor: pointer;
+                            display: inline-block;
+                            position: relative;
+                            text-decoration: none;
+                            vertical-align: top;
+                            
+                            .fi {
+                              font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+                              width: 100%;
+                              align-items: center;
+                              display: flex;
+                              position: relative;
+                              background-color: #fff;
+                              box-shadow: 0 2px 4px rgba(0,0,0,.18);
+                              flex-direction: column-reverse;
+                              margin: 0;
+                              overflow: hidden;
+                              z-index: 0;
+                              @media (min-width: 767px) and (min-width: 375px) {
+                                width: 117px;
+                              }
+                              .ca {
+                                @media (max-width: 767px) and (min-width: 375px) {
+                                  font-size: 12px;
+                                  height: 46px;
+                                  padding: 6px 8px;
+                                }
+                                .sp {
+                                  display: inline-block;
+                                  height: 2.8em;
+                                  overflow: hidden;
+                                  position: relative;
+                                  
+                                }
+                                .qw {
+                                  align-items: center;
+                                  background: #fff;
+                                  bottom: 0;
+                                  display: flex;
+                                  height: 1.4em;
+                                  margin: auto;
+                                  position: absolute;
+                                  right: 12px;
+                                  top: 1.4em;
+                                }
+                              }
+                              .di {
+                                height: 0;
+                                overflow: hidden;
+                                padding: 0 0 100%;
+                                position: relative;
+                                width: 100%;
+                                @media (max-width: 767px) and (min-width: 375px) {
+                                  height: 117px;
+                                }
+
+                                .price {
+                                  align-items: center;
+                                  background: rgba(0,0,0,.4);
+                                  border-radius: 0 14px 14px 0;
+                                  bottom: 8px;
+                                  box-sizing: border-box;
+                                  color: #fff;
+                                  display: inline-flex;
+                                  font-size: 17px;
+                                  height: 32px;
+                                  height: 28px;
+                                  letter-spacing: .02em;
+                                  margin: 0;
+                                  padding: 0 12px;
+                                  position: absolute;
+                                  z-index: 2;
+                                  cursor: pointer;
+
+                                  @media (max-width: 767px) and (min-width: 375px) {
+                                    bottom: 4px;
+                                    font-size: 14px;
+                                    padding: 0 8px;
+
+                                  }
+                                  
+                                  
+                                }
+
+                                .photo {
+                                  bottom: 0;
+                                  position: absolute;
+                                  top: 0;
+                                  height: 100%;
+                                  object-fit: cover;
+                                  vertical-align: top;
+                                  width: 100%;
+                                  z-index: 1;
+                                  -o-object-fit: cover;
+                                }
+                              }
+                            }
+
+                          }
+
+                          .item_b :after {
+                            border: 1px solid transparent;
+                            bottom: 0;
+                            box-sizing: border-box;
+                            content: "";
+                            height: 100%;
+                            left: 0;
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            -webkit-transition-duration: .1s;
+                            transition-duration: .1s;
+                            -webkit-transition-timing-function: ease-in-out;
+                            transition-timing-function: ease-in-out;
+                            width: 100%;
+                            z-index: 1;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                
+              }
+              .item_a:not(first-child) {
+                margin-top: 40px;
+              }
+
+            }
+
+        }
+
+      }
+    }
+  }
+  }
+}

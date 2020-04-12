@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+  resources :tops 
 end

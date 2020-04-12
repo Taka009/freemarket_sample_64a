@@ -1,0 +1,868 @@
+-# %p#notice= notice
+-# %h1 Tops
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Title
+-#       %th Content
+-#       %th Text
+-#       %th{:colspan => "3"}
+-#   %tbody
+-#     - @tops.each do |top|
+-#       %tr
+-#         %td= top.title
+-#         %td= top.content
+-#         %td= top.text
+-#         %td= link_to 'Show', top
+-#         %td= link_to 'Edit', edit_top_path(top)
+-#         %td= link_to 'Destroy', top, method: :delete, data: { confirm: 'Are you sure?' }
+-# %br/
+-# = link_to 'New Top', new_top_path
+%html
+  %body
+    .a
+      .b
+        .c
+          .q
+          .d
+            .e
+              %a{:href => "/seller/smartphone"}
+              .w
+            .f
+              %h1 人気のカテゴリー
+              .category_a
+                %ul.category_b
+                  %li.category_c
+                    %a.category_box メンズ
+                    %a.category_name メンズ
+                  %li.category_c
+                    %a.category_box レディース
+                    %a.category_name レディース
+                  %li.category_c
+                    %a.category_box キンコン
+                    %a.category_name モンハン
+                  %li.category_c
+                    %a.category_box 西野
+                    %a.category_name 西野
+            .g
+              .item_a
+                .item_a__name
+                  %h3.name レディース新着アイテム
+                  %a.more_show もっと見る
+                  %svg.sv
+                    %path{d: "M 9 19 a 0.7 0.7 0 0 1 -0.49 -0.2 a 0.69 0.69 0 0 1 0 -1 l 5.62 -5.63 a 0.28 0.28 0 0 0 0.09 -0.21 a 0.27 0.27 0 0 0 -0.09 -0.2 L 8.6 6.19 a 0.7 0.7 0 1 1 1 -1 l 5.58 5.58 A 1.71 1.71 0 0 1 15.66 12 a 1.73 1.73 0 0 1 -0.49 1.2 L 9.54 18.8 A 0.74 0.74 0 0 1 9 19 Z"}
+                .item_a__body 
+                  .item_a_div
+                    %ul.items_list
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+              .item_a
+                .item_a__name
+                  %h3.name レディース新着アイテム
+                  %a.more_show もっと見る
+                  %svg.sv
+                    %path{d: "M 9 19 a 0.7 0.7 0 0 1 -0.49 -0.2 a 0.69 0.69 0 0 1 0 -1 l 5.62 -5.63 a 0.28 0.28 0 0 0 0.09 -0.21 a 0.27 0.27 0 0 0 -0.09 -0.2 L 8.6 6.19 a 0.7 0.7 0 1 1 1 -1 l 5.58 5.58 A 1.71 1.71 0 0 1 15.66 12 a 1.73 1.73 0 0 1 -0.49 1.2 L 9.54 18.8 A 0.74 0.74 0 0 1 9 19 Z"}
+                .item_a__body 
+                  .item_a_div
+                    %ul.items_list
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+
+              .item_a
+                .item_a__name
+                  %h3.name レディース新着アイテム
+                  %a.more_show もっと見る
+                  %svg.sv
+                    %path{d: "M 9 19 a 0.7 0.7 0 0 1 -0.49 -0.2 a 0.69 0.69 0 0 1 0 -1 l 5.62 -5.63 a 0.28 0.28 0 0 0 0.09 -0.21 a 0.27 0.27 0 0 0 -0.09 -0.2 L 8.6 6.19 a 0.7 0.7 0 1 1 1 -1 l 5.58 5.58 A 1.71 1.71 0 0 1 15.66 12 a 1.73 1.73 0 0 1 -0.49 1.2 L 9.54 18.8 A 0.74 0.74 0 0 1 9 19 Z"}
+                .item_a__body 
+                  .item_a_div
+                    %ul.items_list
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+
+
+              .item_a
+                .item_a__name
+                  %h3.name レディース新着アイテム
+                  %a.more_show もっと見る
+                  %svg.sv
+                    %path{d: "M 9 19 a 0.7 0.7 0 0 1 -0.49 -0.2 a 0.69 0.69 0 0 1 0 -1 l 5.62 -5.63 a 0.28 0.28 0 0 0 0.09 -0.21 a 0.27 0.27 0 0 0 -0.09 -0.2 L 8.6 6.19 a 0.7 0.7 0 1 1 1 -1 l 5.58 5.58 A 1.71 1.71 0 0 1 15.66 12 a 1.73 1.73 0 0 1 -0.49 1.2 L 9.54 18.8 A 0.74 0.74 0 0 1 9 19 Z"}
+                .item_a__body 
+                  .item_a_div
+                    %ul.items_list
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+
+
+            .f
+              %h1 人気のカテゴリー
+              .category_a
+                %ul.category_b
+                  %li.category_c
+                    %a.category_box メンズ
+                    %a.category_name メンズ
+                  %li.category_c
+                    %a.category_box レディース
+                    %a.category_name レディース
+                  %li.category_c
+                    %a.category_box キンコン
+                    %a.category_name モンハン
+                  %li.category_c
+                    %a.category_box 西野
+                    %a.category_name 西野
+
+            .g
+              .item_a
+                .item_a__name
+                  %h3.name レディース新着アイテム
+                  %a.more_show もっと見る
+                  %svg.sv
+                    %path{d: "M 9 19 a 0.7 0.7 0 0 1 -0.49 -0.2 a 0.69 0.69 0 0 1 0 -1 l 5.62 -5.63 a 0.28 0.28 0 0 0 0.09 -0.21 a 0.27 0.27 0 0 0 -0.09 -0.2 L 8.6 6.19 a 0.7 0.7 0 1 1 1 -1 l 5.58 5.58 A 1.71 1.71 0 0 1 15.66 12 a 1.73 1.73 0 0 1 -0.49 1.2 L 9.54 18.8 A 0.74 0.74 0 0 1 9 19 Z"}
+                .item_a__body 
+                  .item_a_div
+                    %ul.items_list
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+              .item_a
+                .item_a__name
+                  %h3.name レディース新着アイテム
+                  %a.more_show もっと見る
+                  %svg.sv
+                    %path{d: "M 9 19 a 0.7 0.7 0 0 1 -0.49 -0.2 a 0.69 0.69 0 0 1 0 -1 l 5.62 -5.63 a 0.28 0.28 0 0 0 0.09 -0.21 a 0.27 0.27 0 0 0 -0.09 -0.2 L 8.6 6.19 a 0.7 0.7 0 1 1 1 -1 l 5.58 5.58 A 1.71 1.71 0 0 1 15.66 12 a 1.73 1.73 0 0 1 -0.49 1.2 L 9.54 18.8 A 0.74 0.74 0 0 1 9 19 Z"}
+                .item_a__body 
+                  .item_a_div
+                    %ul.items_list
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+
+              .item_a
+                .item_a__name
+                  %h3.name レディース新着アイテム
+                  %a.more_show もっと見る
+                  %svg.sv
+                    %path{d: "M 9 19 a 0.7 0.7 0 0 1 -0.49 -0.2 a 0.69 0.69 0 0 1 0 -1 l 5.62 -5.63 a 0.28 0.28 0 0 0 0.09 -0.21 a 0.27 0.27 0 0 0 -0.09 -0.2 L 8.6 6.19 a 0.7 0.7 0 1 1 1 -1 l 5.58 5.58 A 1.71 1.71 0 0 1 15.66 12 a 1.73 1.73 0 0 1 -0.49 1.2 L 9.54 18.8 A 0.74 0.74 0 0 1 9 19 Z"}
+                .item_a__body 
+                  .item_a_div
+                    %ul.items_list
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+
+
+              .item_a
+                .item_a__name
+                  %h3.name レディース新着アイテム
+                  %a.more_show もっと見る
+                  %svg.sv
+                    %path{d: "M 9 19 a 0.7 0.7 0 0 1 -0.49 -0.2 a 0.69 0.69 0 0 1 0 -1 l 5.62 -5.63 a 0.28 0.28 0 0 0 0.09 -0.21 a 0.27 0.27 0 0 0 -0.09 -0.2 L 8.6 6.19 a 0.7 0.7 0 1 1 1 -1 l 5.58 5.58 A 1.71 1.71 0 0 1 15.66 12 a 1.73 1.73 0 0 1 -0.49 1.2 L 9.54 18.8 A 0.74 0.74 0 0 1 9 19 Z"}
+                .item_a__body 
+                  .item_a_div
+                    %ul.items_list
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+                      %li.items
+                        .items_a
+                          %a.items_b
+                            %figure.fi
+                              %figcaption.ca
+                                %span.sp レーストップ
+                              .di
+                                %span.price $ 1200
+                                .qw
+                                %img.photo{src: "member_photo_noimage_thumb.png"}
+
+
+
