@@ -1,4 +1,8 @@
 %body
+  .sell-header
+    %a
+      =image_tag "logo.png", size: "15x49"
+
   .main
     = form_for (@item), class: "select" do |f|
       = render 'layouts/error_messages', model: f.object

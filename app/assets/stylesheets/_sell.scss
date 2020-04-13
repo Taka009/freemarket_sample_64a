@@ -2,12 +2,9 @@
   box-sizing: border-box;
 }
 
-
-
 a{
   text-decoration: none;
 }
-
 
 input {
   font-family: inherit;
@@ -28,7 +25,7 @@ svg:not(:root) {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-.header{
+.sell-header{
   height: 128px;
   align-items: center;
   display: flex;
