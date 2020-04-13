@@ -7,7 +7,7 @@ $(function(){
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div class='select' id= 'select'>
-                        <select class="select" id="child_category" name="item[category_id]">
+                        <select class="select-category" id="child_category" name="item[category_id]">
                           <option value="---" data-category="選択してください">選択してください</option>
                           ${insertHTML}
                         <select>
@@ -18,7 +18,7 @@ $(function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml =  `<div class='select' id= 'select'>
-                        <select class="select" id="grandchild_category" name="item[category_id]">
+                        <select class="select-category" id="grandchild_category" name="item[category_id]">
                           <option value="---" data-category="---">選択してください</option>
                           ${insertHTML}
                         <select>
@@ -28,7 +28,7 @@ $(function(){
 
   $("#parent-form").on("change",function(){
     var parentId = document.getElementById("parent-form").value;
-    if (parentId != "選択してください"){ 
+    if (parentId != ""){ 
       $.ajax({
         url: 'get_category_children',
         type: "GET",

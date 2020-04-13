@@ -110,13 +110,15 @@ svg:not(:root) {
     }
 
     .select{
-      margin-top: 16px;
       width: 100%;
       position: relative;
       &__area{
         border: 1px solid black;
         height: 48px;
         padding: 0 56px 0 16px;
+      }
+      .select-category{
+        margin-top: 15px;
       }
       svg{
         bottom: 0;
