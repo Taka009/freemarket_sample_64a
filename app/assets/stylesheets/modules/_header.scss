@@ -60,16 +60,16 @@
       .gnav {
         display: flex;
         height: 2rem;
-        margin: 0 auto;
         width: 100px;
         z-index: 100;
+        white-space: nowrap;
+        text-overflow: ellipsis
       }
       .gnav > li {
         width: 100%;
       }
       .gnav li {
         list-style: none;
-        
       }
       .gnav li ul{
         position: relative;
