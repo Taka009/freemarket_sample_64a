@@ -1,0 +1,10 @@
+.btn
+  .btn_text
+    出品する
+    .btn_icon
+      - if user_signed_in?
+        = link_to new_item_path do
+          = image_tag "icon_camera.png"
+      - else 
+        = link_to new_user_registration_path do
+          = image_tag "icon_camera.png"

@@ -1,0 +1,45 @@
+.header
+  .header_main
+    .header_main_logo
+      = image_tag "logo.png", size: "140x40", alt: "test",class: "logo"
+    .header_main_category
+    .header_main_brand
+    .header_main_search
+      %input.search__input{:placeholder => "キーワードから探す", :type => "text"}/
+      .icon
+        = icon('fas', 'search')
+  .header_contents
+    .header_contents_left
+      .category
+        %ul.gnav
+          %li
+            = link_to "#"  do
+              カテゴリー
+              %ul
+                - @categories.each do |category1|
+                  %li
+                    = link_to "#"  do
+                      = category1.name
+                      %ul
+                        - category1.children.each do |category2|
+                          %li
+                            = link_to "#"  do
+                              = category2.name
+                              %ul
+                                - category2.children.each do |category3|
+                                  %li
+                                    = link_to "#"  do
+                                      = category3.name
+      .brand
+        ブランド
+    .header_contents_right
+      .signin
+        - if user_signed_in?
+          = link_to "商品出品", new_item_path, class: "new"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "new"
+        - else
+          = link_to "ログイン", new_user_session_path, class: "new"
+          = link_to "新規登録", new_user_registration_path, class: "new"
+
+    
+    
