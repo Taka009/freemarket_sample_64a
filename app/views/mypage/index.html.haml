@@ -1,0 +1,69 @@
+%main.content
+  .hcontent
+    %section.mypage-user-icon
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li
+          %h3
+            %a{ :href => "" }お知らせ
+        %li.active
+          %h3
+            %a{ :href => "" }やることリスト
+      .tab-content
+        %ul.mypage-item-list.tab-pane.active{ :id => "mypage-tab-notification" }
+          %li
+            %a.mypage-item-link{ :href => "" }
+              %figure
+                %image.lazyloaded{ :datasrc => "", :altsrc => ""}
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
+                %time
+                  %i.icon-time
+                  %span ３日前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{ :href => "" }
+              %figure
+                %image.lazyloaded{ :datasrc => "", :altsrc => ""}
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
+                %time
+                  %i.icon-time
+                  %span ３日前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{ :href => "" }
+              %figure
+                %image.lazyloaded{ :datasrc => "", :altsrc => ""}
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
+                %time
+                  %i.icon-time
+                  %span ３日前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{ :href => "" }
+              %figure
+                %image.lazyloaded{ :datasrc => "", :altsrc => ""}
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
+                %time
+                  %i.icon-time
+                  %span ３日前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{:href => "" }一覧をみる
+        %ul
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{ :href => "" }取引中
+        %li
+          %h3
+            %a{ :href => "" }過去の取引
+      .tab-content
+        %ul.mypage-item-list.tab-pane.active{ :id => "mypage-tab-transaction-now" }
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+  .lcontent
