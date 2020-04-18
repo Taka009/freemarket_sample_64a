@@ -8,7 +8,7 @@
 .commentary1{
   width: 100%;
   height: 560px;
-  background-image: url(bg-mainVisual-pict_pc);
+  background-image: image-url('bg-mainVisual-pict_pc');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -174,7 +174,7 @@
 }
 
 .commentary2{
-  background-image: url(bg-topMiddleDl-pict);
+  background-image: image-url('bg-topMiddleDl-pict');
   background-position: bottom right;
   height: 400px;
   background-size: cover;
