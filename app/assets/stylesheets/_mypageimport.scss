@@ -178,3 +178,28 @@ i[class^='icon-'], i[class*='icon-'] {
 .tab-content.tab-pane {
   display: none;
 }
+.mypage-item-list li:first-child {
+  border-bottom: 1px solid #eee;
+}
+.mypage-item-list li.mypage-item-not-found {
+  border: 0px;
+}
+.mypage-item-list li:first-child {
+  border: 0px;
+}
+.mypage-item-list li {
+  padding: relative;
+  border-bottom: 1px solid #eee;
+}
+.mypage-item-not-found {
+  padding: 160px 0 60px;
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
+.bold {
+  font-weight: 600;
+}
