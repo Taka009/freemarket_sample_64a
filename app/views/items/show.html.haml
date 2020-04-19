@@ -1,0 +1,55 @@
+-# 12行目 画像表示に関する部分は、itemがもつ画像配列のうち、インデックスが0のものを指定して表示。
+-# thは項目名、tdは値(商品名、カテゴリー名など)を表します。
+-# ブランド以下のtdは、本来＠item.brand.nameなどと書いて、DBのデータを表示しますが、テーブル未作成の為、とりあえず手打ちテキストとしています。
+-# priceの部分は、number_to_curreccyというメソッドの引数に価格を与えると、￥をつけて表示できます。
+-# number_to_custmerは、オプションで表示方法を変更できますが、例えば、format: "%u %n"の部分で、￥を数字の前と後どちらに配置するか選べます。%uと％nの位置を逆にすると、マークが数字の後に配置されます。
+.itemContainer
+  .itemName
+    = @item.name
+  .itemMainContent
+    .itemMainContent__image
+      = image_tag @item.images[0].image_url.url, class: "detailImage"
+    .itemMainContent__info
+      .infoTable
+        %table
+          %tr.seller
+            %th
+              出品者
+            %td
+              = @item.user.nickname
+          %tr.category
+            %th
+              カテゴリー
+            %td
+              = @item.category.name
+              = @parents.name
+              = @category.name
+
+          %tr
+            %th
+              ブランド
+            %td
+              テーブル不在
+          %tr
+            %th
+              商品状態
+            %td
+              = @item.condition.name
+
+          %tr
+            %th
+              配送料の負担
+            %td
+              = @item.shippingpayer.name
+          %tr
+            %th
+              配送日の目安
+            %td
+              = @item.shipping_day.name
+
+  .price
+    = number_to_currency(@item.price, unit: "￥", format: "%u %n")
+    %span.taxPostageIncluded （税込/送料込み）
+  = link_to "購入画面に進む", root_path, class: "buyBtn"
+  .description
+    = @item.description
