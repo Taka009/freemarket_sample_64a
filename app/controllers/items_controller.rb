@@ -15,6 +15,11 @@ class ItemsController < ApplicationController
     end
   end
   
+  def edit
+  def
+
+
+
   def create
     @item = Item.new(item_params)
     if @item.save
