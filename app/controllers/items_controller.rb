@@ -36,6 +36,12 @@ class ItemsController < ApplicationController
       redirect_to root_path
   end
 
+  def show
+    @item = Item.find(params[:id])
+    @parents = @item.category.parent
+    @category = @parents.parent
+  end
+
   private
   def item_params
     
