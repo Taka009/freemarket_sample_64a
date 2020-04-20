@@ -8,7 +8,7 @@
       - @items.each_slice(3) do |item1,item2,item3|
         .productsLists_list
           -if item1 != nil
-            = link_to "#" ,class:"productsLists_list--image" do
+            = link_to "/items/#{item1.id}", class:"productsLists_list--image" do
               - item1.images.each do |image| 
                 = image_tag image.image_url.url ,class:"image-item"
               .productsLists_list--body
@@ -22,7 +22,7 @@
                       = icon('fas', 'heart')
                   .tax<(税込)
           -if item2 != nil
-            = link_to "#" ,class:"productsLists_list--image" do
+            = link_to "/items/#{item2.id}" ,class:"productsLists_list--image" do
               - item2.images.each do |image| 
                 = image_tag image.image_url.url ,class:"image-item"
               .productsLists_list--body
@@ -36,7 +36,7 @@
                       = icon('fas', 'heart')
                   .tax<(税込)
           -if item3 != nil
-            = link_to "#" ,class:"productsLists_list--image" do
+            = link_to "/items/#{item3.id}" ,class:"productsLists_list--image" do
               - item3.images.each do |image| 
                 = image_tag image.image_url.url ,class:"image-item"
               .productsLists_list--body

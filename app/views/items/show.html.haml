@@ -21,9 +21,9 @@
             %th
               カテゴリー
             %td
-              = @item.category.name
-              = @parents.name
-              = @category.name
+              %p.category__position= @category.name
+              %p.arrow= @parents.name
+              %p.arrow= @item.category.name
 
           %tr
             %th
