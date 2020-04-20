@@ -14,6 +14,10 @@ div {
 section {
   display: block;
 }
+ul,
+ol {
+  // list-style: none;
+}
 a,
 area,
 button,
@@ -37,7 +41,7 @@ body {
 }
 
 ul {
-  list-style: none;
+  // list-style: none;
   display: block;
   list-style-type: disc;
   margin-block-start: 1em;
@@ -172,11 +176,14 @@ i[class^='icon-'], i[class*='icon-'] {
   font-size: 16px;
   line-height: 72px;
 }
-.tab-content.tab-pane.active {
+.tab-content,
+.tab-pane,
+.active {
   display: block;
 }
-.tab-content.tab-pane {
-  display: none;
+.tab-content,
+.tab-pane {
+  // display: none;
 }
 .mypage-item-list li:first-child {
   border-bottom: 1px solid #eee;
@@ -202,4 +209,17 @@ i[class^='icon-'], i[class*='icon-'] {
 }
 .bold {
   font-weight: 600;
+}
+.mypage-item-list li,
+.mypage-item-not-found {
+  border: 0;
+}
+.mypage-item-not-found {
+  padding: 160px 0 60px;
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  font-size: 16px;
+  text-align: center;
+  color: #ccc;
 }
