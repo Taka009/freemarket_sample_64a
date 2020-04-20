@@ -9,6 +9,7 @@
 }
 
 .content {
+  width: 700px;
   padding: 0 0 40px;
   margin: 24px auto 0;
   display: block;
@@ -114,4 +115,53 @@
       }
     }
   }
+
+  .list-container{
+    margin: 40px auto 0;
+    .list-side{
+      width: 100%;
+    }
+      .list-item{
+        font-weight: 600;
+        position: relative;
+        display: block;
+        padding: 16px;
+        background-color: #fff;
+        border-top: 1px solid #eee;
+        color: #333;
+      }
+      .original{
+        background-color: #eee;
+      }
+
+      .icon-arrow-right{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+      }
+      .icon-arrow-right:before{
+        font-size: 26px;
+        font-weight: 900; 
+        font-family: 'Font Awesome 5 Free';
+        content: '\f105';
+        color: gray;
+      }
+  }
+      .mypage-list{
+    
+  }
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+li{
+  border-top: 1px solid #eee;
 }
