@@ -49,7 +49,7 @@
   .description
     = @item.description
   - if user_signed_in? && current_user.id != @item.user_id
-    = link_to "購入画面に進む", root_path, class: "detail-btn"
+    = link_to "購入画面に進む", root_path, class: "purchase-btn"
   - if user_signed_in? && current_user.id == @item.user_id
     %ur
       %li.detail-btn= link_to '削除', "/items/#{@item.id}", method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
