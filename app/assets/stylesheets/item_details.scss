@@ -7,14 +7,14 @@
     width: 50%;
     min-width: 900px;
     margin: 0 auto;
-    padding: 50px 60px;
+    padding: 50px 80px;
     .itemName{
       margin-bottom: 50px;
       font-size: 50px;
     }
     .itemMainContent{
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       margin: 0 auto;
       margin-bottom: 50px;
       width: 100%;
@@ -32,6 +32,7 @@
         .infoTable{
           width: 100%;
           min-width: 500px;
+          margin-left: 10px;
           table{
             min-height: 500px;
             tr{
@@ -100,8 +101,10 @@
     }
     .description{
       margin-top: 30px;
+      margin-bottom: 50px;
       text-align: left;
       font-size: 30px;
+      
     }
   }
 }
