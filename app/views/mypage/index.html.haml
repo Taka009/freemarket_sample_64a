@@ -1,6 +1,17 @@
 %main.content
   .hcontent
     %section.mypage-user-icon
+      %a{ :href => "" }
+        %figure
+          %img{ :src => "app/assets/images/material/icon/member_photo_noimage_thumb.png", :alt => " width: 60px; height: 60px;" } 
+        %h2.bold suiru
+        .mypage-number
+          %div
+            評価
+            %span.bold 0
+          %div
+            出品数
+            %span.bold 4
     %section.mypage-tab-container-notification-todo
       %ul.mypage-tabs
         %li
@@ -175,4 +186,3 @@
           %a.list-item{href: "#"}
             ログアウト
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
-

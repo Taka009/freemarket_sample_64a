@@ -19,7 +19,10 @@
       position: relative;
       height: 155px;
       padding: 20px;
-
+      background: url(app/assets/images/material/pict/bg-topMiddleDl-pict.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
     }
     .mypage-tab-container-notification-todo {
       margin: 0px;

@@ -14,10 +14,17 @@ div {
 section {
   display: block;
 }
-ul,
-ol {
-  // list-style: none;
+img {
+  vertical-align: middle;
 }
+img[AttributesStyle] {
+  width: 60px;
+  height: 60px;
+}
+// ul,
+// ol {
+//   // list-style: none;
+// }
 a,
 area,
 button,
@@ -29,7 +36,6 @@ textarea,
   touch-action: manipulation;
   -ms-touch-action: manipulation;
 }
-
 body {
   position: relative;
   min-height: 100%;
@@ -181,10 +187,10 @@ i[class^='icon-'], i[class*='icon-'] {
 .active {
   display: block;
 }
-.tab-content,
-.tab-pane {
-  // display: none;
-}
+// .tab-content,
+// .tab-pane {
+//   // display: none;
+// }
 .mypage-item-list li:first-child {
   border-bottom: 1px solid #eee;
 }
@@ -222,4 +228,43 @@ i[class^='icon-'], i[class*='icon-'] {
   font-size: 16px;
   text-align: center;
   color: #ccc;
+}
+
+.mypage-user-icon>a {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: #333;
+}
+.mypage-user-icon h2 {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.mypage-number {
+  margin: 8px 0 0;
+  font-size: 0;
+}
+.mypage-number div {
+  display: inline-block;
+  font-size: 14px;
+}
+.mypage-number span {
+  margin: 0 0 0 8px;
+  font-size: 16px;
+}
+.mypage-number div+div {
+  margin: 0 0 0 16px;
 }
