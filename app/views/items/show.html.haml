@@ -52,8 +52,8 @@
     = link_to "購入画面に進む", root_path, class: "purchase-btn"
   - if user_signed_in? && current_user.id == @item.user_id
     %ur
-      %li.detail-btn= link_to '削除', "/items/#{@item.id}", method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
-      %li.detail-btn= link_to '編集', "/items/#{@item.id}/edit", method: :delete, class: "edit-btn"
+      %li.detail-btn= link_to '削除', item_path(@item), method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
+      %li.detail-btn= link_to '編集', edit_item_path(@item), class: "edit-btn"
 = render partial: '/temple/footer'
 
   
