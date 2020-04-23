@@ -12,10 +12,9 @@
               - item1.images.each do |image| 
                 = image_tag image.image_url.url ,class:"image-item"
             .more
-              image_tag arrow_top.png
               .more__list
                 %li
-                  = link_to '編集', "/item/#{item.id}", method: :edit
+                  = link_to '編集', "/items/#{item1.id}/edit"
                 %li
                   %ul
               .productsLists_list--body
