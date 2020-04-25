@@ -3,7 +3,7 @@
     %section.mypage-user-icon
       %a{ :href => "" }
         %figure
-          %img{ :src => "app/assets/images/material/icon/member_photo_noimage_thumb.png", :alt => " width: 60px; height: 60px;" } 
+          %img{ :src => "/images/material/icon/member_photo_noimage_thumb.png", :alt => " width: 60px; height: 60px;" } 
         %h2.bold suiru
         .mypage-number
           %div
@@ -17,11 +17,12 @@
         %li
           %h3
             %a{ :href => "" }お知らせ
+            %span.mypage-nav-number.hidden-large 1
         %li.active
           %h3
             %a{ :href => "" }やることリスト
       .tab-content
-        %ul.mypage-item-list.tab-pane.active{ :id => "mypage-tab-notification" }
+        %ul.mypage-item-list.tab-pane.active#mypage-tab-notification
           %li
             %a.mypage-item-link{ :href => "" }
               %figure
@@ -64,7 +65,48 @@
               %i.icon-arrow-right
           %li.mypage-go-list
             %a{:href => "" }一覧をみる
-        %ul
+        %ul.mypage-item-list.tab-pane#mypage-tab-todo
+          %li
+            %a.mypage-item-link{ :href => "" }
+              %figure
+                %img.lazyloaded
+              .mypage-item-body
+                .mypage-item-text 中村さんから取引メッセージがあります。返信をお願いします。
+                %time
+                  %i.icon-time
+                  %span １時間前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{ :href => "" }
+              %figure
+                %img.lazyloaded
+              .mypage-item-body
+                .mypage-item-text 中村さんから取引メッセージがあります。返信をお願いします。
+                %time
+                  %i.icon-time
+                  %span １時間前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{ :href => "" }
+              %figure
+                %img.lazyloaded
+              .mypage-item-body
+                .mypage-item-text 中村さんから取引メッセージがあります。返信をお願いします。
+                %time
+                  %i.icon-time
+                  %span １時間前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{ :href => "" }
+              %figure
+                %img.lazyloaded
+              .mypage-item-body
+                .mypage-item-text 中村さんから取引メッセージがあります。返信をお願いします。
+                %time
+                  %i.icon-time
+                  %span １時間前
+              %i.icon-arrow-right
+          %li.mypage-go-list
     %section.mypage-tab-container
       %h2.mypage-tab-head 購入した商品
       %ul.mypage-tabs

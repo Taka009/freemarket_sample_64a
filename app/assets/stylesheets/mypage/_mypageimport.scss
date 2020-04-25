@@ -21,10 +21,10 @@ img[AttributesStyle] {
   width: 60px;
   height: 60px;
 }
-// ul,
-// ol {
-//   // list-style: none;
-// }
+ul,
+ol {
+  list-style: none;
+}
 a,
 area,
 button,
@@ -47,7 +47,7 @@ body {
 }
 
 ul {
-  // list-style: none;
+  list-style: none;
   display: block;
   list-style-type: disc;
   margin-block-start: 1em;
@@ -187,10 +187,6 @@ i[class^='icon-'], i[class*='icon-'] {
 .active {
   display: block;
 }
-// .tab-content,
-// .tab-pane {
-//   // display: none;
-// }
 .mypage-item-list li:first-child {
   border-bottom: 1px solid #eee;
 }
@@ -267,4 +263,55 @@ h2 {
 }
 .mypage-number div+div {
   margin: 0 0 0 16px;
+}
+.mypage-tabs,
+.mypage-nav-number,
+.listing-tabs.mypage-nav-number,
+.review-history-tabs.mypage-nav-number {
+  top: 16px;
+  right: 2px;
+}
+.mypage-nav-number {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ea352d;
+  text-align: center;
+  line-height: 24px;
+  color: #fff;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.tab-content,
+.tab-pane {
+  display: none;
+}
+.mypage-item-list img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+.mypage-item-text {
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  max-height: 4.4em;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+.mypage-item-body {
+  margin: 0 40px 0 68px;
 }

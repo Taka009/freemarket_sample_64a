@@ -1,7 +1,8 @@
 // Place all the styles related to the mypage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "./mypageimport";
+@import "mypage/mypageimport";
+@import "mypage/mypage-tab-todo";
 
 .contents {
   height: 100%;
@@ -19,7 +20,7 @@
       position: relative;
       height: 155px;
       padding: 20px;
-      background: url(app/assets/images/material/pict/bg-topMiddleDl-pict.jpg);
+      background-image: url(material/pict/bg-topMiddleDl-pict.jpg);
       background-repeat: no-repeat;
       background-size: cover;
       text-align: center;
