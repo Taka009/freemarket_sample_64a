@@ -49,6 +49,10 @@ svg:not(:root) {
       height: 150px;
       padding: 0 4px;
       margin-top: 8px;
+      .image{
+        width: 100px;
+        height: auto;
+      }
       &--space{
         cursor: pointer;
         position: relative;
@@ -79,6 +83,7 @@ svg:not(:root) {
       font-weight: 600;
       line-height: 1.4em;
     }
+
     .tag{
       margin-left: 8px;
       font-size: 12px;
@@ -193,7 +198,6 @@ svg:not(:root) {
         width: 100%;
       }
     }
-      
       .caution{
         font-size: 12px;
       }
