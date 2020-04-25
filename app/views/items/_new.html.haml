@@ -37,6 +37,7 @@
                 .js-file_group
                   - date_index = '@item.images.count'
                   = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+
                   .js-remove 削除
       %hr
       .block
