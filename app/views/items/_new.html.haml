@@ -15,10 +15,29 @@
               必須
           .subtitle
             最大１０枚までアップできます。
+        -# .upload
+        -#   .upload__data#image-box__container
+        -#     = f.fields_for :images do |i|
+        -#       = i.file_field :image_url, class: "image_upload"
+
         .upload
-          .upload__data#image-box__container
-            = f.fields_for :images do |i|
-              = i.file_field :image_url 
+          .upload__data
+            #image-box
+              #previews
+                - if @item.persisted?
+                  - @item.images.each_with_index do |image, i|
+                    = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+              = f.fields_for :images do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  = image.file_field :image_url, class: 'js-file'
+                  %br/
+                  %span.js-remove 削除
+                - if @item.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{"data-index" => "#{@item.images.count}"}
+                  = file_field_tag :image_url, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                  .js-remove 削除
       %hr
       .block
         .formGroup
