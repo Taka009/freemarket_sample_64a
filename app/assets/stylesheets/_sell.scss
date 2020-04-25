@@ -45,18 +45,36 @@ svg:not(:root) {
   }
   .upload{
     margin-top: 16px;
+    display: block !important;
     &__data{
       display: flex;
       flex-wrap: wrap;
       margin: -8px -4px 0px;
+      #image-box{
+        height: 150px;
+        margin-top: 8px;
+        flex: 1 1 0%;
+        padding: 0px 4px;
+        #previews{
+          cursor: pointer;
+          height: 100%;
+          border-width: 1px;
+          border-color: rgb(204, 204, 204);
+          border-style: dashed;
+        }
+      }
+      .js-file{
+        background-color: orange;
+        height: 100%;
+      }
+      
     }
   } 
-  img{
-    
-  }
+
   .hidden{
     display: none;
   }
+
   .block{
     padding: 40px;
     .title{
