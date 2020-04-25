@@ -1,10 +1,13 @@
 class ItemsController < ApplicationController
+  before_action :find_item, only: [:show, :destroy]
+  before_action :set_categories, only: [:new, :show]
+
   def index
   end
   
   def new
-    @categories = Category.where(ancestry: nil)
     @category_parent_array = Category.where(ancestry: nil).pluck(:id,:name)
+    
     @item = Item.new
     @item.images.new
     respond_to do |format|
@@ -36,10 +39,33 @@ class ItemsController < ApplicationController
       redirect_to root_path
   end
 
+  def show
+    @parents = @item.category.parent
+    @category = @parents.parent
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path, notice: "削除が完了しました"
+    else
+      redirect_to root_path, alert: "削除が失敗しました"
+    end
+  end
+
   private
   def item_params
     
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shippingpayer_id, :postage_id, :shipping_day_id,:price,images_attributes: [:image_url]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
   end
+
+
+  def find_item
+    @item = Item.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.where(ancestry: nil)
+  end
+
   
 end
