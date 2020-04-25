@@ -6,8 +6,8 @@ class ItemsController < ApplicationController
   end
   
   def new
-    # @categories = Category.where(ancestry: nil)
     @category_parent_array = Category.where(ancestry: nil).pluck(:id,:name)
+    
     @item = Item.new
     @item.images.new
     respond_to do |format|
@@ -40,17 +40,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    # @categories = Category.where(ancestry: nil)
     @parents = @item.category.parent
     @category = @parents.parent
   end
 
   def destroy
-  item = Item.find(params[:id])
-  item.destroy
-  redirect_to root_path
-
+    @item.destroy
+    redirect_to root_path
   end
 
   private
@@ -60,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def find_item
-    item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def set_categories
