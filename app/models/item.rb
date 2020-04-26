@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :shipping_day_id, presence: true
   validates :shippingpayer_id, presence: true
   validates :images, presence: true
-  belongs_to :category
+  validates :price, presence: true
   belongs_to :user
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true

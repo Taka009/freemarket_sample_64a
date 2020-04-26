@@ -51,13 +51,13 @@ svg:not(:root) {
       flex-wrap: wrap;
       margin: -8px -4px 0px;
       #image-box{
-        height: 150px;
+        height: auto;
         margin-top: 8px;
         flex: 1 1 0%;
         padding: 0px 4px;
         #previews{
           cursor: pointer;
-          height: 100%;
+          // height: 100%;
           border-width: 1px;
           border-color: rgb(204, 204, 204);
           border-style: dashed;
@@ -112,12 +112,12 @@ svg:not(:root) {
 
     .input-area{
       width: 100%;
-      height: 48px;
+      min-height: 48px;
     }
 
     .text-area{
       width: 100%;
-      height: 180px;
+      min-height: 180px;
     }
 
     .select{
@@ -208,6 +208,12 @@ svg:not(:root) {
       
       .caution{
         font-size: 12px;
+      }
+      .errors{
+        margin-top: 16px;
+        color: #ff0211;
+        font-size: 14px;
+        line-height: 1.4em;
       }
     }
   }

@@ -4,7 +4,7 @@
       = image_tag "logo.png", size: "185x49", alt: "logo"
 
   .main
-    = form_for (@item), class: "select" do |f|
+    = form_for (@item), builder: CustomFormHelper, class: "select" do |f|
       = render 'layouts/error_messages', model: f.object
       .block
         .formGroup
@@ -49,6 +49,7 @@
               必須
           .input-area
             = f.text_field :name, {class: "input-area", placeholder: "40字まで", type: "text", maxlength: "40"}
+
         .formGroup
           .formLabel
             %label
@@ -143,6 +144,7 @@
                 ¥
               .input-price
                 = f.text_field :price
+
                 
             .result-price
               販売手数料 (10%)
