@@ -3,7 +3,7 @@
     %section.mypage-user-icon
       %a{ :href => "" }
         %figure
-          %img{ :src => "/images/material/icon/member_photo_noimage_thumb.png", :alt => " width: 60px; height: 60px;" } 
+          %img{ :src => "", :alt => " width: 60px; height: 60px;" } 
         %h2.bold suiru
         .mypage-number
           %div
@@ -14,11 +14,11 @@
             %span.bold 4
     %section.mypage-tab-container-notification-todo
       %ul.mypage-tabs
-        %li
+        %li.active
           %h3
             %a{ :href => "" }お知らせ
             %span.mypage-nav-number.hidden-large 1
-        %li.active
+        %li
           %h3
             %a{ :href => "" }やることリスト
       .tab-content
@@ -121,7 +121,6 @@
           %li.mypage-item-not-found.bold 取引中の商品がありません
         %ul.mypage-item-list.tab-pane{ :id => "mypage-item-transaction-old" }
           %li.mypage-item-not-found.bold 過去に取引した商品がありません
-  .lcontent
   .list-container
     %nav.list-side
       %ul.mypage-list
