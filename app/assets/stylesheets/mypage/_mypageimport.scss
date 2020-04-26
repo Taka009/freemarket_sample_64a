@@ -91,20 +91,23 @@ h2 {
   font-size: 22px;
   line-height: 1.4;
 }
-.mypage-tabs li {
+.mypage-tabs li,
+.btns li {
   width: 50%;
   display: inline-block;
   text-align: center;
   vertical-align: top;
 }
-.mypage-tabs a {
+.mypage-tabs a
+.btns a {
   position: relative;
   display: block;
   color: #333;
   font-size: 16px;
   line-height: 72px;
 }
-.mypage-tabs li.active {
+.mypage-tabs li.active,
+.btns li.active {
   background: #fff;
 }
 .mypage-item-link time {
@@ -158,24 +161,28 @@ i[class^='icon-'], i[class*='icon-'] {
 }
 .mypage-tabs li,
 .listing-tabs li,
-.review-history-tabs li {
+.review-history-tabs li
+.btns li {
   display: inline-block;
   text-align: center;
   vertical-align: top;
 }
 .mypage-tabs li.active,
+.btns li.action,
 .listing-tabs li.active,
 .review-history-tabs li.active {
   background: #fff;
 }
 .mypage-tabs li.active a,
 .listing-tabs li.active a,
+.btns li.action,
 .review-history-tabs li.active a {
   border-top: 2px solid #ea352d;
 }
 .mypage-tabs li a,
 .listing-tabs a,
-.review-history-tabs a {
+.review-history-tabs a,
+.btns li a {
   position: relative;
   display: block;
   color: #333;
@@ -184,7 +191,8 @@ i[class^='icon-'], i[class*='icon-'] {
 }
 .tab-content,
 .tab-pane,
-.active {
+.active,
+.action {
   display: block;
 }
 .mypage-item-list li:first-child {
@@ -267,7 +275,8 @@ h2 {
 .mypage-tabs,
 .mypage-nav-number,
 .listing-tabs.mypage-nav-number,
-.review-history-tabs.mypage-nav-number {
+.review-history-tabs.mypage-nav-number,
+.btns {
   top: 16px;
   right: 2px;
 }

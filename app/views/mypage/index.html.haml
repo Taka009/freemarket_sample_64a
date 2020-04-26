@@ -14,11 +14,11 @@
             %span.bold 4
     %section.mypage-tab-container-notification-todo
       %ul.mypage-tabs
-        %li.active
+        %li.mypage-tab.active
           %h3
             %a{ :href => "" }お知らせ
             %span.mypage-nav-number.hidden-large 1
-        %li
+        %li.mypage-tab
           %h3
             %a{ :href => "" }やることリスト
       .tab-content
@@ -93,7 +93,7 @@
               .mypage-item-body
                 .mypage-item-text 中村さんから取引メッセージがあります。返信をお願いします。
                 %time
-                  %i.icon-time
+                %i.icon-time
                   %span １時間前
               %i.icon-arrow-right
           %li
@@ -109,11 +109,11 @@
           %li.mypage-go-list
     %section.mypage-tab-container
       %h2.mypage-tab-head 購入した商品
-      %ul.mypage-tabs
-        %li.active
+      %ul.btns
+        %li.btn.action
           %h3
             %a{ :href => "" }取引中
-        %li
+        %li.btn
           %h3
             %a{ :href => "" }過去の取引
       .tab-content

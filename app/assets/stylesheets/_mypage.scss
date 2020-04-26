@@ -28,7 +28,8 @@
     .mypage-tab-container-notification-todo {
       margin: 0px;
       background: #fff;
-      .mypage-tabs {
+      .mypage-tabs,
+      .btns {
         border: 0px;
         background: #eee;
         font-size: 0px;
@@ -109,12 +110,14 @@
           padding: 0 16px;
         }
       }
-      .mypage-tabs {
+      .mypage-tabs,
+      .btns {
         border: 0;
         background: #eee;
         font-size: 0px;
       }
-      .mypage-tabs li {
+      .mypage-tabs li ,
+      .btns li {
         width: 50%;
       }
     }
