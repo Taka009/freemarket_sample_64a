@@ -7,12 +7,7 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil).pluck(:id,:name)
     @item = Item.new
     @item.images.new
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+    
   end
   
   def create
@@ -25,7 +20,12 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children
-    @category_children = Category.find_by("#{params[:parent_id]}", ancestry: nil).children
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
   end
   
   def get_category_grandchildren

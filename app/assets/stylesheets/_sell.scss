@@ -61,6 +61,8 @@ svg:not(:root) {
           border-width: 1px;
           border-color: rgb(204, 204, 204);
           border-style: dashed;
+          width: 100px;
+          display: flex;
         }
       }
       .js-file{
