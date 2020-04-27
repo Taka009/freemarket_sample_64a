@@ -110,14 +110,24 @@ svg:not(:root) {
       background-color: #bfbfbf;
     }
 
+    .formGroup{
+      margin-top: 36px;
+    }
+
+    .select{
+      margin-top: 16px;
+    }
+
     .input-area{
       width: 100%;
       min-height: 48px;
+      margin-top: 16px;
     }
 
     .text-area{
       width: 100%;
       min-height: 180px;
+      margin-top: 16px;
     }
 
     .select{

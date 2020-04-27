@@ -25,7 +25,7 @@
                     = image_tag image_url.url, data: { index: i }, width: "100", height: '100'
 
 
-              = f.fields_for :images do |image| 
+              = f.fields_for :images, builder: CustomFormHelper do |image| 
                 .js-file_group
                   - date_index = 'image.index'
                   = image.file_field :image_url , class: 'js-file'
@@ -82,8 +82,7 @@
               ブランド
             %span.tag.option
               任意
-          .input-area
-            %input.input-area{name: "brand",placeholder: "例）シャネル", type: "text"}  
+          %input.input-area{name: "brand",placeholder: "例）シャネル", type: "text"}  
         .formGroup
           .formLabel
             %label
@@ -91,7 +90,7 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :condition_id, Conditionls.all, :id, :name, prompt: "選択して下さい"
+            = f.collection_select :condition_id, Conditionls.all, :id, :name, prompt: "選択して下さい", required: true
             %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
       %hr
@@ -105,7 +104,7 @@
             %span.tag.must
               必須
           .select
-            = f.collection_select :shippingpayer_id, Shippingpayerls.all, :id, :name, prompt: "選択して下さい"
+            = f.collection_select :shippingpayer_id, Shippingpayerls.all, :id, :name, prompt: "選択して下さい", required: true
             %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
         .formGroup

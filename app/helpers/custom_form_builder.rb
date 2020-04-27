@@ -16,9 +16,11 @@ class CustomFormHelper < ActionView::Helpers::FormBuilder
     return super if options[:no_errors]
     super + pick_errors(attribute)
   end
+
   def text_area(attribute, options={})
     return super if options[:no_errors]
     super + pick_errors(attribute)
   end
+
 
 end
