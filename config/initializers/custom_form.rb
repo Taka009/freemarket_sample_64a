@@ -1,0 +1,1 @@
+require Rails.root.join("app/helpers/custom_form_builder.rb")
