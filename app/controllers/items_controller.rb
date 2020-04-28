@@ -42,6 +42,8 @@ class ItemsController < ApplicationController
   def show
     @parents = @item.category.parent
     @category = @parents.parent
+    @user = @item.user
+    
   end
 
   def destroy
@@ -52,12 +54,33 @@ class ItemsController < ApplicationController
     end
   end
 
+  def buy
+    item = Item.find(params[:id])
+    item.update(buy_params)
+    redirect_to root_path
+  end
+
+  def pay
+    @item = Item.find(params[:id])
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    charge = Payjp::Charge.create(
+      :amount => @item.price,
+      :card => params['payjp-token'],
+      :currency => 'jpy',
+    )
+    redirect_to action: "buy"
+  end
+
   private
   def item_params
     
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shippingpayer_id, :postage_id, :shipping_day_id,:price,images_attributes: [:image_url]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
   end
 
+  def buy_params
+    @item = Item.find(params[:id])
+    params.permit(images_attributes: [:image_url],user_id: @item.user.id,seller_id: @item.user.id,name:@item.name,description:@item.description,category_id:@item.category.id,condition_id: @item.condition.id,shippingpayer_id: @item.shippingpayer.id, shippingpayer_id: @item.shippingpayer.id,  shipping_day_id: @item.shipping_day.id, price: @item.price).merge(buyer_id: current_user.id)
+  end
 
   def find_item
     @item = Item.find(params[:id])
@@ -66,6 +89,5 @@ class ItemsController < ApplicationController
   def set_categories
     @categories = Category.where(ancestry: nil)
   end
-
   
 end
