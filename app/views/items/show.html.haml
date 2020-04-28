@@ -49,8 +49,11 @@
   .description
     = @item.description
   - if user_signed_in? && current_user.id != @item.user_id 
-    = form_tag(action: :pay, method: :post) do
-      %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text" => "購入する" ,"data-key" =>ENV["PAYJP_KEY"] }
+    -if @default_card_information.blank?
+      %li.detail-btn= link_to 'クレジット登録', new_credit_path(@item), class: "edit-btn"
+    - else
+      = form_tag(action: :pay, method: :post) do
+        %button 購入する
   - if user_signed_in? && current_user.id == @item.user_id
     %ur
       %li.detail-btn= link_to '削除', item_path(@item), method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
