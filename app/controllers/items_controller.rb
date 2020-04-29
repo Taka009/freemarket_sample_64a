@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :destroy, :pay]
   before_action :set_categories, only: [:new, :show]
+  before_action :set_item, only: [:buy]
 
   def index
   end
@@ -43,7 +44,7 @@ class ItemsController < ApplicationController
     @parents = @item.category.parent
     @category = @parents.parent
     @user = @item.user
-    card = Credit.where(user_id: current_user.id).first
+    card = Credit.find_by(user_id: current_user.id)
     if card.blank?
       render 'show'
     else
@@ -63,17 +64,21 @@ class ItemsController < ApplicationController
 
   def buy
     item = Item.find(params[:id])
-    item.update(buy_params)
-    redirect_to root_path
+    item.update(set_item)
+    if item.save
+      redirect_to root_path, notice: "購入しました"
+    else
+      redirect_to root_path, alert: "購入に失敗しました"
+    end
   end
 
   def pay
-    card = Credit.where(user_id: current_user.id).first
+    card = Credit.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
-      :amount => @item.price,
-      :customer => card.customer_id,
-      :currency => 'jpy',
+      amount: @item.price,
+      customer: card.customer_id,
+      currency: 'jpy',
     )
     redirect_to action: "buy"
   end
@@ -84,7 +89,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shippingpayer_id, :postage_id, :shipping_day_id,:price,images_attributes: [:image_url]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
   end
 
-  def buy_params
+  def set_item
     @item = Item.find(params[:id])
     params.permit(images_attributes: [:image_url],user_id: @item.user.id,seller_id: @item.user.id,name:@item.name,description:@item.description,category_id:@item.category.id,condition_id: @item.condition.id,shippingpayer_id: @item.shippingpayer.id, shippingpayer_id: @item.shippingpayer.id,  shipping_day_id: @item.shipping_day.id, price: @item.price).merge(buyer_id: current_user.id)
   end
