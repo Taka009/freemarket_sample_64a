@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :find_item, only: [:show, :destroy]
+  before_action :find_item, only: [:show, :destroy, :pay]
   before_action :set_categories, only: [:new, :show]
 
   def index
@@ -69,7 +69,6 @@ class ItemsController < ApplicationController
 
   def pay
     card = Credit.where(user_id: current_user.id).first
-    @item = Item.find(params[:id])
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
       :amount => @item.price,
