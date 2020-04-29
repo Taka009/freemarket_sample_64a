@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :find_item, only: [:show, :destroy, :pay]
+  before_action :find_item, only: [:show, :destroy, :pay, :buy]
   before_action :set_categories, only: [:new, :show]
-  before_action :set_item, only: [:buy]
+  before_action :set_card, only: [:show, :pay]
 
   def index
   end
@@ -44,13 +44,12 @@ class ItemsController < ApplicationController
     @parents = @item.category.parent
     @category = @parents.parent
     @user = @item.user
-    card = Credit.find_by(user_id: current_user.id)
-    if card.blank?
+    if @card.blank?
       render 'show'
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
@@ -63,8 +62,8 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    item.update(set_item)
-    if item.save
+    @item.update(set_item)
+    if @item.save
       redirect_to root_path, notice: "購入しました"
     else
       redirect_to root_path, alert: "購入に失敗しました"
@@ -72,11 +71,10 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    card = Credit.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
-      customer: card.customer_id,
+      customer: @card.customer_id,
       currency: 'jpy',
     )
     redirect_to action: "buy"
@@ -84,12 +82,11 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shippingpayer_id, :postage_id, :shipping_day_id,:price,images_attributes: [:image_url]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    params.permit().merge(buyer_id: current_user.id)
   end
 
   def find_item
@@ -99,5 +96,8 @@ class ItemsController < ApplicationController
   def set_categories
     @categories = Category.where(ancestry: nil)
   end
-  
+
+  def set_card
+    @card = Credit.find_by(user_id: current_user.id)
+  end
 end
