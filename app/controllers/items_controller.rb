@@ -63,7 +63,6 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    item = Item.find(params[:id])
     item.update(set_item)
     if item.save
       redirect_to root_path, notice: "購入しました"
@@ -91,7 +90,6 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-    params.permit(images_attributes: [:image_url],user_id: @item.user.id,seller_id: @item.user.id,name:@item.name,description:@item.description,category_id:@item.category.id,condition_id: @item.condition.id,shippingpayer_id: @item.shippingpayer.id, shippingpayer_id: @item.shippingpayer.id,  shipping_day_id: @item.shipping_day.id, price: @item.price).merge(buyer_id: current_user.id)
   end
 
   def find_item
