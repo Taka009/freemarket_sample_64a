@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    @item.update(buyer_id: current_user.id)
+    @item.update(buyer_params)
     if @item.save
       redirect_to root_path, notice: "購入しました"
     else
@@ -95,5 +95,9 @@ class ItemsController < ApplicationController
 
   def set_card
     @card = Credit.find_by(user_id: current_user.id)
+  end
+
+  def buyer_params
+    params.permit().merge(buyer_id: current_user.id)
   end
 end
