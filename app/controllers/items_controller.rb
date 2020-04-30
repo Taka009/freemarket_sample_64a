@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :find_item, only: [:show, :destroy, :pay, :buy]
+  before_action :set_item, only: [:show, :destroy, :pay, :buy]
   before_action :set_categories, only: [:new, :show]
   before_action :set_card, only: [:show, :pay]
 
@@ -85,7 +85,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :category_id, :condition_id, :shippingpayer_id, :postage_id, :shipping_day_id,:price,images_attributes: [:image_url]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
   end
 
-  def find_item
+  def set_item
     @item = Item.find(params[:id])
   end
 
