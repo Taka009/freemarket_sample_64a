@@ -5,7 +5,6 @@
 
   .main
     = form_for (@item), builder: CustomFormHelper, class: "select" do |f|
-      = render 'layouts/error_messages', model: f.object
       .block
         .formGroup
           .formLabel
