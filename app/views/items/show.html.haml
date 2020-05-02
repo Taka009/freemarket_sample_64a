@@ -54,8 +54,6 @@
   .price
     = number_to_currency(@item.price, unit: "￥", format: "%u %n")
     %span.taxPostageIncluded （税込/送料込み）
-  .description
-    = @item.description
   - if user_signed_in? && current_user.id != @item.user_id 
     -if @default_card_information.blank?
       %li.detail-btn= link_to 'クレジット登録', new_credit_path(@item), class: "edit-btn"
@@ -66,6 +64,8 @@
     %ur
       %li.detail-btn= link_to '削除', item_path(@item), method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
       %li.detail-btn= link_to '編集', edit_item_path(@item), class: "edit-btn"
+  .description
+    = @item.description
 = render partial: '/temple/footer'
 
   
