@@ -3,8 +3,16 @@
   .itemName
     = @item.name
   .itemMainContent
-    .itemMainContent__image
-      = image_tag @item.images[0].image_url.url, class: "detailImage"
+    .itemMainContent__imageBox
+      .imageBox__mainImage
+        = image_tag @item.images[0].image_url.url, class: "mainImage"
+      .imageBox__subImageBox
+        .imageBox__subImageBox__item
+          = image_tag @item.images[0].image_url.url, class: "mainImage"
+        .imageBox__subImageBox__item
+          = image_tag @item.images[0].image_url.url, class: "mainImage"
+        .imageBox__subImageBox__item
+          = image_tag @item.images[0].image_url.url, class: "mainImage"
     .itemMainContent__info
       .infoTable
         %table
