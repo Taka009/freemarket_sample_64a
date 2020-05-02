@@ -5,7 +5,6 @@
 
   .main
     = form_for (@item),url: '/items/new' , builder: CustomFormHelper, class: "select" do |f|
-      = render 'layouts/error_messages', model: f.object
       .block
         .formGroup
           .formLabel
