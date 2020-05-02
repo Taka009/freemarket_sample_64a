@@ -28,13 +28,13 @@
           }
         }
         .imageBox__subImageBox{
-          border: solid 1px black;
-          height: 150px;
+          height: 80px;
           display: flex;
           justify-content: space-evenly;
           &__item{
-            border: solid 1px black;
             width: 33%;
+            padding-top: 7px;
+            
           }
         }
       }
@@ -45,7 +45,7 @@
           min-width: 450px;
           margin-left: 10px;
           table{
-            min-height: 550px;
+            min-height: 482px;
             margin: 0 auto;
             tr{
               th{
