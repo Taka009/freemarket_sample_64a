@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     member do
       post 'pay', to: 'items#pay'
       get 'buy', to:'items#buy'
+      get 'purchase', to:'items#purchase'
     end
   end
   resources :credits, only: [:new, :show] do
@@ -22,3 +23,4 @@ Rails.application.routes.draw do
     end
   end
 end
+
