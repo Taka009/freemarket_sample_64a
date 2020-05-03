@@ -35,7 +35,7 @@
     .header_contents_right
       .signin
         - if user_signed_in?
-          = link_to "商品出品", new_item_path, class: "new"
+          = link_to "マイページ", new_credit_path, data: {"turbolinks" => false}, class: "new"
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "new"
         - else
           = link_to "ログイン", new_user_session_path, class: "new"

@@ -1,0 +1,64 @@
+= render partial: '/temple/header'
+.itemContainer
+  .itemName
+    = @item.name
+  .itemMainContent
+    .itemMainContent__image
+      = image_tag @item.images[0].image_url.url, class: "detailImage"
+    .itemMainContent__info
+      .infoTable
+        %table
+          %tr.seller
+            %th
+              出品者
+            %td
+              = @item.user.nickname
+          %tr.category
+            %th
+              カテゴリー
+            %td
+              %p.category__position= @category.name
+              %p.arrow= @parents.name
+              %p.arrow= @item.category.name
+
+          %tr
+            %th
+              ブランド
+            %td
+              テーブル不在
+          %tr
+            %th
+              商品状態
+            %td
+              = @item.condition.name
+
+          %tr
+            %th
+              配送料の負担
+            %td
+              = @item.shippingpayer.name
+          %tr
+            %th
+              配送日の目安
+            %td
+              = @item.shipping_day.name
+
+  .price
+    = number_to_currency(@item.price, unit: "￥", format: "%u %n")
+    %span.taxPostageIncluded （税込/送料込み）
+  .description
+    = @item.description
+  - if user_signed_in? && current_user.id != @item.user_id 
+    -if @default_card_information.blank?
+      %li.detail-btn= link_to 'クレジット登録', new_credit_path(@item), class: "edit-btn"
+    - else
+      = form_tag(action: :pay, method: :post) do
+        %button 購入する
+  - if user_signed_in? && current_user.id == @item.user_id
+    %ur
+      %li.detail-btn= link_to '削除', item_path(@item), method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
+      %li.detail-btn= link_to '編集', edit_item_path(@item), class: "edit-btn"
+= render partial: '/temple/footer'
+
+  
+
