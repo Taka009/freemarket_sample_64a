@@ -21,6 +21,7 @@
       padding: 0 20px;
       &__imageBox{
         .imageBox__mainImage{
+          width: 350px;
           .mainImage{
             width: 350px;
             height: 400px;
@@ -29,12 +30,13 @@
         }
         .imageBox__subImageBox{
           height: 80px;
+          line-height: 80px;
+          width: 350px;
           display: flex;
-          justify-content: space-evenly;
-          &__item{
-            width: 33%;
-            padding-top: 7px;
-            
+          flex-wrap: wrap;
+          .image-item{
+            width: 20%;
+            height: 100px;
           }
         }
       }
@@ -155,3 +157,4 @@ li.detail-btn{
   left: 0;
   margin-top: -4px;
 }
+
