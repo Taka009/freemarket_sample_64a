@@ -6,8 +6,8 @@ window.addEventListener('load', function() {
   });
 
   /* タブの切替 （取引中、過去の取引）*/
-  $('.btn').on('click', function () {
-    $('.btn').removeClass('action');
+  $('.btm').on('click', function () {
+    $('.btm').removeClass('action');
     $(this).addClass('action');
   });
   
