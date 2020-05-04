@@ -4,7 +4,7 @@
       = image_tag "logo.png", size: "185x49", alt: "logo"
 
   .main
-    = form_for (@item),url: '/items/new' , builder: CustomFormHelper, class: "select" do |f|
+    = form_for (@item) , builder: CustomFormHelper, class: "select" do |f|
       .block
         .formGroup
           .formLabel
