@@ -16,43 +16,13 @@
       %ul.mypage-tabs
         %li.mypage-tab.active
           %h3
-            %a{ :href => "" }お知らせ
+            %a お知らせ
             %span.mypage-nav-number.hidden-large 1
         %li.mypage-tab
           %h3
-            %a{ :href => "" }やることリスト
+            %a やることリスト
       .tab-content
         %ul.mypage-item-list.tab-pane.active#mypage-tab-notification
-          %li
-            %a.mypage-item-link{ :href => "" }
-              %figure
-                %image.lazyloaded{ :datasrc => "", :altsrc => ""}
-              .mypage-item-body
-                .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
-                %time
-                  %i.icon-time
-                  %span ３日前
-              %i.icon-arrow-right
-          %li
-            %a.mypage-item-link{ :href => "" }
-              %figure
-                %image.lazyloaded{ :datasrc => "", :altsrc => ""}
-              .mypage-item-body
-                .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
-                %time
-                  %i.icon-time
-                  %span ３日前
-              %i.icon-arrow-right
-          %li
-            %a.mypage-item-link{ :href => "" }
-              %figure
-                %image.lazyloaded{ :datasrc => "", :altsrc => ""}
-              .mypage-item-body
-                .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
-                %time
-                  %i.icon-time
-                  %span ３日前
-              %i.icon-arrow-right
           %li
             %a.mypage-item-link{ :href => "" }
               %figure
@@ -76,46 +46,16 @@
                   %i.icon-time
                   %span １時間前
               %i.icon-arrow-right
-          %li
-            %a.mypage-item-link{ :href => "" }
-              %figure
-                %img.lazyloaded
-              .mypage-item-body
-                .mypage-item-text 中村さんから取引メッセージがあります。返信をお願いします。
-                %time
-                  %i.icon-time
-                  %span １時間前
-              %i.icon-arrow-right
-          %li
-            %a.mypage-item-link{ :href => "" }
-              %figure
-                %img.lazyloaded
-              .mypage-item-body
-                .mypage-item-text 中村さんから取引メッセージがあります。返信をお願いします。
-                %time
-                %i.icon-time
-                  %span １時間前
-              %i.icon-arrow-right
-          %li
-            %a.mypage-item-link{ :href => "" }
-              %figure
-                %img.lazyloaded
-              .mypage-item-body
-                .mypage-item-text 中村さんから取引メッセージがあります。返信をお願いします。
-                %time
-                  %i.icon-time
-                  %span １時間前
-              %i.icon-arrow-right
           %li.mypage-go-list
     %section.mypage-tab-container
       %h2.mypage-tab-head 購入した商品
       %ul.btns
         %li.btn.action
           %h3
-            %a{ :href => "" }取引中
+            %a 取引中
         %li.btn
           %h3
-            %a{ :href => "" }過去の取引
+            %a 過去の取引
       .tab-content
         %ul.mypage-item-list.tab-pane.active{ :id => "mypage-tab-transaction-now" }
           %li.mypage-item-not-found.bold 取引中の商品がありません
@@ -141,7 +81,7 @@
             いいね！一覧
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
         %li
-          %a.list-item{href: "#"}
+          %a.list-item{href:"items/new"}
             出品する
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
         %li
