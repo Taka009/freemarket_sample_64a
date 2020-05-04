@@ -55,6 +55,7 @@
     %ur
       %li.detail-btn= link_to '削除', item_path(@item), method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
       %li.detail-btn= link_to '編集', edit_item_path(@item), class: "edit-btn"
+      
 = render partial: '/temple/footer'
   
 
