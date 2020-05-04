@@ -7,8 +7,9 @@
       .imageBox__mainImage
         = image_tag @item.images[0].image_url.url, class: "mainImage"
       .imageBox__subImageBox
-        - @item.images.first(5).each do |image| 
-          = image_tag image.image_url.url ,class:"image-item"
+        - if (@item.images.length != 1)
+          - @item.images.each do |image| 
+            = image_tag image.image_url.url ,class:"image-item"
        
         
     .itemMainContent__info
@@ -31,7 +32,7 @@
             %th
               ブランド
             %td
-              テーブル不在
+              ABCブランド
           %tr
             %th
               商品状態

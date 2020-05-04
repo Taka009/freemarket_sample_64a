@@ -7,7 +7,9 @@
     width: 50%;
     min-width: 1000px;
     margin: 0 auto;
-    padding: 50px 80px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    padding: 30px 80px;
     .itemName{
       margin-bottom: 50px;
       font-size: 50px;
@@ -20,8 +22,10 @@
       width: 100%;
       padding: 0 20px;
       &__imageBox{
+        margin-right: 30px;
         .imageBox__mainImage{
           width: 350px;
+          height: 400px;
           .mainImage{
             width: 350px;
             height: 400px;
@@ -29,9 +33,9 @@
           }
         }
         .imageBox__subImageBox{
-          height: 80px;
-          line-height: 80px;
+          height: 200px;
           width: 350px;
+          background-color: snow;
           display: flex;
           flex-wrap: wrap;
           .image-item{
@@ -47,7 +51,7 @@
           min-width: 450px;
           margin-left: 10px;
           table{
-            min-height: 482px;
+            height: 600px;
             margin: 0 auto;
             tr{
               th{
