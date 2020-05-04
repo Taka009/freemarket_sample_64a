@@ -1,0 +1,167 @@
+%body
+  .sell-header
+    %a
+      = image_tag "logo.png", size: "185x49", alt: "logo"
+
+  .main
+    = form_for (@item),url: '/items/new' , builder: CustomFormHelper, class: "select" do |f|
+      .block
+        .formGroup
+          .formLabel
+            %label
+              出品画像
+            %span.tag.must
+              必須
+          .subtitle
+            最大１０枚までアップできます。
+
+        .upload
+          .upload__data
+            #image-box
+              #previews
+                -if @item.persisted?
+                  - @item.images.each_with_index do |image, i|
+                    = image_tag image_url.url, data: { index: i }, width: "100", height: '100'
+                    = f.error_message_on(:image_url, Item.human_attribute_name('image_url'))
+
+              = f.fields_for :images, builder: CustomFormHelper do |image| 
+                .js-file_group
+                  - date_index = 'image.index'
+                  = image.file_field :image_url , class: 'js-file'
+                  #span.js-remove 削除
+                -if @item.persisted? 
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' 
+
+              -if @item.persisted?
+                .js-file_group
+                  - date_index = '@item.images.count'
+                  = file_field_tag :image_url, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                  = f.error_message_on(:image_url, Item.human_attribute_name('image_url'))
+                  .js-remove 削除
+      %hr
+      .block
+        .formGroup
+          .formLabel
+            %label
+              商品名
+            %span.tag.must
+              必須
+          .input-area
+            = f.text_field :name, {class: "input-area", placeholder: "40字まで", type: "text", maxlength: "40"}
+
+        .formGroup
+          .formLabel
+            %label
+              商品の説明
+            %span.tag.must
+              必須
+          .text-area
+            = f.text_area :description, {class: "text-area", placeholder: "商品の説明を入力してください", maxlength: "1000"}
+        .item-info__footer
+          %span 
+
+      %hr
+      .block
+        %p.title
+          商品の詳細
+
+
+        .formGroup
+          .style
+            .formLabel
+              %label
+                カテゴリー
+              %span.tag.must
+                必須
+            .select#select
+              = f.collection_select :category_id, Category.where(ancestry: nil),:id, :name,{prompt: "選択してください"}, {class: 'select-default', id: 'parent-form'}
+              = f.error_message_on(:category_id, Item.human_attribute_name('category_id'))
+              %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
+                %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+       
+        .formGroup
+          .formLabel
+            %label
+              ブランド
+            %span.tag.option
+              任意
+          %input.input-area{name: "brand",placeholder: "例）シャネル", type: "text"}  
+        .formGroup
+          .formLabel
+            %label
+              商品の状態
+            %span.tag.must
+              必須
+          .select
+            = f.collection_select :condition_id, Conditionls.all, :id, :name, prompt: "選択して下さい", required: true
+            = f.error_message_on(:condition_id, Item.human_attribute_name('condition_id'))
+            %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
+              %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+      %hr
+      .block
+        %p.title
+          配送について
+        .formGroup
+          .formLabel
+            %label
+              配送料の負担
+            %span.tag.must
+              必須
+          .select
+            = f.collection_select :shippingpayer_id, Shippingpayer.all, :id, :name, prompt: "選択して下さい", required: true
+            = f.error_message_on(:shippingpayer_id, Item.human_attribute_name('shippingpayer_id'))
+            %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
+              %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+        .formGroup
+          .formLabel
+            %label
+              配送元の地域
+            %span.tag.must
+              必須
+          .select
+            = f.collection_select :postage_id, Prefecture.all, :id, :name, prompt: "選択して下さい"
+            = f.error_message_on(:postage_id, Item.human_attribute_name('postage_id'))
+
+            %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
+              %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+        .formGroup
+          .formLabel
+            %label
+              配送までの日数
+            %span.tag.must
+              必須
+          .select
+            = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, prompt: "選択して下さい"
+            = f.error_message_on(:shipping_day_id, Item.human_attribute_name('shipping_day_id'))
+            %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
+              %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+      %hr
+      .block
+        %p.title
+          価格（¥300~9,999,999)
+        .formGroup
+          .price
+            .result-price
+              .formLabel.price-label
+                %label
+                  販売価格
+                %span.tag.must.tag-price
+                  必須
+              %p.yen
+                ¥
+              .input-price
+                = f.text_field :price
+
+                
+            .result-price
+              販売手数料 (10%)
+            %hr
+            .result-price
+              販売利益
+          .pushbutton
+            %button{type: "submit", class: 'submit button'}
+              出品する
+            %a.return.button{href: "#"}
+              もどる
+          %p.caution
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
