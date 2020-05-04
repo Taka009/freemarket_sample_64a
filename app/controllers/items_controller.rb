@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      @item = Item.new(item_params)  
       render :new
     end
   end
