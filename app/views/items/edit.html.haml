@@ -71,18 +71,18 @@
                 カテゴリー
               %span.tag.must
                 必須
-            - if @item.category_id = true
-              .select#select
-                = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected:@item.category_id}, {class: 'select-default', id: 'parent-form'}
-              .select#select
-                = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {selected: @item.category_id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
-              .select#select 
-                = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {selected: @item.category_id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
-            - elsif @item.category_id = nil
-              .select#select
-                = f.collection_select :category_id, Category.where(ancestry: nil),:id, :name,{prompt: "選択してください"}, {class: 'select-default', id: 'parent-form'}
-                %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
-                  %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .select#select
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected:@item.category.parent().parent().id}, {class: 'select-default', id: 'parent-form'}
+              %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
+                %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .select#select
+              = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {selected: @item.category.parent().id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+              %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
+                %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+            .select#select 
+              = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {selected: @item.category_id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+              %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
+                %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
         .formGroup
           .formLabel
             %label
