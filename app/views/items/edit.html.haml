@@ -1,12 +1,10 @@
--# kota
-
 %body
   .sell-header
     %a
       = image_tag "logo.png", size: "185x49", alt: "logo"
 
   .main
-    = form_for (@item),url: '/items/new' , builder: CustomFormHelper, class: "select" do |f|
+    = form_for (@item), builder: CustomFormHelper, class: "select" do |f|
       .block
         .formGroup
           .formLabel
@@ -25,7 +23,6 @@
                   - @item.images.each_with_index do |image, i|
                     = image_tag image_url.url, data: { index: i }, width: "100", height: '100'
                     = f.error_message_on(:image_url, Item.human_attribute_name('image_url'))
-
               = f.fields_for :images, builder: CustomFormHelper do |image| 
                 .js-file_group
                   - date_index = 'image.index'
@@ -33,7 +30,6 @@
                     #span.js-remove 削除
                   -if @item.persisted? 
                     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' 
-
               -if @item.persisted?
                 .js-file_group
                   - date_index = '@item.images.count'
@@ -166,3 +162,4 @@
             %a.return.button{href: "#"}
               もどる
           %p.caution
+            禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
