@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
   
   def new
     @category_parent_array = Category.where(ancestry: nil).pluck(:id,:name)
-    
     @item = Item.new
     @item.images.new
   end
