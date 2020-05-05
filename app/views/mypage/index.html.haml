@@ -163,6 +163,9 @@
             電話番号の確認
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
         %li
-          %a.list-item{href: "#"}
-            ログアウト
+          %a.list-item{href: "http://localhost:3000/"}
+            ホームに戻る
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list-item",
+            

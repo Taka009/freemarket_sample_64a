@@ -127,7 +127,8 @@
     .list-side{
       width: 100%;
     }
-      .list-item{
+      .list-item,
+      .list-tem {
         font-weight: 600;
         position: relative;
         display: block;
@@ -167,4 +168,14 @@ ul{
 
 li{
   border-top: 1px solid #eee;
+}
+
+.list_tem {
+  font-weight: 600;
+  position: relative;
+  display: block;
+  padding: 16px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  color: #333;
 }

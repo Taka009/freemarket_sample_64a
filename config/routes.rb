@@ -23,5 +23,9 @@ Rails.application.routes.draw do
     end
   end
   resources :mypage
+  # ログアウト
+  devise_scope :social_account do
+    get 'sign_out', to: "sessions#destroy"
+  end
 end
 
