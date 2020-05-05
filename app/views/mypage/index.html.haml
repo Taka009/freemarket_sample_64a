@@ -73,7 +73,9 @@
             ホームに戻る
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
         %li
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list-item"
+          = link_to destroy_user_session_path, method: :delete, class: "list-item" do
+            ログアウト
+            = icon('fas', 'angle-right', class: 'icon-arrow-right')
         %li
           %a.list-item{href: "#"}
             お知らせ
