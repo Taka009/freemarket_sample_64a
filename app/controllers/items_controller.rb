@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :pay, :buy,:purchase]
+  before_action :set_item, only: [:show,:edit, :destroy, :pay, :buy,:purchase] 
   before_action :set_categories, only: [:new, :show,:purchase]
   before_action :set_card, only: [:pay,:purchase]
 
