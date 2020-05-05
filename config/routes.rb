@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       post 'pay', to: 'items#pay'
       get 'buy', to:'items#buy'
       get 'purchase', to:'items#purchase'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   resources :credits, only: [:new, :show] do

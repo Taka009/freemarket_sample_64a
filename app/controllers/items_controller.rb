@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :pay, :buy,:purchase]
+  before_action :set_item, only: [:show, :destroy, :pay, :buy,:purchase,:edit,:update]
   before_action :set_categories, only: [:new, :show,:purchase]
   before_action :set_card, only: [:pay,:purchase]
 
@@ -37,6 +37,7 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
   
+ 
   def search
       redirect_to root_path
   end
@@ -85,8 +86,17 @@ class ItemsController < ApplicationController
     redirect_to action: "buy"
   end
 
-  
+  def edit
+  end
 
+  def update
+    @item.update(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
   private
   def item_params
