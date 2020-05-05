@@ -9,7 +9,7 @@
         .productsLists_list
           -if item1 != nil
             = link_to item_path(item1), class:"productsLists_list--image" do
-              - item1.images.each do |image| 
+              - item1.images.first(1).each do |image| 
                 = image_tag image.image_url.url ,class:"image-item"
               .productsLists_list--body
                 .name
@@ -23,7 +23,7 @@
                   .tax<(税込)
           -if item2 != nil
             = link_to item_path(item2),class:"productsLists_list--image" do
-              - item2.images.each do |image| 
+              - item2.images.first(1).each do |image| 
                 = image_tag image.image_url.url ,class:"image-item"
               .productsLists_list--body
                 .name
@@ -37,7 +37,7 @@
                   .tax<(税込)
           -if item3 != nil
             = link_to item_path(item3) ,class:"productsLists_list--image" do
-              - item3.images.each do |image| 
+              - item3.images.first(1).each do |image| 
                 = image_tag image.image_url.url ,class:"image-item"
               .productsLists_list--body
                 .name
