@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', function(){
-
     //プレビューのhtmlを定義
     function buildHTML(count) {
       var html = `<div class="preview-box" id="preview-box__${count}">
@@ -55,7 +54,7 @@ $(document).on('turbolinks:load', function(){
       //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //labelボックスのidとforを更新
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image_url`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
@@ -89,7 +88,7 @@ $(document).on('turbolinks:load', function(){
         setLabel();
         //ラベルのidとforの値を変更
         if(count < 5){
-          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image_url`});
         }
       }
     });
@@ -105,7 +104,7 @@ $(document).on('turbolinks:load', function(){
       //削除用チェックボックスの有無で判定
       if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
         //フォームの中身を削除 
-        $(`#item_images_attributes_${id}_image`).val("");
+        $(`#item_images_attributes_${id}_image_url`).val("");
       } else {
         //投稿編集時
         $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
@@ -117,7 +116,7 @@ $(document).on('turbolinks:load', function(){
       }
       setLabel(count);
       if(id < 5){
-        $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+        $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image_url`});
       }
       //=============================================================================
     });
