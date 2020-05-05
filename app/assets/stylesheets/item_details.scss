@@ -22,11 +22,10 @@
         }
       }
       .imageBox__subImageBox{
-        height: 200px;
-        width: 350px;
+        width: 700px;
         background-color: snow;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         flex-wrap: wrap;
         .image-item{
           width: 33%;
