@@ -14,80 +14,68 @@
       margin-bottom: 50px;
       font-size: 50px;
     }
-    .itemMainContent{
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-      margin-bottom: 50px;
-      width: 100%;
-      padding: 0 20px;
-      &__imageBox{
-        margin-right: 30px;
-        .imageBox__mainImage{
-          width: 350px;
-          height: 400px;
-          .mainImage{
-            width: 350px;
-            height: 400px;
-
-          }
+    .imageBox{
+      padding: 0 50px;
+      .imageBox__mainImage{
+        .mainImage{
+          width: 700px;
         }
-        .imageBox__subImageBox{
-          height: 200px;
-          width: 350px;
-          background-color: snow;
-          display: flex;
-          flex-wrap: wrap;
-          .image-item{
-            width: 20%;
-            height: 100px;
+      }
+      .imageBox__subImageBox{
+        height: 200px;
+        width: 350px;
+        background-color: snow;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        .image-item{
+          width: 33%;
+          height: 100px;
+        }
+      }
+    }
+    
+
+    .itemMainContent__info{
+      .infoTable{
+        min-width: 450px;
+        margin-left: 10px;
+        table{
+          height: 600px;
+          margin: 0 auto;
+          tr{
+            th{
+              border: solid 1px #d3d3d3;
+              width: 150px;
+              padding: 5px 10px;
+              background-color: #f5f5f5;
+            }
+            td{
+              border: solid 1px #d3d3d3;
+              background-color: #fff;
+              width: 250px;
+              padding: 5px 10px;
+            }
+          }
+          .seller{
+            height: 20%;
+          }
+          .category{
+            height: 20%;
+            text-align: left; 
+            &__position{
+              margin-left: 15px;
+            }
           }
         }
       }
-      
-
-      &__info{
-        .infoTable{
-          min-width: 450px;
-          margin-left: 10px;
-          table{
-            height: 600px;
-            margin: 0 auto;
-            tr{
-              th{
-                border: solid 1px #d3d3d3;
-                width: 150px;
-                padding: 5px 10px;
-                background-color: #f5f5f5;
-              }
-              td{
-                border: solid 1px #d3d3d3;
-                background-color: #fff;
-                width: 250px;
-                padding: 5px 10px;
-              }
-            }
-            .seller{
-              height: 20%;
-            }
-            .category{
-              height: 20%;
-              text-align: left; 
-              &__position{
-                margin-left: 15px;
-
-
-
-              }
-            }
-  
-  
-          }
-        }
-      }
+    }
   
     
-    }
+    
+
+
+
     .price{
       margin-bottom: 30px;
       font-size: 50px;
