@@ -16,6 +16,7 @@
     }
     .imageBox{
       padding: 0 50px;
+      margin-bottom: 50px;
       .imageBox__mainImage{
         .mainImage{
           width: 700px;
@@ -25,7 +26,8 @@
         width: 700px;
         background-color: snow;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
+        margin: 0 auto;
         flex-wrap: wrap;
         .image-item{
           width: 33%;
@@ -76,12 +78,13 @@
 
 
     .price{
-      margin-bottom: 30px;
-      font-size: 50px;
+      font-size: 55px;
+      font-weight: bold;
     
     }
     .taxPostageIncluded{
-      font-size: 20px;
+      font-size: 25px;
+      margin: 0;
     }
     .purchase-btn{
       background-color: #ea352d;

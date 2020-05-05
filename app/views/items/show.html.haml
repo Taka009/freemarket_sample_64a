@@ -12,7 +12,7 @@
 
   .price
     = number_to_currency(@item.price, unit: "￥", format: "%u %n")
-    %span.taxPostageIncluded （税込/送料込み）
+  %p.taxPostageIncluded （税込）送料込み
   .description
     = @item.description
        

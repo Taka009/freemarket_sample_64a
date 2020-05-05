@@ -21,20 +21,20 @@
                     %li<
                       = icon('fas', 'heart')
                   .tax<(税込)
-          -if item2 != nil
-            = link_to item_path(item2),class:"productsLists_list--image" do
-              - item2.images.each do |image| 
-                = image_tag image.image_url.url ,class:"image-item"
-              .productsLists_list--body
-                .name
-                  = item2.name 
-                .price
-                  %ul
-                    %li<
-                      = "￥ #{item2.price}円"
-                    %li<
-                      = icon('fas', 'heart')
-                  .tax<(税込)
+          -# -if item2 != nil
+          -#   = link_to item_path(item2),class:"productsLists_list--image" do
+          -#     - item2.images.each do |image| 
+          -#       = image_tag image.image_url.url ,class:"image-item"
+          -#     .productsLists_list--body
+          -#       .name
+          -#         = item2.name 
+          -#       .price
+          -#         %ul
+          -#           %li<
+          -#             = "￥ #{item2.price}円"
+          -#           %li<
+          -#             = icon('fas', 'heart')
+          -#         .tax<(税込)
           -if item3 != nil
             = link_to item_path(item3) ,class:"productsLists_list--image" do
               - item3.images.each do |image| 
