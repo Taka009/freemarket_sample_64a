@@ -69,8 +69,18 @@
             マイページ
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
         %li
+          %a.list-item{href: "http://localhost:3000/"}
+            ホームに戻る
+            = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list-item"
+        %li
           %a.list-item{href: "#"}
             お知らせ
+            = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a.list-item{href: "/credits/new/"}
+            クレジットカード登録
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
         %li
           %a.list-item{href: "#"}
@@ -158,14 +168,3 @@
           %a.list-item{href: "#"}
             本人情報
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
-        %li
-          %a.list-item{href: "#"}
-            電話番号の確認
-            = icon('fas', 'angle-right', class: 'icon-arrow-right')
-        %li
-          %a.list-item{href: "http://localhost:3000/"}
-            ホームに戻る
-            = icon('fas', 'angle-right', class: 'icon-arrow-right')
-        %li
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list-item",
-            
