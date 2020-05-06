@@ -90,7 +90,7 @@ class ItemsController < ApplicationController
     grandchild_category = @item.category
     child_category = grandchild_category.parent
 
-    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array = Category.where(ancestry: nil).pluck(:id, :name)
     @category_children_array = Category.where(ancestry: child_category.ancestry)
     @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
   end
@@ -100,7 +100,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_path, notice: '更新が完了しました。'
     else
-      render :edit
+      redirect_to edit_item_path(@item.id), notice: '更新に失敗しました。'
     end
   end
 
