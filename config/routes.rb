@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
 
     member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
       post 'pay', to: 'items#pay'
       get 'buy', to:'items#buy'
       get 'purchase', to:'items#purchase'

@@ -2,7 +2,6 @@
   .sell-header
     %a
       = image_tag "logo.png", size: "185x49", alt: "logo"
-
   .main
     = form_for (@item),url: '/items/new' , builder: CustomFormHelper, class: "select" do |f|
       .block
@@ -17,15 +16,17 @@
           .post__drop__box__container
             .prev-content
             .label-content
-              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+              %label{for: "item_images_attributes_0_image_url", class: "label-box", id: "label-box--0"}
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :images ,multiple: true do |i|
-                = i.file_field :image, class: "hidden-field"
-                %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-                %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+                = f.error_message_on(:images, Item.human_attribute_name('images'))
+                = i.file_field :image_url, class: "hidden-field"
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image_url]", id: "item_images_attributes_1_image_url" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image_url]", id: "item_images_attributes_2_image_url" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image_url]", id: "item_images_attributes_3_image_url" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image_url]", id: "item_images_attributes_4_image_url" }
+
       %hr
       .block
         .formGroup
@@ -47,13 +48,10 @@
             = f.text_area :description, {class: "text-area", placeholder: "商品の説明を入力してください", maxlength: "1000"}
         .item-info__footer
           %span 
-
       %hr
       .block
         %p.title
           商品の詳細
-
-
         .formGroup
           .style
             .formLabel
@@ -109,7 +107,6 @@
           .select
             = f.collection_select :postage_id, Prefecture.all, :id, :name, prompt: "選択して下さい"
             = f.error_message_on(:postage_id, Item.human_attribute_name('postage_id'))
-
             %svg{width: "24", height: "24", viewBox: "0 0 24 24"}
               %path{d: "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
         .formGroup
@@ -139,8 +136,6 @@
                 ¥
               .input-price
                 = f.text_field :price
-
-                
             .result-price
               販売手数料 (10%)
             %hr

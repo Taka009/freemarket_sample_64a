@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :pay, :buy,:purchase]
+  before_action :set_item, only: [:show,:edit, :update, :destroy, :pay, :buy,:purchase] 
   before_action :set_categories, only: [:new, :show,:purchase]
   before_action :set_card, only: [:pay,:purchase]
 
@@ -8,10 +8,8 @@ class ItemsController < ApplicationController
   
   def new
     @category_parent_array = Category.where(ancestry: nil).pluck(:id,:name)
-    
     @item = Item.new
     @item.images.new
-    
   end
   
   def create
@@ -85,8 +83,22 @@ class ItemsController < ApplicationController
     redirect_to action: "buy"
   end
 
-  
+  def edit    
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
 
+    @category_parent_array = Category.where(ancestry: nil).pluck(:id, :name)
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+  end
+  
+  def update
+    if @item.update(item_params)
+      redirect_to root_path, notice: '更新が完了しました。'
+    else
+      redirect_to edit_item_path, notice: '更新に失敗しました。全ての項目に記述して下さい。'
+    end
+  end
 
   private
   def item_params
@@ -108,4 +120,5 @@ class ItemsController < ApplicationController
   def buyer_params
     params.permit().merge(buyer_id: current_user.id)
   end
+
 end
