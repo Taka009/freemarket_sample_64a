@@ -21,12 +21,10 @@ class CreditsController < ApplicationController
       metadata: {user_id: current_user.id}
       ) 
       @card = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      
       if @card.save
         redirect_to action: "show"
       else
         redirect_to action: "pay"
-       
       end
     end
   end
