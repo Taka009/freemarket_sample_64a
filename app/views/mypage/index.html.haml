@@ -2,7 +2,7 @@
 %main.content
   .hcontent
     %section.mypage-user-icon
-      %a{ :href => "" }
+      %a 
         %h2.bold 
           = current_user.nickname 
         .mypage-number
@@ -24,9 +24,9 @@
       .tab-content
         %ul.mypage-item-list.tab-pane.active#mypage-tab-notification
           %li
-            %a.mypage-item-link{ :href => "" }
+            %a.mypage-item-link
               %figure
-                %image.lazyloaded{ :datasrc => "", :altsrc => ""}
+                %image.lazyloaded
               .mypage-item-body
                 .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
                 %time
@@ -34,10 +34,10 @@
                   %span ３日前
               %i.icon-arrow-right
           %li.mypage-go-list
-            %a{:href => "" }一覧をみる
+            %a 一覧をみる
         %ul.mypage-item-list.tab-pane#mypage-tab-todo
           %li
-            %a.mypage-item-link{ :href => "" }
+            %a.mypage-item-link
               %figure
                 %img.lazyloaded
               .mypage-item-body

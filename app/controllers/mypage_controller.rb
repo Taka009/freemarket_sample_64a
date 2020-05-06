@@ -4,7 +4,6 @@ class MypageController < ApplicationController
 
   def index
     @categories = Category.where(ancestry: nil)
-    @users = current_user.id
     @users = User.select("nickname")
     @items = Item.all
   end
