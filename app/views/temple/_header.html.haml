@@ -35,7 +35,6 @@
     .header_contents_right
       .signin
         - if user_signed_in?
-          = link_to "クレジットカード登録", new_credit_path, data: {"turbolinks" => false}, class: "new"
           = link_to "マイページ", mypage_index_path, class: "new"
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "new"
         - else
