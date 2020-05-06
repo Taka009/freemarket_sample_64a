@@ -7,7 +7,7 @@
       = image_tag @item.images[0].image_url.url, class: "mainImage"
     .imageBox__subImageBox
       - if (@item.images.length != 1)
-        - @item.images.first(3).each do |image| 
+        - @item.images.first(5).each do |image| 
           = image_tag image.image_url.url ,class:"image-item"
 
   .price
@@ -38,7 +38,7 @@
           %th
             ブランド
           %td
-            ABCブランド
+            
         %tr
           %th
             商品状態
@@ -63,6 +63,7 @@
   - if user_signed_in? && current_user.id == @item.user_id
     %ur
       %li.detail-btn= link_to '削除', item_path(@item), method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
+      %br
       %li.detail-btn= link_to '編集', edit_item_path(@item), class: "edit-btn"
 
 = render partial: '/temple/footer'
