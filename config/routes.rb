@@ -24,5 +24,6 @@ Rails.application.routes.draw do
       post 'delete', to: 'credits#delete'
     end
   end
+  resources :mypage
 end
 
