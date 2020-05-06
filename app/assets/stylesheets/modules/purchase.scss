@@ -131,26 +131,25 @@ $color-light:#0099e8;
   
 
   .footer1{
-      width: 456px;
-      height: 220px;
-      margin: 0 auto;
-      padding: 40px 0;
-     
-    &__nav{
-      font-size: 12px;
-      text-align: center;
-    }
-    a {
-      text-decoration: none;
-      color: #333;
-      margin: 0 15px;
-    }&__logo{
-      text-align: center;
-      margin: 40px auto 0;
-    }&__copyright{
-      text-align: center;
-      font-size: 13px;
-      margin: 8px 0 0;
-    }
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    padding: 40px 0;
+   
+  &__nav{
+    font-size: 12px;
+    text-align: center;
+  }&__terms{
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+  }&__logo{
+    text-align: center;
+    margin: 40px auto 0;
+  }&__copyright{
+    text-align: center;
+    font-size: 13px;
+    margin: 8px 0 0;
   }
+}
 }
