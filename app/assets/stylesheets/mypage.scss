@@ -1,0 +1,167 @@
+// Place all the styles related to the mypage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mypage/mypageimport";
+
+.contents {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  width: 700px;
+  padding: 0 0 40px;
+  margin: 24px auto 0;
+  display: block;
+  .hcontent {
+    width: 100%;
+    .mypage-user-icon {
+      position: relative;
+      height: 155px;
+      padding: 20px;
+      background-image: url(material/pict/bg-topMiddleDl-pict.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+    }
+    .mypage-tab-container-notification-todo {
+      margin: 0px;
+      background: #fff;
+      .mypage-tabs,
+      .btns {
+        border: 0px;
+        background: #eee;
+        font-size: 0px;
+      }
+      .tab-content {
+        .mypage-item-list li:first-child {
+          border-bottom: 1px solid #eee;
+        }
+        .mypage-item-list li {
+          position: relative;
+          .mypage-item-link {
+            display: block;
+            min-height: 80px;
+            padding: 16px;
+            color: #333;
+            
+          }
+          .mypage-item-link figure {
+            position: relative;
+            overflow: hidden;
+            float: left;
+            width: 48px;
+            height: 48px;
+
+            .lazyloaded {
+              opacity: 1;
+              -webkit-transition: opacity .3s;
+              transition: opacity .3s;
+            }
+          }
+          .mypage-item-list img {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            z-index: 1;
+            width: 100%;
+          }
+          .mypage-item-body {
+            margin: 0 40px 0 68px;
+            .mypage-item-text {
+              // overflow: hidden;
+              display: block;
+              display: -weblit-box;
+              max-height: 4.4em;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              line-height: 1.5px;
+              .mypage-item-link time {
+                display: inline-block;
+                color: #888;
+              }
+              .mypage-item-list.icon-time {
+                margin: 0 8px 0 0;
+              }
+            }
+          }
+        }
+      }
+      .tab-content.tab-pane.active {
+        display: block;
+      }
+      .tab-content.tab-pane {
+        display: none;
+      }
+    }
+    .mypage-tab-container {
+      margin: 40px 0 0;
+      background: #fff;
+      .mypage-tab-head {
+        padding: 0 4%;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+        @media screen and (min-width: 768px){
+          padding: 0 16px;
+        }
+      }
+      .mypage-tabs,
+      .btns {
+        border: 0;
+        background: #eee;
+        font-size: 0px;
+      }
+      .mypage-tabs li ,
+      .btns li {
+        width: 50%;
+      }
+    }
+  }
+
+  .list-container{
+    margin: 40px auto 0;
+    .list-side{
+      width: 100%;
+    }
+      .list-item,
+      .list-tem {
+        font-weight: 600;
+        position: relative;
+        display: block;
+        padding: 16px;
+        background-color: #fff;
+        border-top: 1px solid #eee;
+        color: #333;
+      }
+      .original{
+        background-color: #eee;
+      }
+
+      .icon-arrow-right{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+      }
+      .icon-arrow-right:before{
+        font-size: 26px;
+        font-weight: 900; 
+        font-family: 'Font Awesome 5 Free';
+        content: '\f105';
+        color: gray;
+      }
+  }
+}
+
+.list_tem {
+  font-weight: 600;
+  position: relative;
+  display: block;
+  padding: 16px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  color: #333;
+}
