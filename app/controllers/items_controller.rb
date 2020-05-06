@@ -111,8 +111,11 @@ class ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to root_path
+    if @item.update(item_params)
+      redirect_to root_path, notice: '更新が完了しました。'
+    else
+      render :edit
+    end
   end
 
   private
