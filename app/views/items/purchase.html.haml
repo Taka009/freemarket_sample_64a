@@ -1,0 +1,67 @@
+.single-container
+  
+  .single-header
+    = image_tag "logo.png", size: "185x49", alt: "test"
+
+  .main
+    .main__buy-content
+      .main__buy-header
+        購入内容の確認
+      .main__buy-item
+        .main__item-box
+          = image_tag @item.images[0].image_url.url class:"main__item-image"
+          .main__item-detail
+            .buy__name
+              = @item.name
+            .buy__price
+              %span 
+                = "￥ #{@item.price}円"
+              %span.item-sipping-fee (税込) 
+              = @item.shippingpayer.name
+      .main__btm
+        .main__price
+          .main__price-row
+            .main__price-cell-lavel
+              支払金額
+            .main__price-cell
+              = "￥ #{@item.price}円"
+        .main__point
+          =check_box_tag :check1  ,class:"main__check"
+          %span  ポイントを使用 (所持ポイント: P --- )
+        .main__user-info
+          .main__payment
+            支払方法
+          = link_to new_credit_path(@item), class: "main__contents-top" do
+            = icon('fas', 'plus-circle') 
+            %span 登録してください
+        .main__user
+          .main__delivery
+            .main__flex
+              .main__left
+                配送先
+              = link_to "#", class: "main__contents-btm" do
+                変更する
+            .main__info
+              %P〒210-1010
+              %br 千葉県 市原市 八幡北町 1-1-10
+              %br 薮田 貴文
+        .main__btn
+          - if user_signed_in? && current_user.id != @item.user_id 
+            -if @default_card_information.blank?
+              = link_to 'クレジットカード登録へ', new_credit_path(@item), class: "credit"
+            - else
+              = form_tag(action: :pay, method: :post) do
+                %button 購入する
+  .footer1
+    .footer1__nav
+      = link_to "#", class: "footer__terms" do
+        プライバシーポリシー
+      = link_to "#", class: "footer__terms" do
+        メルカリ利用規約
+      = link_to "#", class: "footer__terms" do
+        特定商取引に関する表記
+    .footer1__logo
+      = link_to root_path, class: "footer__image" do
+        = image_tag "logo-white.png", size: "185x49", alt: "test"
+    .footer1__copyright
+      ©︎ Furima,Inc.

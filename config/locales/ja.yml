@@ -5,8 +5,21 @@ ja:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
+          has_one: “%{record}が存在しているので削除できません”
+          has_many: “%{record}が存在しているので削除できません”
+    models:
+      item: 商品
+    attributes:
+      item:
+        name: 商品名
+        description: 商品詳細
+        category_id: カテゴリー
+        postage_id: 発送地域
+        condition_id: 商品状態
+        shipping_day_id: 発送までの日時
+        shippingpayer_id: 発送料の負担
+        images: 画像
+        price: 値段
   date:
     abbr_day_names:
     - 日
@@ -115,7 +128,7 @@ ja:
       empty: を入力してください
       equal_to: は%{count}にしてください
       even: は偶数にしてください
-      exclusion: は予約されています
+      exclusion: を最後まで入力してください
       greater_than: は%{count}より大きい値にしてください
       greater_than_or_equal_to: は%{count}以上の値にしてください
       inclusion: は一覧にありません

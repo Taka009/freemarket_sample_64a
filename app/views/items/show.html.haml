@@ -58,17 +58,13 @@
 
   
   - if user_signed_in? && current_user.id != @item.user_id 
-    -if @default_card_information.blank?
-      %li.detail-btn= link_to 'クレジット登録', new_credit_path(@item), class: "edit-btn"
-    - else
-      = form_tag(action: :pay, method: :post) do
-        %button 購入する
+    %ur
+      %li.detail-btn= link_to '購入確認画面へ', purchase_item_path(@item), class: "edit-btn"
   - if user_signed_in? && current_user.id == @item.user_id
     %ur
       %li.detail-btn= link_to '削除', item_path(@item), method: :delete, class: "destroy-btn", data: {confirm: "削除します。本当によろしいですか？"}
       %li.detail-btn= link_to '編集', edit_item_path(@item), class: "edit-btn"
  
 = render partial: '/temple/footer'
-
   
 

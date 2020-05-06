@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :pay, :buy]
-  before_action :set_categories, only: [:new, :show]
-  before_action :set_card, only: [:show, :pay]
+  before_action :set_item, only: [:show, :destroy, :pay, :buy,:purchase]
+  before_action :set_categories, only: [:new, :show,:purchase]
+  before_action :set_card, only: [:pay,:purchase]
 
   def index
   end
@@ -11,12 +11,7 @@ class ItemsController < ApplicationController
     
     @item = Item.new
     @item.images.new
-    respond_to do |format|
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+    
   end
   
   def create
@@ -24,12 +19,18 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      @item.images.new
       render :new
     end
   end
 
   def get_category_children
-    @category_children = Category.find_by("#{params[:parent_id]}", ancestry: nil).children
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
   end
   
   def get_category_grandchildren
@@ -40,17 +41,21 @@ class ItemsController < ApplicationController
       redirect_to root_path
   end
 
-  def show
+  def purchase
     @parents = @item.category.parent
     @category = @parents.parent
-    @user = @item.user
     if @card.blank?
-      render 'show'
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+  end
+
+  def show
+    @parents = @item.category.parent
+    @category = @parents.parent
+    @user = @item.user
   end
 
   def destroy
@@ -80,9 +85,12 @@ class ItemsController < ApplicationController
     redirect_to action: "buy"
   end
 
+  
+
+
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shippingpayer_id, :postage_id, :shipping_day_id,:price,images_attributes: [:image_url]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shippingpayer_id, :postage_id, :shipping_day_id, :price, images_attributes: [:image_url, :_destroy, :id]).merge(user_id: current_user.id).merge(seller_id: current_user.id)
   end
 
   def set_item

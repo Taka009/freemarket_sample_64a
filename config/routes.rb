@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "top#index"
   devise_for :users
 
-  post 'items/new'
+  post 'items/new', to: 'items#create'
   resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     member do
       post 'pay', to: 'items#pay'
       get 'buy', to:'items#buy'
+      get 'purchase', to:'items#purchase'
     end
   end
   resources :credits, only: [:new, :show] do
@@ -22,3 +23,4 @@ Rails.application.routes.draw do
     end
   end
 end
+
