@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show,:edit, :destroy, :pay, :buy,:purchase] 
+  before_action :set_item, only: [:show,:edit, :update, :destroy, :pay, :buy,:purchase] 
   before_action :set_categories, only: [:new, :show,:purchase]
   before_action :set_card, only: [:pay,:purchase]
 
@@ -83,10 +83,7 @@ class ItemsController < ApplicationController
     redirect_to action: "buy"
   end
 
-  def edit
-
-    @item = Item.find(params[:id])
-    
+  def edit    
     grandchild_category = @item.category
     child_category = grandchild_category.parent
 
@@ -96,7 +93,6 @@ class ItemsController < ApplicationController
   end
   
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path, notice: '更新が完了しました。'
     else
