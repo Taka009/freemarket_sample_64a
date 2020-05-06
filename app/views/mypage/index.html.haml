@@ -1,5 +1,6 @@
 %main.content
   .hcontent
+    = render partial: '/temple/header'
     %section.mypage-user-icon
       %a{ :href => "" }
         %figure
@@ -170,3 +171,5 @@
           %a.list-item{href: "#"}
             本人情報
             = icon('fas', 'angle-right', class: 'icon-arrow-right')
+= render partial: '/temple/footer'
+= render partial: '/temple/exhibitionbtn'
