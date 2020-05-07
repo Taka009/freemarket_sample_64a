@@ -17,16 +17,15 @@
             最大5枚までアップロードできます
           .post__drop__box__container
             .prev-content
-              //JSで挿入したhtmlと同じ形　each文でのプレビュー表示
-              - @item.images.each do |image|
+              //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
+              - @item.images.each_with_index do |image,i|
                 -if image.persisted?
                   .preview-box
                     .upper-box
                       = image_tag image.image_url, width: "112", height: "112", alt: "preview"
                     .lower-box
                       .delete-box
-                        .delete-btn
-                          %span 削除
+                        .delete-btn{data:{delete_id: i}}削除
             .label-content
               //プレビューの数に合わせてforオプションを指定
               = f.label :"images_attributes_#{@item.images.length}_image_url", class: "label-box", id: "label-box--#{@item.images.length}" do
