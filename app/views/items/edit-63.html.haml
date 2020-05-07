@@ -31,7 +31,6 @@
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                 = i.file_field :image, class: "hidden-field"
                 = i.check_box:_destroy, class: "hidden-checkbox"
-
                 //5つのfile_fieldを準備するに当たって、足りない分を表示
               - @item.images.length.upto(4) do |i|
                 %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
