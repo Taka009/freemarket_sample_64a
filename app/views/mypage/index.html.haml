@@ -1,0 +1,197 @@
+= render partial: '/temple/header'
+%main.content
+  .hcontent
+    %section.mypage-user-icon
+      %a 
+        %h2.bold 
+          = current_user.nickname 
+        .mypage-number
+          %div
+            評価
+            %span.bold 0
+          %div
+            出品数
+            %span.bold
+              = current_user.items.count
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li.mypage-tab.active
+          %h3
+            %a お知らせ
+        %li.mypage-tab
+          %h3
+            %a やることリスト
+      .tab-content
+        %ul.mypage-item-list.tab-pane.active#mypage-tab-notification
+          %li
+            %a.mypage-item-link
+              %figure
+                %image.lazyloaded
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「厚生労働省より配布される布マスクの出品について」
+                %time
+                  %i.icon-time
+                  %span ３日前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a 一覧をみる
+        %ul.mypage-item-list.tab-pane#mypage-tab-todo
+          %li
+            %a.mypage-item-link
+              %figure
+                %img.lazyloaded
+              .mypage-item-body
+                .mypage-item-text 取引メッセージがあります。返信をお願いします。
+                %time
+                  %i.icon-time
+                  %span １時間前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.btns
+        %li.btm.action
+          %h3
+            %a 取引中
+        %li.btm
+          %h3
+            %a 過去の取引
+      .tab-content
+        %ul.mypage-item-list.tab-pane.active{ :id => "mypage-tab-transaction-now" }
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        %ul.mypage-item-list.tab-pane{ :id => "mypage-item-transaction-old" }
+          %li.mypage-item-not-found.bold 過去に取引した商品がありません
+  .list-container
+    %nav.list-side
+      %ul.mypage-list
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              マイページ
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to root_path, class: "list-item" do
+              ホームに戻る
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          = link_to destroy_user_session_path, method: :delete, class: "list-item" do
+            ログアウト
+            = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              お知らせ
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to new_credit_path(@item), class: "list-item" do
+              クレジットカード登録
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              やる事リスト
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              いいね！一覧
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          = link_to new_item_path(@item), class: "list-item" do
+            出品する
+            = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              下書き一覧
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              出品した商品-出品中
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              出品した商品-取引中
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              出品した商品-取引済み
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              購入した商品-取引中
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              購入した商品-過去の取引
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              ニュース一覧
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              評価一覧
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              ガイド
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              お問い合わせ
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+      %h3.navi-head
+        メルペイ
+      %ul.mypage-list
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              売上・振り込み申請
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              ポイント
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+      %h3.navi-head
+        設定
+      %ul.mypage-list
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              プロフィール
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              発送元・お届け先住所変更
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              支払い方法
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              メール/パスワード
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+        %li
+          %a
+            = link_to "#", class: "list-item" do
+              本人情報
+              = icon('fas', 'angle-right', class: 'icon-arrow-right')
+= render partial: '/temple/footer'
+= render partial: '/temple/exhibitionbtn'
