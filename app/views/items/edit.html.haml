@@ -16,16 +16,15 @@
             .prev-content
               //JSで挿入したhtmlと同じ形　each文でのプレビュー表示
               - @item.images.each do |image|
-                -if image.persisted?
-                  .preview-box
-                    .upper-box
-                      = image_tag image.image_url, width: "112", height: "112", alt: "preview"
-                    .lower-box
-                      .update-box
-                        %label.edit-btn 編集
-                      .delete-box
-                        .delete-btn
-                          %span 削除
+                .preview-box
+                  .upper-box
+                    = image_tag image.image_url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .update-box
+                      %label.edit-btn 編集
+                    .delete-box
+                      .delete-btn
+                        %span 削除
             .label-content
               //プレビューの数に合わせてforオプションを指定
               = f.label :"images_attributes_#{@item.images.length}_image_url", class: "label-box", id: "label-box--#{@item.images.length}" do
@@ -34,11 +33,10 @@
               = f.fields_for :images do |i|
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                 = i.file_field :image_url, class: "hidden-field"
-                - if i.object.persisted?
-                  = i.check_box:_destroy, class: "hidden-checkbox"
-                  //5つのfile_fieldを準備するに当たって、足りない分を表示
-              -# - @item.images.length.upto(4) do |i|
-              -#   %input{name: "item[images_attributes][#{i}][image_url]", id: "item_images_attributes_#{i}_image_url", class:"hidden-field", type:"file"}
+                = i.check_box:_destroy, class: "hidden-checkbox"
+                //5つのfile_fieldを準備するに当たって、足りない分を表示
+              - @item.images.length.upto(4) do |i|
+                %input{name: "item[images_attributes][#{i}][image_url]", id: "item_images_attributes_#{i}_image_url", class:"hidden-field", type:"file"}
       %hr
       .block
         .formGroup

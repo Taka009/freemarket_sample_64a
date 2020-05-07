@@ -1,27 +1,21 @@
 $(document).on('turbolinks:load', function(){
-    // プレビューのhtmlを定義
-    // function buildHTML(count) {
-    //   var html = `<div class="preview-box" id="preview-box__${count}">
-    //                 <div class="upper-box">
-    //                   <img src="" alt="preview">
-    //                 </div>
-    //                 <div class="lower-box">
-    //                   <div class="update-box">
-    //                     <label class="edit_btn">編集</label>
-    //                   </div>
-    //                   <div class="delete-box" id="delete_btn_${count}">
-    //                     <span>削除</span>
-    //                   </div>
-    //                 </div>
-    //               </div>`
-    //   return html;
-    // }
-    $(".label-box").on("click", function(e){
-      e.preventDefault();
-      const test = $(".hidden-field:last")
-      console.log(test[0])
-      test.trigger('click');
-      })
+    //プレビューのhtmlを定義
+    function buildHTML(count) {
+      var html = `<div class="preview-box" id="preview-box__${count}">
+                    <div class="upper-box">
+                      <img src="" alt="preview">
+                    </div>
+                    <div class="lower-box">
+                      <div class="update-box">
+                        <label class="edit_btn">編集</label>
+                      </div>
+                      <div class="delete-box" id="delete_btn_${count}">
+                        <span>削除</span>
+                      </div>
+                    </div>
+                  </div>`
+      return html;
+    }
 
     // 投稿編集時
     //items/:i/editページへリンクした際のアクション=======================================
@@ -70,12 +64,12 @@ $(document).on('turbolinks:load', function(){
       reader.onload = function() {
         var image = this.result;
         //プレビューが元々なかった場合はhtmlを追加
-        // if ($(`#preview-box__${id}`).length == 0) {
-        //   var html = buildHTML(id);
-        //   //ラベルの直前のプレビュー群にプレビューを追加
-        //   var prevContent = $('.label-content').prev();
-        //   $(prevContent).append(html);
-        // }
+        if ($(`#preview-box__${id}`).length == 0) {
+          var html = buildHTML(id);
+          //ラベルの直前のプレビュー群にプレビューを追加
+          var prevContent = $('.label-content').prev();
+          $(prevContent).append(html);
+        }
         //イメージを追加
         $(`#preview-box__${id} img`).attr('src', `${image}`);
         var count = $('.preview-box').length;
@@ -126,9 +120,4 @@ $(document).on('turbolinks:load', function(){
       }
       //=============================================================================
     });
-
-  //  $(".label-box").on("click", function(){
-  //   const test = $(".hidden-field:last")
-  //   test.trigger('click');
-  //   })
   });
