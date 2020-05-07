@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
   def new
     @category_parent_array = Category.where(ancestry: nil).pluck(:id,:name)
     @item = Item.new
-    @item.images.new
+    @item.images.build
+  
   end
   
   def create
@@ -90,6 +91,7 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil).pluck(:id, :name)
     @category_children_array = Category.where(ancestry: child_category.ancestry)
     @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+    @item.images.build
   end
   
   def update
