@@ -84,3 +84,4 @@ $(document).on('turbolinks:load', function(){
     setLabel(count);
   });
 });
+

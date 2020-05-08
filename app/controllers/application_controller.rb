@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+  def production?
+    Rails.env.production?
+  end
 
   def production?
     Rails.env.production?

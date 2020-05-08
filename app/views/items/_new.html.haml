@@ -19,7 +19,7 @@
               %label{for: "item_images_attributes_0_image_url", class: "label-box", id: "label-box--0"}
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
-              = f.fields_for :images do |i|
+              = f.fields_for :images ,multiple: true do |i|
                 = f.error_message_on(:images, Item.human_attribute_name('images'))
                 = i.file_field :image_url, class: "hidden-field"
                 %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image_url]", id: "item_images_attributes_1_image_url" }
