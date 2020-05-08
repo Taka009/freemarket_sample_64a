@@ -6,25 +6,26 @@
   .main
     = form_for (@item), builder: CustomFormHelper, class: "select" do |f|
       = render 'layouts/error_messages', model: f.object
-      .sell__block__form
-        .sell__block__form__upload
-          %h3.sell__block__form__upload__head
-            出品画像
-            %span.require 必須
-          %p 最大5枚までアップロードできます
+      .block
+        .formGroup
+          .formLabel
+            %label
+              出品画像
+              %span.tag.must 
+                必須
+          .subtitle
+            最大5枚までアップロードできます
           .post__drop__box__container
             .prev-content
-              //JSで挿入したhtmlと同じ形　each文でのプレビュー表示
-              - @item.images.each do |image|
-                .preview-box
-                  .upper-box
-                    = image_tag image.image_url, width: "112", height: "112", alt: "preview"
-                  .lower-box
-                    .update-box
-                      %label.edit-btn 編集
-                    .delete-box
-                      .delete-btn
-                        %span 削除
+              //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
+              - @item.images.each_with_index do |image,i|
+                -if image.persisted?
+                  .preview-box
+                    .upper-box
+                      = image_tag image.image_url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      .delete-box
+                        .delete-btn{data:{delete_id: i}}削除
             .label-content
               //プレビューの数に合わせてforオプションを指定
               = f.label :"images_attributes_#{@item.images.length}_image_url", class: "label-box", id: "label-box--#{@item.images.length}" do
@@ -33,8 +34,9 @@
               = f.fields_for :images do |i|
                 //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                 = i.file_field :image_url, class: "hidden-field"
-                = i.check_box:_destroy, class: "hidden-checkbox"
-                //5つのfile_fieldを準備するに当たって、足りない分を表示
+                - if i.object.persisted?
+                  = i.check_box:_destroy, class: "hidden-checkbox"
+              //5つのfile_fieldを準備するに当たって、足りない分を表示
               - @item.images.length.upto(4) do |i|
                 %input{name: "item[images_attributes][#{i}][image_url]", id: "item_images_attributes_#{i}_image_url", class:"hidden-field", type:"file"}
       %hr
@@ -166,7 +168,7 @@
           .pushbutton
             %button{type: "submit", class: 'submit button'}
               更新する
-            %a.return.button{href: "#"}
+            %a.return.button{href: "/"}
               もどる
           %p.caution
             禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
